@@ -7,13 +7,24 @@ using System.Text;
 
 namespace MiKuVer2.Services
 {
+    using System.ComponentModel.Composition;
+    using System.ComponentModel.Composition.Hosting;
+
     using MiKuVer2.Model;
 
     public class GeschaeftspartnerService : IGeschaeftspartnerService
     {
+        public GeschaeftspartnerService()
+        {
+            var catalog = new DirectoryCatalog(".");
+            var container = new CompositionContainer(catalog);
+            container.ComposeParts(this);
+        }
+
         /// <summary>
         /// Gets or sets GeschaeftspartnerRepository.
         /// </summary>
+        [Import(typeof(IGeschaeftspertnerRepository))]
         public IGeschaeftspertnerRepository GeschaeftspartnerRepository { get; set; }
 
         /// <summary>
