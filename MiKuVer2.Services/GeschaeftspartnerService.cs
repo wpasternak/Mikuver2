@@ -22,7 +22,7 @@ namespace MiKuVer2.Services
         /// <returns>Liste aller direkten Geschaeftspartner</returns>
         public List<Geschaeftspartner> GetDirekteGeschaeftspartner()
         {
-            throw new NotImplementedException();
+            return this.GeschaeftspartnerRepository.GetDirekteGeschaeftspartner();
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace MiKuVer2.Services
         /// <returns>Liste aller Geschaeftspartner</returns>
         public List<Geschaeftspartner> GetAlleGeschaeftspartner()
         {
-            throw new NotImplementedException();
+            return this.GeschaeftspartnerRepository.GetAlleGeschaeftspartner();
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace MiKuVer2.Services
         /// <returns>Einen Geschaeftspartner</returns>
         public Geschaeftspartner GetGeschaeftspartner(int id)
         {
-            throw new NotImplementedException();
+            return this.GeschaeftspartnerRepository.GetGeschaeftspartner(id);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace MiKuVer2.Services
         /// <returns> Einen Geschaeftspartner</returns>
         public Geschaeftspartner GetGeschaeftspartner(string name)
         {
-            throw new NotImplementedException();
+            return this.GeschaeftspartnerRepository.GetGeschaeftspartner(name);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace MiKuVer2.Services
         /// <returns>true oder false</returns>
         public bool GeschaeftspartnerSpeichern(Geschaeftspartner neuerGeschaeftspartner)
         {
-            throw new NotImplementedException();
+            return this.GeschaeftspartnerRepository.GeschaeftspartnerSpeichern(neuerGeschaeftspartner);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace MiKuVer2.Services
         /// <returns>true oder false</returns>
         public bool GeschaeftspartnerAktualisieren(Geschaeftspartner geschaeftspartner)
         {
-            throw new NotImplementedException();
+            return this.GeschaeftspartnerRepository.GeschaeftspartnerAktualisieren(geschaeftspartner);
         }
     }
 }
