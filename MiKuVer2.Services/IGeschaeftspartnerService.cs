@@ -33,7 +33,7 @@ namespace MiKuVer2.Services
         /// </summary>
         /// <param name="id">Die Id des Geschaeftspartners</param>
         /// <returns>Einen Geschaeftspartner</returns>
-        [OperationContract(Name = "GetGeschaeftsprtnerById")]
+        [OperationContract(Name = "GetGeschaeftspartnerById")]
         Geschaeftspartner GetGeschaeftspartner(int id);
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace MiKuVer2.Services
         /// </summary>
         /// <param name="name">Der Name des Geschaeftspartners</param>
         /// <returns> Einen Geschaeftspartner</returns>
-        [OperationContract(Name = "GetGeschaeftsprtnerByName")]
+        [OperationContract(Name = "GetGeschaeftspartnerByName")]
         Geschaeftspartner GetGeschaeftspartner(string name);
 
         /// <summary>
