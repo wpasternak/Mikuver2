@@ -6,7 +6,8 @@ using System.Text;
 namespace MiKuVer2.Model
 {
     /// <summary>
-    /// Die Kontaktdaten eines Unternehmens und/oder einer Person
+    /// Die Kontaktdaten eines Unternehmens, einer Person, eines Kunden und 
+    /// eines Geschaeftspartners
     /// </summary>
     public abstract class Kontakt
     {
