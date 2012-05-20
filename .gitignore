@@ -2,6 +2,9 @@
 bin
 obj
 
+# Visual Studio Files
+*.suo
+
 # mstest test results
 TestResults
 
