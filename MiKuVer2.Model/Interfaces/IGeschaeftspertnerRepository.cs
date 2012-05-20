@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MiKuVer2.Model.Interfaces
+namespace MiKuVer2.Model
 {
-    interface IGeschaeftspertnerRepository
+    public interface IGeschaeftspertnerRepository
     {
         /// <summary>
         /// Gibt alle direkten Geschaeftsparner zurueck
