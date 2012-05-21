@@ -12,3 +12,4 @@ TestResults
 _ReSharper*
 *.ReSharper*
 *ReSharper*
+*.user*
