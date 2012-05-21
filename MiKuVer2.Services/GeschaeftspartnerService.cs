@@ -18,7 +18,13 @@ namespace MiKuVer2.Services
         {
             var catalog = new DirectoryCatalog(".");
             var container = new CompositionContainer(catalog);
-            container.ComposeParts(container.Catalog);
+
+            container.ComposeParts(this);
+
+            //var batch = new CompositionBatch();
+            
+            //batch.AddPart(catalog);
+            //container.Compose(batch);
         }
 
         /// <summary>
