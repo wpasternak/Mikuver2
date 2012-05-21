@@ -13,7 +13,9 @@ namespace MiKuVer2.Model
     [DataContract(IsReference = true)]
     public class Geschaeftspartner : Person
     {
-        /// <summary>
+        private List<Geschaeftspartner> partner;
+
+            /// <summary>
         /// Der Vorgesetzte des jeweiligen Geschaeftspartners
         /// </summary>
         [DataMember]
@@ -24,7 +26,17 @@ namespace MiKuVer2.Model
         /// pertners
         /// </summary>
         [DataMember]
-        public List<Geschaeftspartner> Partner { get; set; }
+        public List<Geschaeftspartner> Partner
+        {
+            get
+            {
+                return this.partner ?? (this.partner = new List<Geschaeftspartner>());
+            }
+            set
+            {
+                this.partner = value;
+            }
+        }
 
         /// <summary>
         /// Das Eintrittsdatum des Geschaeftspartners in das Unternehmen
