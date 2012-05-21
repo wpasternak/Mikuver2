@@ -23,7 +23,7 @@ namespace MiKuVer2.Model
         /// Kunde ist
         /// </summary>
         [DataMember]
-        public bool Kunde { get; set; }
+        public bool BereitsKunde { get; set; }
 
         /// <summary>
         /// Das Unternehmen in dem der Kunde arbeitet
