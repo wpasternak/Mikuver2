@@ -43,7 +43,7 @@ namespace MiKuVer2.Model
         public DateTime Bis { get; set; }
 
         /// <summary>
-        /// Ganztagsereignis oer nicht?!
+        /// Ganztagsereignis oder nicht?!
         /// </summary>
         [DataMember]
         public bool Ganztagsereignis { get; set; }
