@@ -1,31 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
 using System.Text;
 
-using MiKuVer2.Model;
-
-namespace MiKuVer2.Services
+namespace MiKuVer2.Model
 {
-    [ServiceContract]
-    public interface IGeschaeftspartnerService
+    public interface IGeschaeftspartnerRepository
     {
-        IGeschaeftspartnerRepository GeschaeftspartnerRepository { get; set; }
-
         /// <summary>
         /// Gibt alle direkten Geschaeftsparner zurueck
         /// </summary>
         /// <returns>Liste aller direkten Geschaeftspartner</returns>
-        [OperationContract]
         List<Geschaeftspartner> GetDirekteGeschaeftspartner();
 
         /// <summary>
         /// Gibt alle Geschaeftspartner zurueck
         /// </summary>
         /// <returns>Liste aller Geschaeftspartner</returns>
-        [OperationContract]
         List<Geschaeftspartner> GetAlleGeschaeftspartner();
 
         /// <summary>
@@ -33,7 +24,6 @@ namespace MiKuVer2.Services
         /// </summary>
         /// <param name="id">Die Id des Geschaeftspartners</param>
         /// <returns>Einen Geschaeftspartner</returns>
-        [OperationContract(Name = "GetGeschaeftspartnerById")]
         Geschaeftspartner GetGeschaeftspartner(int id);
 
         /// <summary>
@@ -41,7 +31,6 @@ namespace MiKuVer2.Services
         /// </summary>
         /// <param name="name">Der Name des Geschaeftspartners</param>
         /// <returns> Einen Geschaeftspartner</returns>
-        [OperationContract(Name = "GetGeschaeftspartnerByName")]
         Geschaeftspartner GetGeschaeftspartner(string name);
 
         /// <summary>
@@ -51,7 +40,6 @@ namespace MiKuVer2.Services
         /// <param name="neuerGeschaeftspartner">Der zu speichernde Geschaefts-
         /// partner</param>
         /// <returns>true oder false</returns>
-        [OperationContract]
         bool GeschaeftspartnerSpeichern(Geschaeftspartner neuerGeschaeftspartner);
 
         /// <summary>
@@ -61,8 +49,6 @@ namespace MiKuVer2.Services
         /// <param name="geschaeftspartner">Der vorhande und zu aktualisierende 
         /// Geschaeftspartner</param>
         /// <returns>true oder false</returns>
-        [OperationContract]
         bool GeschaeftspartnerAktualisieren(Geschaeftspartner geschaeftspartner);
-
     }
 }

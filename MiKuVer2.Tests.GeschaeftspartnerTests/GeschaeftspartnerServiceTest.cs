@@ -54,7 +54,7 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
         public void GetGeschaeftspartnerById()
         {
             // arrange
-            var mock = new Mock<IGeschaeftspertnerRepository>();
+            var mock = new Mock<IGeschaeftspartnerRepository>();
             mock.Setup(repo => repo.GetGeschaeftspartner(0)).Returns(kristl);
             sut.GeschaeftspartnerRepository = mock.Object;
 
@@ -69,7 +69,7 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
         public void GetGeschaeftspartnerByName()
         {
             // arrange
-            var mock = new Mock<IGeschaeftspertnerRepository>();
+            var mock = new Mock<IGeschaeftspartnerRepository>();
             mock.Setup(repo => repo.GetGeschaeftspartner("Kristina")).Returns(kristl);
             sut.GeschaeftspartnerRepository = mock.Object;
 

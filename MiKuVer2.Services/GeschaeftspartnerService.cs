@@ -24,8 +24,8 @@ namespace MiKuVer2.Services
         /// <summary>
         /// Gets or sets GeschaeftspartnerRepository.
         /// </summary>
-        [Import(typeof(IGeschaeftspertnerRepository))]
-        public IGeschaeftspertnerRepository GeschaeftspartnerRepository { get; set; }
+        [Import(typeof(IGeschaeftspartnerRepository))]
+        public IGeschaeftspartnerRepository GeschaeftspartnerRepository { get; set; }
 
         /// <summary>
         /// Gibt alle direkten Geschaeftsparner zurueck

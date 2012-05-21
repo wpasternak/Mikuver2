@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Geschaeftspartner.cs" />
-    <Compile Include="Interfaces\IGeschaeftspertnerRepository.cs" />
+    <Compile Include="Interfaces\IGeschaeftspartnerRepository.cs" />
     <Compile Include="Kontakt.cs" />
     <Compile Include="Kunde.cs" />
     <Compile Include="Person.cs" />
