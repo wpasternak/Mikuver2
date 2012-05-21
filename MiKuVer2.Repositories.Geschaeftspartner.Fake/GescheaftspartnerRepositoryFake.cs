@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
 {
-    public class Class1
+    public class GescheaftspartnerRepositoryFake
     {
     }
 }
