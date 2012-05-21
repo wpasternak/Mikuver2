@@ -48,6 +48,7 @@
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Termin.cs" />
+    <Compile Include="Terminart.cs" />
     <Compile Include="Unternehmen.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
