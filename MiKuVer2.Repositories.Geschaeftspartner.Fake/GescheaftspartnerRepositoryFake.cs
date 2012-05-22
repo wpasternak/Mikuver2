@@ -96,10 +96,22 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
             foreach (var partner in angemeldeterUser.Partner)
             {
                 result.Add(partner);
-                this.GetAlleGeschaeftspartner();
+                result.AddRange(this.GetAlleGeschaeftspartner(partner));
             }
             return result;
         }
+
+        private List<Geschaeftspartner> GetAlleGeschaeftspartner(Geschaeftspartner geschaeftspartner)
+        {
+            List<Geschaeftspartner> result = new List<Geschaeftspartner>();
+
+            foreach (var partner in geschaeftspartner.Partner)
+            {
+                result.Add(partner);
+                result.AddRange(this.GetAlleGeschaeftspartner(partner));
+            }
+            return result;
+        } 
 
         /// <summary>
         /// Gibt den Geschaeftspartner zurueck
