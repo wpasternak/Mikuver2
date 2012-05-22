@@ -101,6 +101,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
             return result;
         }
 
+        // todo: in eine Methode zusammenfassen
         private List<Geschaeftspartner> GetAlleGeschaeftspartner(Geschaeftspartner geschaeftspartner)
         {
             List<Geschaeftspartner> result = new List<Geschaeftspartner>();
