@@ -89,31 +89,58 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
         public void GeschaeftspartnerSpeichernTest()
         {
             // arrange
+            int anzahl;
+            Geschaeftspartner neuerGP = new Geschaeftspartner()
+                {
+                    Eintrittsdatum = DateTime.Now,
+                    EMail = "test@test.de",
+                    Vorname = "Test",
+                    Nachname = "Testman",
+                    Vorgesetzter = sut.GetGeschaeftspartner(0),
+                };
 
             // act
+            var result = sut.GeschaeftspartnerSpeichern(neuerGP);
+            var gpAusRepo = sut.GetGeschaeftspartner(5);
 
             // assert
-            Assert.Inconclusive();
+            Assert.IsTrue(result);
+            Assert.AreEqual(2,sut.GetDirekteGeschaeftspartner().Count);
+            Assert.IsNotNull(gpAusRepo);
+            Assert.Greater(neuerGP.Id,0);
         }
 
         [Test]
         public void GeschaeftspartnerAktualisierenTest()
         {
             // arrange
-
+            int id = 1;
+            Geschaeftspartner bearbeteterGP = sut.GetGeschaeftspartner(id);
+            Geschaeftspartner gpAusRepo;
+            bool result = false;
+            string neuerName = "WilliWill";
+            DateTime geburtstag = new DateTime(1988,6,21);
+            
             // act
+            bearbeteterGP.Vorname = neuerName;
+            bearbeteterGP.Geburtstag = geburtstag;
+            result = sut.GeschaeftspartnerAktualisieren(bearbeteterGP);
+            gpAusRepo = sut.GetGeschaeftspartner(id);
 
             // assert
-            Assert.Inconclusive();
+            Assert.AreEqual(neuerName,gpAusRepo.Vorname);
+            Assert.AreEqual(geburtstag,gpAusRepo.Geburtstag);
+            Assert.IsTrue(result);
         }
 
         [Test]
         public void GeschaeftspartnerSuchenTest()
         {
             // arrange
+            List<Geschaeftspartner> result;
 
             // act
-
+            
             // assert
             Assert.Inconclusive();
         }
