@@ -100,6 +100,21 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
             Assert.IsNotEmpty(gps);
         }
 
+        [Test]
+        public void GetAlleGeschaeftspartnerTest()
+        {
+            // arrange
+            var mock = new Mock<IGeschaeftspartnerRepository>();
+            mock.Setup(repo => repo.GetAlleGeschaeftspartner()).Returns(kristl.Partner);
+            sut.GeschaeftspartnerRepository = mock.Object;
+
+            // act
+            List<Geschaeftspartner> gps = sut.GetAlleGeschaeftspartner();
+
+            // assert
+            Assert.IsNotEmpty(gps);
+        }
+
 
     }
 }
