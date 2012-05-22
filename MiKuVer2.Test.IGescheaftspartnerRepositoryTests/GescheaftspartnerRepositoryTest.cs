@@ -44,11 +44,14 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
         public void GetAlleGeschaeftspartnerTest()
         {
             // arrange
+            List<Geschaeftspartner> result;
 
             // act
+            result = sut.GetAlleGeschaeftspartner();
 
             // assert
-            Assert.Inconclusive();
+            Assert.IsNotNull(result);
+            Assert.AreEqual(4,result.Count);
         }
 
         [Test]
