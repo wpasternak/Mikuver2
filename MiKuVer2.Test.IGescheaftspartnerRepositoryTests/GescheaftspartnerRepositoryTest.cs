@@ -27,5 +27,83 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
             sut = null;
         }
 
+        [Test]
+        public void GetDirekteGeschaeftspartnerTest()
+        {
+            // arrange
+            List<Geschaeftspartner> result;
+
+            // act
+            result = sut.GetDirekteGeschaeftspartner();
+
+            // assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void GetAlleGeschaeftspartnerTest()
+        {
+            // arrange
+
+            // act
+
+            // assert
+            Assert.Inconclusive();
+        }
+
+        [Test]
+        public void GetGeschaeftspartnerByIdTest()
+        {
+            // arrange
+
+            // act
+
+            // assert
+            Assert.Inconclusive();
+        }
+
+        [Test]
+        public void GetGeschaeftspartnerByNameTest()
+        {
+            // arrange
+
+            // act
+
+            // assert
+            Assert.Inconclusive();
+        }
+
+        [Test]
+        public void GeschaeftspartnerSpeichernTest()
+        {
+            // arrange
+
+            // act
+
+            // assert
+            Assert.Inconclusive();
+        }
+
+        [Test]
+        public void GeschaeftspartnerAktualisierenTest()
+        {
+            // arrange
+
+            // act
+
+            // assert
+            Assert.Inconclusive();
+        }
+
+        [Test]
+        public void GeschaeftspartnerSuchenTest()
+        {
+            // arrange
+
+            // act
+
+            // assert
+            Assert.Inconclusive();
+        }
     }
 }

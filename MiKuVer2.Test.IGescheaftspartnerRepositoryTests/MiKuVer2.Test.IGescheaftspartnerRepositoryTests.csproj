@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +45,16 @@
   <ItemGroup>
     <Compile Include="GescheaftspartnerRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MiKuVer2.Model\MiKuVer2.Model.csproj">
+      <Project>{DCDA182E-8115-44ED-B15D-A60FCF97240C}</Project>
+      <Name>MiKuVer2.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MiKuVer2.Repositories.Geschaeftspartner.Fake\MiKuVer2.Repositories.Geschaeftspartner.Fake.csproj">
+      <Project>{BD6AE553-4210-466F-AC67-121ADE91FD38}</Project>
+      <Name>MiKuVer2.Repositories.Geschaeftspartner.Fake</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
