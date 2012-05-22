@@ -163,7 +163,33 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
         /// <returns>true oder false</returns>
         public bool GeschaeftspartnerAktualisieren(Geschaeftspartner geschaeftspartner)
         {
-            throw new NotImplementedException();
+            var zuAktualisierenderGeschaeftspartner = this.GetGeschaeftspartner(geschaeftspartner.Id);
+
+            if (zuAktualisierenderGeschaeftspartner == null)
+            {
+                return false;
+            }
+            
+            if (geschaeftspartner.Nachname != "")
+            {
+                zuAktualisierenderGeschaeftspartner.Nachname = geschaeftspartner.Nachname;
+            }
+            if (geschaeftspartner.Vorname != "")
+            {
+                zuAktualisierenderGeschaeftspartner.Vorname = geschaeftspartner.Vorname;
+            }
+            if (geschaeftspartner.Geburtstag != DateTime.MinValue)
+            {
+                zuAktualisierenderGeschaeftspartner.Geburtstag = geschaeftspartner.Geburtstag;
+            }
+            
+            zuAktualisierenderGeschaeftspartner.Hausnummer = geschaeftspartner.Hausnummer;
+            zuAktualisierenderGeschaeftspartner.Strasse = geschaeftspartner.Strasse;
+            zuAktualisierenderGeschaeftspartner.PLZ = geschaeftspartner.PLZ;
+            zuAktualisierenderGeschaeftspartner.EMail = geschaeftspartner.EMail;
+            zuAktualisierenderGeschaeftspartner.Ort = geschaeftspartner.Ort;
+            zuAktualisierenderGeschaeftspartner.Eintrittsdatum = zuAktualisierenderGeschaeftspartner.Eintrittsdatum;
+            zuAktualisierenderGeschaeftspartner.Telefon = geschaeftspartner.Telefon;
         }
     }
 }
