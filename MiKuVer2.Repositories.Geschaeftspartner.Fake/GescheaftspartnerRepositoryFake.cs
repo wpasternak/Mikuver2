@@ -143,7 +143,15 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
         /// <returns>true oder false</returns>
         public bool GeschaeftspartnerSpeichern(Geschaeftspartner neuerGeschaeftspartner)
         {
-            throw new NotImplementedException();
+            var vorgesetzter = neuerGeschaeftspartner.Vorgesetzter;
+            vorgesetzter.Partner.Add(neuerGeschaeftspartner);
+            lock (repo)
+            {
+                neuerGeschaeftspartner.Id = this.repo.Max(gp => gp.Id) + 1;
+                repo.Add(neuerGeschaeftspartner);
+            }
+
+            return true;
         }
 
         /// <summary>
