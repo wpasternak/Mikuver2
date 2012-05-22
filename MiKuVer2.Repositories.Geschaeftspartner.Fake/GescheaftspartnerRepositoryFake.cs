@@ -131,7 +131,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
         /// <returns> Einen Geschaeftspartner</returns>
         public Geschaeftspartner GetGeschaeftspartner(string name)
         {
-            throw new NotImplementedException();
+            return this.repo.First(gp => gp.Vorname == name || gp.Nachname == name);
         }
 
         /// <summary>
