@@ -43,12 +43,15 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
             sut = new GeschaeftspartnerService();
             geschaeftspartner.Add(willi);
             geschaeftspartner.Add(kristl);
+            kristl.Partner.Add(willi);
         }
 
         [TearDown]
         public void ClearTest()
         {
             sut = null;
+            kristl.Partner.Clear();
+            willi.Partner.Clear();
             geschaeftspartner.Clear();
         }
 
@@ -80,6 +83,21 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
 
             // assert
             Assert.AreEqual(kristl, geschaeftspartner1);
+        }
+
+        [Test]
+        public void GetDirekteGeschaeftspartnerTest()
+        {
+            // arrange
+            var mock = new Mock<IGeschaeftspartnerRepository>();
+            mock.Setup(repo => repo.GetDirekteGeschaeftspartner()).Returns(kristl.Partner);
+            sut.GeschaeftspartnerRepository = mock.Object;
+
+            // act
+            List<Geschaeftspartner> gps = sut.GetDirekteGeschaeftspartner();
+
+            // assert
+            Assert.IsNotEmpty(gps);
         }
 
 
