@@ -15,7 +15,7 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
     [TestFixture]
     class GeschaeftspartnerServiceTest
     {
-        private IGeschaeftspartnerService sut = new GeschaeftspartnerService();
+        private IGeschaeftspartnerService sut;
 
         private List<Geschaeftspartner> geschaeftspartner = new List<Geschaeftspartner>();
 
@@ -40,13 +40,18 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
         [SetUp]
         public void Setup()
         {
+            sut = new GeschaeftspartnerService();
             geschaeftspartner.Add(willi);
             geschaeftspartner.Add(kristl);
+            kristl.Partner.Add(willi);
         }
 
         [TearDown]
         public void ClearTest()
         {
+            sut = null;
+            kristl.Partner.Clear();
+            willi.Partner.Clear();
             geschaeftspartner.Clear();
         }
 
@@ -74,10 +79,56 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
             sut.GeschaeftspartnerRepository = mock.Object;
 
             // act
-            Geschaeftspartner geschaeftspartner1 = sut.GetGeschaeftspartner(0);
+            Geschaeftspartner geschaeftspartner1 = sut.GetGeschaeftspartner("Kristina");
 
             // assert
             Assert.AreEqual(kristl, geschaeftspartner1);
+        }
+
+        [Test]
+        public void GetDirekteGeschaeftspartnerTest()
+        {
+            // arrange
+            var mock = new Mock<IGeschaeftspartnerRepository>();
+            mock.Setup(repo => repo.GetDirekteGeschaeftspartner()).Returns(kristl.Partner);
+            sut.GeschaeftspartnerRepository = mock.Object;
+
+            // act
+            List<Geschaeftspartner> gps = sut.GetDirekteGeschaeftspartner();
+
+            // assert
+            Assert.IsNotEmpty(gps);
+        }
+
+        [Test]
+        public void GetAlleGeschaeftspartnerTest()
+        {
+            // arrange
+            var mock = new Mock<IGeschaeftspartnerRepository>();
+            mock.Setup(repo => repo.GetAlleGeschaeftspartner()).Returns(kristl.Partner);
+            sut.GeschaeftspartnerRepository = mock.Object;
+
+            // act
+            List<Geschaeftspartner> gps = sut.GetAlleGeschaeftspartner();
+
+            // assert
+            Assert.IsNotEmpty(gps);
+        }
+
+        [Test]
+        public void GeschaeftspartnerSpeichernTest()
+        {
+            // arrange
+            var mock = new Mock<IGeschaeftspartnerRepository>();
+            mock.Setup(repo => repo.GeschaeftspartnerSpeichern(It.IsAny<Geschaeftspartner>())).Returns(true).Callback(() => geschaeftspartner.Add(new Geschaeftspartner()));
+            sut.GeschaeftspartnerRepository = mock.Object;
+
+            // act
+            var result = sut.GeschaeftspartnerSpeichern(new Geschaeftspartner());
+
+            // assert
+            Assert.IsTrue(result);
+            Assert.AreEqual(3,geschaeftspartner.Count);
         }
 
 

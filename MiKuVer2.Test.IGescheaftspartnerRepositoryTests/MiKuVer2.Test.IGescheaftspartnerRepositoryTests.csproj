@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F93C3EB1-3F9A-4CBE-A860-868B77F49DA8}</ProjectGuid>
+    <ProjectGuid>{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MiKuVer2.Tests.GeschaeftspartnerTests</RootNamespace>
-    <AssemblyName>MiKuVer2.Tests.GeschaeftspartnerTests</AssemblyName>
+    <RootNamespace>MiKuVer2.Test.IGescheaftspartnerRepositoryTests</RootNamespace>
+    <AssemblyName>MiKuVer2.Test.IGescheaftspartnerRepositoryTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -46,8 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeschaeftspartnerServiceIntegrationTest.cs" />
-    <Compile Include="GeschaeftspartnerServiceTest.cs" />
+    <Compile Include="GescheaftspartnerRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,13 +51,10 @@
       <Project>{DCDA182E-8115-44ED-B15D-A60FCF97240C}</Project>
       <Name>MiKuVer2.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MiKuVer2.Services\MiKuVer2.Services.csproj">
-      <Project>{A52B8F75-01FF-4B53-987F-C97E2B32AB61}</Project>
-      <Name>MiKuVer2.Services</Name>
+    <ProjectReference Include="..\MiKuVer2.Repositories.Geschaeftspartner.Fake\MiKuVer2.Repositories.Geschaeftspartner.Fake.csproj">
+      <Project>{BD6AE553-4210-466F-AC67-121ADE91FD38}</Project>
+      <Name>MiKuVer2.Repositories.Geschaeftspartner.Fake</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

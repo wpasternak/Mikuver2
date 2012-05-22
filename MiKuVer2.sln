@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiKuVer2.Test.ModelTest", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiKuVer2.Repositories.Geschaeftspartner.Fake", "MiKuVer2.Repositories.Geschaeftspartner.Fake\MiKuVer2.Repositories.Geschaeftspartner.Fake.csproj", "{BD6AE553-4210-466F-AC67-121ADE91FD38}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiKuVer2.Test.IGescheaftspartnerRepositoryTests", "MiKuVer2.Test.IGescheaftspartnerRepositoryTests\MiKuVer2.Test.IGescheaftspartnerRepositoryTests.csproj", "{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,16 @@ Global
 		{BD6AE553-4210-466F-AC67-121ADE91FD38}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{BD6AE553-4210-466F-AC67-121ADE91FD38}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{BD6AE553-4210-466F-AC67-121ADE91FD38}.Release|x86.ActiveCfg = Release|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,5 +120,6 @@ Global
 		{BD6AE553-4210-466F-AC67-121ADE91FD38} = {853242D1-8165-4138-9704-F2432971AE7D}
 		{F93C3EB1-3F9A-4CBE-A860-868B77F49DA8} = {5C7E4782-4BC0-4F56-91B5-99E4650CBBE6}
 		{A8E30486-BB6A-4A06-B31E-1BFB08BCBFFB} = {5C7E4782-4BC0-4F56-91B5-99E4650CBBE6}
+		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4} = {5C7E4782-4BC0-4F56-91B5-99E4650CBBE6}
 	EndGlobalSection
 EndGlobal
