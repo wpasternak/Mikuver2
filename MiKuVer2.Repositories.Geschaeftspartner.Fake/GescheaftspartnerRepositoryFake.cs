@@ -190,6 +190,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
             zuAktualisierenderGeschaeftspartner.Ort = geschaeftspartner.Ort;
             zuAktualisierenderGeschaeftspartner.Eintrittsdatum = zuAktualisierenderGeschaeftspartner.Eintrittsdatum;
             zuAktualisierenderGeschaeftspartner.Telefon = geschaeftspartner.Telefon;
+            return true;
         }
     }
 }
