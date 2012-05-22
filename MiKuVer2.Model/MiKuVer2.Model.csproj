@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aufgabe.cs" />
     <Compile Include="Geschaeftspartner.cs" />
     <Compile Include="Interfaces\IGeschaeftspartnerRepository.cs" />
     <Compile Include="Kategorie.cs" />

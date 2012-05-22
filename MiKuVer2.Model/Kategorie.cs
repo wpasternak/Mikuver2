@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace MiKuVer2.Model
 {
     [DataContract(IsReference = true)]
-    class Kategorie
+    public class Kategorie
     {
         /// <summary>
         /// Die Id der Kategorie

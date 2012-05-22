@@ -6,58 +6,55 @@ using System.Runtime.Serialization;
 
 namespace MiKuVer2.Model
 {
-    /// <summary>
-    /// Termindaten
-    /// </summary>
     [DataContract(IsReference = true)]
-    public class Termin
+    public class Aufgabe
     {
         /// <summary>
-        /// Der Titel des Termins
+        /// Der Titel der Aufgabe
         /// </summary>
         [DataMember]
         public string Titel { get; set; }
 
         /// <summary>
-        /// Die Beschreibung des Termins
+        /// Die Beschreibung der Aufgabe
         /// </summary>
         [DataMember]
         public string Beschreibung { get; set; }
 
         /// <summary>
-        /// Das Datum an dem der Termin erstellt wurde
+        /// Der Beginn der Aufgabe
         /// </summary>
         [DataMember]
         public DateTime ErstelltAm { get; set; }
 
         /// <summary>
-        /// Der Beginn des Termins
+        /// Der Status der Aufgabe
         /// </summary>
         [DataMember]
-        public DateTime Von { get; set; }
+        public Status Status { get; set; }
 
         /// <summary>
-        /// Das Ende des Termins
+        /// Das Ende der Aufgabe
         /// </summary>
         [DataMember]
-        public DateTime Bis { get; set; }
+        public DateTime FaelligAm { get; set; }
 
         /// <summary>
-        /// Ganztagsereignis oder nicht?!
+        /// Der Geschaeftspartner der die Aufgabe erstellt hat
         /// </summary>
         [DataMember]
-        public bool Ganztagsereignis { get; set; }
+        public Geschaeftspartner ErstelltVon { get; set; }
 
         /// <summary>
-        /// Die zusaetzlich zu benachrichtigenden Geschaeftspartner
+        /// Die Geschaeftspartner die mitbeteiligt
         /// </summary>
         [DataMember]
-        public List<Geschaeftspartner> BenachrichtigungAn { get; set; }
+        public List<Geschaeftspartner> Bearbeiter { get; set; }
 
         /// <summary>
-        /// Terminart
+        /// Die Kategorie der Aufgabe
         /// </summary>
         [DataMember]
-        public Terminart Terminart { get; set; }
+        public Kategorie Kategorie { get; set; }
     }
 }

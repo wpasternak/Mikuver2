@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace MiKuVer2.Model
 {
     [DataContract(IsReference = true)]
-    class Status
+    public class Status
     {
         /// <summary>
         /// Die Id des Statuses

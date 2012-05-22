@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace MiKuVer2.Model
 {
     [DataContract(IsReference = true)]
-    class Terminart
+    public class Terminart
     {
         /// <summary>
         /// Die Id der Terminart
