@@ -15,7 +15,7 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
     [TestFixture]
     class GeschaeftspartnerServiceTest
     {
-        private IGeschaeftspartnerService sut = new GeschaeftspartnerService();
+        private IGeschaeftspartnerService sut;
 
         private List<Geschaeftspartner> geschaeftspartner = new List<Geschaeftspartner>();
 
@@ -40,6 +40,7 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
         [SetUp]
         public void Setup()
         {
+            sut = new GeschaeftspartnerService();
             geschaeftspartner.Add(willi);
             geschaeftspartner.Add(kristl);
         }
@@ -47,6 +48,7 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
         [TearDown]
         public void ClearTest()
         {
+            sut = null;
             geschaeftspartner.Clear();
         }
 
@@ -74,7 +76,7 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
             sut.GeschaeftspartnerRepository = mock.Object;
 
             // act
-            Geschaeftspartner geschaeftspartner1 = sut.GetGeschaeftspartner(0);
+            Geschaeftspartner geschaeftspartner1 = sut.GetGeschaeftspartner("Kristina");
 
             // assert
             Assert.AreEqual(kristl, geschaeftspartner1);
