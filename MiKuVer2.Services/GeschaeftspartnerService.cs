@@ -9,6 +9,7 @@ namespace MiKuVer2.Services
 {
     using System.ComponentModel.Composition;
     using System.ComponentModel.Composition.Hosting;
+    using System.Diagnostics;
 
     using MiKuVer2.Model;
 
@@ -18,13 +19,14 @@ namespace MiKuVer2.Services
         {
             var catalog = new DirectoryCatalog(".");
             var container = new CompositionContainer(catalog);
-
-            container.ComposeParts(this);
-
-            //var batch = new CompositionBatch();
-            
-            //batch.AddPart(catalog);
-            //container.Compose(batch);
+            try
+            {
+                container.ComposeParts(this);
+            }
+            catch (ChangeRejectedException exception)
+            {
+                Debug.WriteLine(exception.Message);
+            }
         }
 
         /// <summary>
