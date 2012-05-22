@@ -35,13 +35,45 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
             Id = 0
         };
 
+        private Geschaeftspartner artur = new Geschaeftspartner()
+        {
+            Nachname = "Pasternak",
+            Vorname = "Artur",
+            Eintrittsdatum = DateTime.Now,
+            EMail = "artur.pasternak@ergo.de",
+            Id = 2
+        };
+
+        private Geschaeftspartner katha = new Geschaeftspartner()
+        {
+            Nachname = "Jerofejewa",
+            Vorname = "Katharina",
+            Eintrittsdatum = DateTime.Now,
+            EMail = "katharina.jerofejewa@ergo.de",
+            Id = 3
+        };
+
+        private Geschaeftspartner bea = new Geschaeftspartner()
+        {
+            Nachname = "Hügel",
+            Vorname = "Beatrix",
+            Eintrittsdatum = DateTime.Now,
+            EMail = "beatrix.hügel@ergo.de",
+            Id = 4
+        };
+
         public GescheaftspartnerRepositoryFake()
         {
             angemeldeterUser = kristl;
             repo.Add(kristl);
             repo.Add(willi);
+            repo.Add(artur);
+            repo.Add(katha);
+            repo.Add(bea);
 
             kristl.Partner.Add(willi);
+            willi.Partner.AddRange(new List<Geschaeftspartner>(){{artur},{katha}});
+            artur.Partner.Add(bea);
         }
 
         /// <summary>
