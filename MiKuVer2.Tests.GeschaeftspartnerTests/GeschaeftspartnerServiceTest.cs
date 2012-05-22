@@ -115,6 +115,22 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
             Assert.IsNotEmpty(gps);
         }
 
+        [Test]
+        public void GeschaeftspartnerSpeichernTest()
+        {
+            // arrange
+            var mock = new Mock<IGeschaeftspartnerRepository>();
+            mock.Setup(repo => repo.GeschaeftspartnerSpeichern(It.IsAny<Geschaeftspartner>())).Returns(true).Callback(() => geschaeftspartner.Add(new Geschaeftspartner()));
+            sut.GeschaeftspartnerRepository = mock.Object;
+
+            // act
+            var result = sut.GeschaeftspartnerSpeichern(new Geschaeftspartner());
+
+            // assert
+            Assert.IsTrue(result);
+            Assert.AreEqual(3,geschaeftspartner.Count);
+        }
+
 
     }
 }
