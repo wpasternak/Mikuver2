@@ -58,11 +58,16 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
         public void GetGeschaeftspartnerByIdTest()
         {
             // arrange
-
+            Geschaeftspartner result;
+            
             // act
+            result = sut.GetGeschaeftspartner(2);
 
             // assert
-            Assert.Inconclusive();
+            Assert.IsNotNull(result);
+            Assert.IsNotNullOrEmpty(result.Nachname);
+            Assert.IsNotNullOrEmpty(result.Vorname);
+            Assert.AreEqual(2,result.Id);
         }
 
         [Test]
