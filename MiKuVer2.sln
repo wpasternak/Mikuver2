@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiKuVer2.Repositories.Gesch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiKuVer2.Test.IGescheaftspartnerRepositoryTests", "MiKuVer2.Test.IGescheaftspartnerRepositoryTests\MiKuVer2.Test.IGescheaftspartnerRepositoryTests.csproj", "{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{1BDEC02C-F2CE-49B5-9D92-68F5736DE0F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
