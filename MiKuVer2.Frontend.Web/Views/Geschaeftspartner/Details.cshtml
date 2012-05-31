@@ -69,6 +69,18 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.EMail)
     </div>
+
+    <div class="display-label">Geschäftspartner</div>
+    <div class="display-field">
+       @foreach (var item in Model.Partner)
+       {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Vorname+" " + item.Nachname, "Details", new { id = item.Id })
+        </td>
+    </tr>
+       }
+    </div>
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
