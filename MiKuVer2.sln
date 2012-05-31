@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiKuVer2.Test.IGescheaftspa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{1BDEC02C-F2CE-49B5-9D92-68F5736DE0F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiKuVer2.Frontend.Web", "MiKuVer2.Frontend.Web\MiKuVer2.Frontend.Web.csproj", "{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,16 @@ Global
 		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4}.Release|x86.ActiveCfg = Release|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,5 +135,6 @@ Global
 		{F93C3EB1-3F9A-4CBE-A860-868B77F49DA8} = {5C7E4782-4BC0-4F56-91B5-99E4650CBBE6}
 		{A8E30486-BB6A-4A06-B31E-1BFB08BCBFFB} = {5C7E4782-4BC0-4F56-91B5-99E4650CBBE6}
 		{9B914E9D-AE18-44AD-898E-BD2D2BEF99F4} = {5C7E4782-4BC0-4F56-91B5-99E4650CBBE6}
+		{FFE9A283-8C6F-4ED9-B01D-CD4C6DEC7A6F} = {1BDEC02C-F2CE-49B5-9D92-68F5736DE0F6}
 	EndGlobalSection
 EndGlobal
