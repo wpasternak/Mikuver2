@@ -55,7 +55,14 @@ namespace MiKuVer2.Frontend.Web.Controllers
                 neuerGps.Eintrittsdatum = DateTime.Parse(formCollection["Eintrittsdatum"]);
                 neuerGps.Nachname = formCollection["Nachname"];
                 neuerGps.Vorname = formCollection["Vorname"];
-                
+                neuerGps.Geburtstag = DateTime.Parse(formCollection["Geburtstag"]);
+                neuerGps.Fax = formCollection["Fax"];
+                neuerGps.Telefon = formCollection["Telefon"];
+                neuerGps.Strasse = formCollection["Strasse"];
+                neuerGps.Hausnummer = formCollection["Hausnummer"];
+                neuerGps.PLZ = formCollection["PLZ"];
+                neuerGps.Ort = formCollection["Ort"];
+                neuerGps.EMail = formCollection["EMail"];
 
                 this.geschaeftspartnerService.GeschaeftspartnerSpeichern(neuerGps);
                 return RedirectToAction("Index");
