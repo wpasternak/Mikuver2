@@ -53,7 +53,9 @@ namespace MiKuVer2.Frontend.Web.Controllers
                 var neuerGps = new Geschaeftspartner();
 
                 neuerGps.Eintrittsdatum = DateTime.Parse(formCollection["Eintrittsdatum"]);
-                neuerGps.Vorname = formCollection["Nachname"];
+                neuerGps.Nachname = formCollection["Nachname"];
+                neuerGps.Vorname = formCollection["Vorname"];
+                
 
                 this.geschaeftspartnerService.GeschaeftspartnerSpeichern(neuerGps);
                 return RedirectToAction("Index");
