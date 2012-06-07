@@ -7,6 +7,7 @@ using System.Web.Mvc;
 namespace MiKuVer2.Frontend.Web.Controllers
 {
     using MiKuVer2.Services;
+    using MiKuVer2.Model;
 
     //[Authorize]
     public class GeschaeftspartnerController : Controller
@@ -44,12 +45,17 @@ namespace MiKuVer2.Frontend.Web.Controllers
         // POST: /Geschaeftspartner/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FormCollection formCollection)
         {
             try
             {
                 // TODO: Add insert logic here
-                
+                var neuerGps = new Geschaeftspartner();
+
+                neuerGps.Eintrittsdatum = DateTime.Parse(formCollection["Eintrittsdatum"]);
+                neuerGps.Vorname = formCollection["Nachname"];
+
+                this.geschaeftspartnerService.GeschaeftspartnerSpeichern(neuerGps);
                 return RedirectToAction("Index");
             }
             catch

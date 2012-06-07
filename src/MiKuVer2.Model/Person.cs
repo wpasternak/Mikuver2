@@ -7,6 +7,8 @@ using System.Runtime.Serialization;
 
 namespace MiKuVer2.Model
 {
+    using System.ComponentModel.DataAnnotations;
+
     /// <summary>
     /// Die Personendaten des Kunden oder der Geschaeftspartner
     /// </summary>
@@ -29,6 +31,7 @@ namespace MiKuVer2.Model
         /// Der Geburtstag der Person
         /// </summary>
         [DataMember]
+        [DataType(DataType.Date)]
         public DateTime Geburtstag { get; set; }
 
         /// <summary>

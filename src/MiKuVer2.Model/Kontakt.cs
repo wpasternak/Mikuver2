@@ -7,6 +7,8 @@ using System.Runtime.Serialization;
 
 namespace MiKuVer2.Model
 {
+    using System.ComponentModel.DataAnnotations;
+
     /// <summary>
     /// Die Kontaktdaten eines Unternehmens, einer Person, eines Kunden und 
     /// eines Geschaeftspartners
@@ -48,6 +50,8 @@ namespace MiKuVer2.Model
         /// Die PLZ des Kontaktes
         /// </summary>
         [DataMember]
+        [Required]
+        [StringLength(5)]
         public string PLZ { get; set; }
         
         /// <summary>
@@ -60,6 +64,8 @@ namespace MiKuVer2.Model
         /// Die E-Mail des Kontaktes
         /// </summary>
         [DataMember]
+        [Required]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Invalid Email Address")]
         public string EMail { get; set; }
     }
 }

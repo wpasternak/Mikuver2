@@ -151,7 +151,27 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
         /// <returns>true oder false</returns>
         public bool GeschaeftspartnerSpeichern(Geschaeftspartner neuerGeschaeftspartner)
         {
-            throw new NotImplementedException();
+            var command = new MySqlCommand("INSERT INTO person (Vorname, Nachname, Geburtsdatum, Geschlecht, Fax, Telefon, Strasse, Hausnummer, PLZ, Ort, E-Mail) VALUES (@Vorname, @Nachname, @Geburtsdatum, @Geschlecht, @Fax, @Telefon, @Strasse, @Hausnummer, @PLZ, @Ort, @E-Mail)", this.connection);
+            command.Parameters.AddWithValue("@Vorname", neuerGeschaeftspartner.Vorname);
+            command.Parameters.AddWithValue("@Nachname", neuerGeschaeftspartner.Nachname);
+            command.Parameters.AddWithValue("@Geburtsdaum", neuerGeschaeftspartner.Geburtstag);
+            command.Parameters.AddWithValue("@Geschlecht", neuerGeschaeftspartner.Geschlecht);
+            command.Parameters.AddWithValue("@Fax", neuerGeschaeftspartner.Fax != "" ? neuerGeschaeftspartner.Fax : "NULL");
+            command.Parameters.AddWithValue("@Telefon", neuerGeschaeftspartner.Telefon != "" ? neuerGeschaeftspartner.Telefon : "NULL");
+            command.Parameters.AddWithValue("@Strasse", neuerGeschaeftspartner.Strasse != "" ? neuerGeschaeftspartner.Strasse : "NULL");
+            command.Parameters.AddWithValue("@PLZ", neuerGeschaeftspartner.PLZ != "" ? neuerGeschaeftspartner.PLZ : "NULL");
+            command.Parameters.AddWithValue("@Ort", neuerGeschaeftspartner.Ort != "" ? neuerGeschaeftspartner.Ort : "NULL");
+            command.Parameters.AddWithValue("@E-Mail", neuerGeschaeftspartner.EMail != "" ? neuerGeschaeftspartner.EMail : "NULL");
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
         /// <summary>
         /// Gibt einen Wert zurueck ob der vorhande Geschaeftspartner
