@@ -48,8 +48,10 @@
     <Compile Include="GeschaeftspartnerService.cs" />
     <Compile Include="IGeschaeftspartnerService.cs" />
     <Compile Include="IKundenService.cs" />
+    <Compile Include="IUnternehmenService.cs" />
     <Compile Include="KundenService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnternehmenService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

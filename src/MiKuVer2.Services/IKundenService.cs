@@ -75,7 +75,5 @@ namespace MiKuVer2.Services
         /// <returns>true oder false</returns>
         [OperationContract]
         bool KundenAktualisieren(Kunde kunden);
-
-
     }
 }
