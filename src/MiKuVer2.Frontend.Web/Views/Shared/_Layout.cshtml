@@ -8,26 +8,36 @@
     <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
 </head>
 <body>
+
+    <header>
+    @*            <div id="logindisplay">
+            @Html.Partial("_LogOnPartial")
+        </div>*@
+        <nav>
+            <ul id="menu">
+                <li class='active '>@Html.ActionLink("CRM", "Index", "Home")</li>
+                <li>@Html.ActionLink("Geschaeftspartner","Index","Geschaeftspartner")</li>
+                <li>@Html.ActionLink("Kalender", "About", "Home")</li>
+                <li>@Html.ActionLink("Aufgaben", "About", "Home")</li>
+                <li><div id="photo">photo</div></li>   
+                <li><div id="settings" class="menuItem">Einstellungen</div>
+                  <ul>
+                    <li> <a href="home">E-Mail</a></li>
+                    <li> <a href="home">Kennwort</a></li>
+                    <li> @Html.ActionLink("Ausloggen", "LogOff", "Account")</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="page">
-        <header>
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
-            </div>
-            <nav>
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Geschaeftspartner","Index","Geschaeftspartner")</li>
-                </ul>
-            </nav>
-        </header>
+
         <section id="main">
             @RenderBody()
         </section>
         <footer>
+
         </footer>
     </div>
 </body>
