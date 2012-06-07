@@ -43,8 +43,11 @@
   <ItemGroup>
     <Compile Include="Aufgabe.cs" />
     <Compile Include="Geschaeftspartner.cs" />
+    <Compile Include="Interfaces\IAufgabeRepository.cs" />
     <Compile Include="Interfaces\IGeschaeftspartnerRepository.cs" />
     <Compile Include="Interfaces\IKundenRepository.cs" />
+    <Compile Include="Interfaces\ITerminRepository.cs" />
+    <Compile Include="Interfaces\IUnternehmenRepository.cs" />
     <Compile Include="Kategorie.cs" />
     <Compile Include="Kontakt.cs" />
     <Compile Include="Kunde.cs" />

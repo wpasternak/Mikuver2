@@ -57,7 +57,7 @@ namespace MiKuVer2.Model
         /// <summary>
         /// Gibt einen Wert zurueck ob der Kunde aktualisiert wurde
         /// </summary>
-        /// <param name="kunden">der vorhandene und zu aktualisierende Kunde</param>
+        /// <param name="kunden">Der vorhandene und zu aktualisierende Kunde</param>
         /// <returns>true oder false</returns>
         bool KundenAktualisieren(Kunde kunden);
     }
