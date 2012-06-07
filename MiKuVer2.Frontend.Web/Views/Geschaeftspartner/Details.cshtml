@@ -32,7 +32,16 @@
 
     <div class="display-label">Geschlecht</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Geschlecht)
+        @{
+            if (Model.Geschlecht)
+            {
+                m&aumlnnlich    
+            }
+            else
+	{
+                weiblich
+	}
+        }
     </div>
 
     <div class="display-label">Fax</div>
