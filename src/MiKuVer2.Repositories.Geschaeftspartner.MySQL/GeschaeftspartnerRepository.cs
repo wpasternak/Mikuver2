@@ -8,6 +8,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
 {
     using System.ComponentModel.Composition;
     using System.Data;
+    using System.Diagnostics;
 
     using MiKuVer2.Model;
 
@@ -15,7 +16,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
 
     //todo: aktuell eingelogten GP setzen
     [Export(typeof(IGeschaeftspartnerRepository))]
-    class GeschaeftspartnerRepository : IGeschaeftspartnerRepository
+    public class GeschaeftspartnerRepository : IGeschaeftspartnerRepository
     {
         private MySqlConnection connection;
 
@@ -151,26 +152,49 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
         /// <returns>true oder false</returns>
         public bool GeschaeftspartnerSpeichern(Geschaeftspartner neuerGeschaeftspartner)
         {
-            var command = new MySqlCommand("INSERT INTO person (Vorname, Nachname, Geburtsdatum, Geschlecht, Fax, Telefon, Strasse, Hausnummer, PLZ, Ort, E-Mail) VALUES (@Vorname, @Nachname, @Geburtsdatum, @Geschlecht, @Fax, @Telefon, @Strasse, @Hausnummer, @PLZ, @Ort, @E-Mail)", this.connection);
+            var command = new MySqlCommand("INSERT INTO person (Vorname, Nachname, Geburtsdatum, Geschlecht, Fax, Telefon, Strasse, Hausnummer, PLZ, Ort, E-Mail) VALUES (@Vorname, @Nachname, @Geburtsdatum, @Geschlecht, @Fax, @Telefon, @Strasse, @Hausnummer, @PLZ, @Ort, @EMail)", this.connection);
             command.Parameters.AddWithValue("@Vorname", neuerGeschaeftspartner.Vorname);
             command.Parameters.AddWithValue("@Nachname", neuerGeschaeftspartner.Nachname);
-            command.Parameters.AddWithValue("@Geburtsdaum", neuerGeschaeftspartner.Geburtstag);
+            command.Parameters.AddWithValue("@Geburtsdatum", neuerGeschaeftspartner.Geburtstag);
             command.Parameters.AddWithValue("@Geschlecht", neuerGeschaeftspartner.Geschlecht);
             command.Parameters.AddWithValue("@Fax", neuerGeschaeftspartner.Fax != "" ? neuerGeschaeftspartner.Fax : "NULL");
             command.Parameters.AddWithValue("@Telefon", neuerGeschaeftspartner.Telefon != "" ? neuerGeschaeftspartner.Telefon : "NULL");
             command.Parameters.AddWithValue("@Strasse", neuerGeschaeftspartner.Strasse != "" ? neuerGeschaeftspartner.Strasse : "NULL");
             command.Parameters.AddWithValue("@PLZ", neuerGeschaeftspartner.PLZ != "" ? neuerGeschaeftspartner.PLZ : "NULL");
             command.Parameters.AddWithValue("@Ort", neuerGeschaeftspartner.Ort != "" ? neuerGeschaeftspartner.Ort : "NULL");
-            command.Parameters.AddWithValue("@E-Mail", neuerGeschaeftspartner.EMail != "" ? neuerGeschaeftspartner.EMail : "NULL");
+            command.Parameters.AddWithValue("@EMail", neuerGeschaeftspartner.EMail != "" ? neuerGeschaeftspartner.EMail : "NULL");
+            command.Parameters.AddWithValue("@Hausnummer", neuerGeschaeftspartner.Hausnummer);
 
             try
             {
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception exception)
             {
                 return false;
             }
+
+            var personId = (int)command.LastInsertedId;
+            command = new MySqlCommand("SELECT rgt FROM geschaeftspartner WHERE id=@id", this.connection);
+            command.Parameters.AddWithValue("@id", neuerGeschaeftspartner.Vorgesetzter.Id);
+
+            var rgt = (int)command.ExecuteScalar();
+
+            command = new MySqlCommand("UPDATE geschaeftspartner SET rgt=rgt+2 WHERE rgt >= @rgt;", this.connection);
+            command.Parameters.AddWithValue("@rgt", rgt);
+            Debug.WriteLine(command.ExecuteNonQuery());
+
+            command = new MySqlCommand("UPDATE geschaeftspartner SET lft=lft+2 WHERE lft > @rgt;", this.connection);
+            command.Parameters.AddWithValue("@rgt", rgt);
+            Debug.WriteLine(command.ExecuteNonQuery());
+
+            command = new MySqlCommand("INSERT INTO geschaeftspartner (Vorgesetzter,lft,rgt,PersonId) VALUES (@vogesetzterId, @rgt, @lft, @PersonId);", this.connection);
+            command.Parameters.AddWithValue("@rgt", rgt);
+            command.Parameters.AddWithValue("@lft", rgt + 1);
+            command.Parameters.AddWithValue("@vogesetzterId", neuerGeschaeftspartner.Vorgesetzter.Id);
+            command.Parameters.AddWithValue("@PersonId", personId);
+            Debug.WriteLine(command.ExecuteNonQuery());
+
             return true;
         }
         /// <summary>

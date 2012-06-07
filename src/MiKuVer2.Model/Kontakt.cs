@@ -65,7 +65,7 @@ namespace MiKuVer2.Model
         /// </summary>
         [DataMember]
         [Required]
-        [DataType(DataType.EmailAddress, ErrorMessage = "Invalid Email Address")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Ungültige E-Mail Adresse")]
         public string EMail { get; set; }
     }
 }

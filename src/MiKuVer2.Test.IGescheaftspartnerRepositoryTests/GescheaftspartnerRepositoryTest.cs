@@ -7,6 +7,7 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
 {
     using MiKuVer2.Model;
     using MiKuVer2.Repositories.Geschaeftspartner.Fake;
+    using MiKuVer2.Repositories.Geschaeftspartner.MySQL;
 
     using NUnit.Framework;
 
@@ -18,7 +19,7 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
         [SetUp]
         public void Setup()
         {
-            sut = new GescheaftspartnerRepositoryFake();
+            this.sut = new GeschaeftspartnerRepository();
         }
 
         [TearDown]
@@ -51,7 +52,6 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
 
             // assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(4,result.Count);
         }
 
         [Test]
@@ -61,13 +61,13 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
             Geschaeftspartner result;
             
             // act
-            result = sut.GetGeschaeftspartner(2);
+            result = sut.GetGeschaeftspartner(1);
 
             // assert
             Assert.IsNotNull(result);
             Assert.IsNotNullOrEmpty(result.Nachname);
             Assert.IsNotNullOrEmpty(result.Vorname);
-            Assert.AreEqual(2,result.Id);
+            Assert.AreEqual(1,result.Id);
         }
 
         [Test]
@@ -93,15 +93,22 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
             Geschaeftspartner neuerGP = new Geschaeftspartner()
                 {
                     Eintrittsdatum = DateTime.Now,
-                    EMail = "test@test.de",
-                    Vorname = "Test",
-                    Nachname = "Testman",
-                    Vorgesetzter = sut.GetGeschaeftspartner(0),
+                    EMail = "artur.pasternak@ergo.de",
+                    Vorname = "Artur",
+                    Nachname = "Pasternak",
+                    Geburtstag = DateTime.Parse("21.06.1988"),
+                    PLZ = "78554",
+                    Ort = "Aldingen",
+                    Strasse = "Im Eigenleh",
+                    Hausnummer = "37",
+                    Telefon = "",
+                    Geschlecht = true,
+                    Vorgesetzter = sut.GetGeschaeftspartner(2),
                 };
 
             // act
             var result = sut.GeschaeftspartnerSpeichern(neuerGP);
-            var gpAusRepo = sut.GetGeschaeftspartner(5);
+            var gpAusRepo = sut.GetGeschaeftspartner(3);
 
             // assert
             Assert.IsTrue(result);
