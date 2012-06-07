@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Direkte Geschäftspartner von XYZ</h2>
+<h2>Direkte Geschäftspartner von @ViewBag.gp.Nachname</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")

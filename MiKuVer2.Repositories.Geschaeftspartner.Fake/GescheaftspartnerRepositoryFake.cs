@@ -20,6 +20,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
         private Geschaeftspartner willi = new Geschaeftspartner()
         {
             Nachname = "Pasternak",
+            Geschlecht = true,
             Vorname = "Willi",
             Eintrittsdatum = DateTime.Now,
             EMail = "willi.pasternak@ergo.de",
