@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="GeschaeftspartnerService.cs" />
     <Compile Include="IGeschaeftspartnerService.cs" />
+    <Compile Include="IKundenService.cs" />
+    <Compile Include="KundenService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
