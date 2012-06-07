@@ -30,7 +30,7 @@ namespace MiKuVer2.Services
         }
 
         /// <summary>
-        /// Gets or sets KundenRepository.
+        /// Gets or sets _UnternehmenRepository.
         /// </summary>
         [Import(typeof(IUnternehmenRepository))]
         public IUnternehmenRepository UnternehmenRepository { get; set; }
