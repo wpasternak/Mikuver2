@@ -13,40 +13,16 @@
 <table>
     <tr>
         <th>
-            Eintrittsdatum
+            
         </th>
         <th>
-            Vorname
+           
         </th>
         <th>
-            Nachname
+            
         </th>
         <th>
-            Geburtstag
-        </th>
-        <th>
-            Geschlecht
-        </th>
-        <th>
-            Fax
-        </th>
-        <th>
-            Strasse
-        </th>
-        <th>
-            Telefon
-        </th>
-        <th>
-            Hausnummer
-        </th>
-        <th>
-            PLZ
-        </th>
-        <th>
-            Ort
-        </th>
-        <th>
-            EMail
+            Personal-Nr.
         </th>
         <th></th>
     </tr>
@@ -57,7 +33,9 @@
             @Html.DisplayFor(modelItem => item.Eintrittsdatum)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Vorname)
+           @Html.ActionLink(item.Vorname+" " + item.Nachname, "Details", new { id = item.Id })
+           @Html.DisplayFor(modelItem => item.Vorname)
+           @Html.DisplayFor(modelItem => item.Nachname)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nachname)
@@ -65,7 +43,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Geburtstag)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Geschlecht)
         </td>
         <td>
@@ -93,7 +71,7 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
+        </td>*@
     </tr>
 }
 
