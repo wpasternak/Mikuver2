@@ -45,7 +45,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AufgabeService.cs" />
     <Compile Include="GeschaeftspartnerService.cs" />
+    <Compile Include="IAufgabeService.cs" />
     <Compile Include="IGeschaeftspartnerService.cs" />
     <Compile Include="IKundenService.cs" />
     <Compile Include="ITerminService.cs" />
