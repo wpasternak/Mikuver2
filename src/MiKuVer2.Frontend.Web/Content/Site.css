@@ -40,6 +40,7 @@ footer,
 nav,
 section {
     display: block;
+    
 }
 
 /* HEADINGS   
@@ -121,6 +122,36 @@ footer,
     -webkit-border-radius: 0 0 4px 4px;
     -moz-border-radius: 0 0 4px 4px;
 }
+
+#photo{float:left;margin-left:30px;height:60px; width:60px;}
+.bild{width:80px; height:100px;}
+
+#dropdown{float:right;}
+#dropdown ul li{margin-right:0; padding-right:0;width:120px;}
+#dropdownmenu li ul li{text-align:left;margin-left:-10px;}
+#dropdownmenu, #dropdownmenu li ul{list-style-type:none;}
+ul#dropdownmenu, ul#dropdownmenu li ul {
+  padding: 5px 10px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;}
+
+#dropdownmenu li ul {
+    display:none;
+}
+#dropdownmenu li:hover ul {
+    display:block;}
+
+ul#dropdownmenu li a {text-decoration:none; color:#034af3}
+
+ul#dropdownmenu {margin:0 0;}
+
+
 
 /* TAB MENU   
 ----------------------------------------------------------*/
@@ -350,8 +381,9 @@ table th {
 nav, 
 #menucontainer {
     height:60px;
-    width:100%;
+    width:96%;
     background-color: #fff;
+    margin:auto;
     margin-bottom: 20px;
     display:block;
 }
