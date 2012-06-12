@@ -6,25 +6,27 @@
 }
 
 <h2>Direkte Geschäftspartner von @ViewBag.gp.Nachname</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table>
     <tr>
-        <th>
-            
-        </th>
-        <th>
-           
-        </th>
-        <th>
-            
-        </th>
-        <th>
+        <td>@Html.ActionLink("Neuen Geschäftspartner anlegen", "Create")</td>
+    </tr>
+</table>
+<br />
+<table>
+    <tr>
+        <td>@Html.ActionLink("Direkte Geschäftspartner", "Index", "Geschaeftspartner")</td>
+        <td>@Html.ActionLink("Alle Geschäftspartner", "Index", "Geschaeftspartner")</td>
+        <td>@Html.ActionLink("Listenansicht", "Index", "Geschaeftspartner")</td>
+    </tr>
+</table>
+<br />
+<table>
+    <tr>
+        <th></th>
+        <th></th>
+        <th style="width:300px; text-align:right">
             Personal-Nr.
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -34,13 +36,8 @@
         </td>
         <td>
            @Html.ActionLink(item.Vorname+" " + item.Nachname, "Details", new { id = item.Id })
-           @Html.DisplayFor(modelItem => item.Vorname)
-           @Html.DisplayFor(modelItem => item.Nachname)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nachname)
-        </td>
-        <td>
+        <td style="width:300px; text-align:right">
             @Html.DisplayFor(modelItem => item.Geburtstag)
         </td>
         @*<td>

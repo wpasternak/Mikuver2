@@ -14,24 +14,25 @@
             @Html.Partial("_LogOnPartial")
         </div>*@
         <nav>
-            <ul id="menu">
+             <ul id="menu">
                 <li class='active '>@Html.ActionLink("CRM", "Index", "Home")</li>
                 <li>@Html.ActionLink("Geschaeftspartner","Index","Geschaeftspartner")</li>
                 <li>@Html.ActionLink("Kalender", "About", "Home")</li>
                 <li>@Html.ActionLink("Aufgaben", "About", "Home")</li>
-            </ul> 
-         <div id="photo">
-            <img src="C:\Users\Denis Gerber\Desktop\bild-kl.jpg" alt="Alternate Text" />
-         </div>     
-                <div id="dropdown">
-                  <ul id="dropdownmenu">
-                    <li> <a href="home">E-mail</a>
+             </ul> 
+             <div id="photo">
+                <img src="C:\Users\Denis Gerber\Desktop\bild-kl.jpg" alt="Alternate Text" />
+             </div>     
+             <div id="dropdown">
+                <ul id="dropdownmenu">
+                    <li> <a href="home">E-Mail Adresse ändern</a>
                         <ul>
-                            <li> <a href="home">E-Mail</a></li>
-                            <li> <a href="home">Kennwort</a></li>
+                            <li> <a href="home">Kennwort ändern</a></li>
+                            <li> <a href="home">Hintergrundfarbe ändern</a></li>
                             <li> @Html.ActionLink("Ausloggen", "LogOff", "Account")</li>
                         </ul>
                     </li>
+                </ul>
                 </div>
         </nav> 
         
