@@ -12,9 +12,10 @@ body {
     color: #696969;
 }
 
+
 a:link {
     color: #034af3;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:visited {
@@ -29,6 +30,7 @@ a:hover {
 a:active {
     color: #12eb87;
 }
+
 
 p, ul {
     margin-bottom: 20px;

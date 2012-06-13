@@ -9,20 +9,27 @@
 <fieldset>
 	<legend>Gesch&auml;ftspartner Details</legend>
     
-    <div style="position:absolute; margin: 140px 0 0 400px; ">
-        <img src="../../Content/themes/base/images/ui-icons_cd0a0a_256x240.png" alt="Test" width="100px" height="170px" />
-     </div>
+    
     <table style="margin-top:15px;">
         <tr>
             <td>
-               <p style="font-size:26px; font-weight:bolder;">@Html.DisplayFor(model => model.Vorname)</p>
+               <p style="font-size:26px; font-weight:bolder;">@Html.DisplayFor(model => model.Vorname) @Html.DisplayFor(model => model.Nachname)</p>
             </td>
-            <td> 
-              <p style="font-size:26px; font-weight:bolder;"> @Html.DisplayFor(model => model.Nachname)</p>
+        </tr>
+        <tr>
+            <td>
+                <p >
+	               @Html.ActionLink("Geschäpartner bearbeiten", "Edit", new { id=Model.Id })
+	               @* @Html.ActionLink("Back to List", "Index")*@
+                </p>
+ 
             </td>
+        </tr>
      </table>
      <hr />
-     
+     <div style="position:absolute; margin: 15px 0 0 400px; ">
+        <img src="../../Content/themes/base/images/ui-icons_cd0a0a_256x240.png" alt="Test" width="100px" height="170px" />
+     </div>
      <table style="margin-top:15px;">
      <tr>
      <td>
@@ -156,7 +163,3 @@
 	   }
 	</div>*@
 </fieldset>
-<p>
-	@Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-	@Html.ActionLink("Back to List", "Index")
-</p>
