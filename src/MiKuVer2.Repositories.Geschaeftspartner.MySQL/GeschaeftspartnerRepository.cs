@@ -97,9 +97,10 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
                         personId = reader.GetInt32(1);
                     }
                 }
+
                 reader.Close();
             }
-            catch (Exception)
+            catch (Exception exception)
             {
                 reader.Dispose();
                 throw;
@@ -152,17 +153,17 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
         /// <returns>true oder false</returns>
         public bool GeschaeftspartnerSpeichern(Geschaeftspartner neuerGeschaeftspartner)
         {
-            var command = new MySqlCommand("INSERT INTO person (Vorname, Nachname, Geburtsdatum, Geschlecht, Fax, Telefon, Strasse, Hausnummer, PLZ, Ort, E-Mail) VALUES (@Vorname, @Nachname, @Geburtsdatum, @Geschlecht, @Fax, @Telefon, @Strasse, @Hausnummer, @PLZ, @Ort, @EMail)", this.connection);
+            var command = new MySqlCommand("INSERT INTO person (Vorname, Nachname, Geburtsdatum, GeschlechtID, Fax, Telefon, Strasse, Hausnummer, PLZ, Ort, `E-Mail`) VALUES (@Vorname, @Nachname, @Geburtsdatum, @Geschlecht, @Fax, @Telefon, @Strasse, @Hausnummer, @PLZ, @Ort, @EMail)", this.connection);
             command.Parameters.AddWithValue("@Vorname", neuerGeschaeftspartner.Vorname);
             command.Parameters.AddWithValue("@Nachname", neuerGeschaeftspartner.Nachname);
             command.Parameters.AddWithValue("@Geburtsdatum", neuerGeschaeftspartner.Geburtstag);
             command.Parameters.AddWithValue("@Geschlecht", neuerGeschaeftspartner.Geschlecht);
-            command.Parameters.AddWithValue("@Fax", neuerGeschaeftspartner.Fax != "" ? neuerGeschaeftspartner.Fax : "NULL");
-            command.Parameters.AddWithValue("@Telefon", neuerGeschaeftspartner.Telefon != "" ? neuerGeschaeftspartner.Telefon : "NULL");
-            command.Parameters.AddWithValue("@Strasse", neuerGeschaeftspartner.Strasse != "" ? neuerGeschaeftspartner.Strasse : "NULL");
-            command.Parameters.AddWithValue("@PLZ", neuerGeschaeftspartner.PLZ != "" ? neuerGeschaeftspartner.PLZ : "NULL");
-            command.Parameters.AddWithValue("@Ort", neuerGeschaeftspartner.Ort != "" ? neuerGeschaeftspartner.Ort : "NULL");
-            command.Parameters.AddWithValue("@EMail", neuerGeschaeftspartner.EMail != "" ? neuerGeschaeftspartner.EMail : "NULL");
+            command.Parameters.AddWithValue("@Fax", neuerGeschaeftspartner.Fax != "" ? neuerGeschaeftspartner.Fax : null);
+            command.Parameters.AddWithValue("@Telefon", neuerGeschaeftspartner.Telefon != "" ? neuerGeschaeftspartner.Telefon : null);
+            command.Parameters.AddWithValue("@Strasse", neuerGeschaeftspartner.Strasse != "" ? neuerGeschaeftspartner.Strasse : null);
+            command.Parameters.AddWithValue("@PLZ", neuerGeschaeftspartner.PLZ != "" ? neuerGeschaeftspartner.PLZ : null);
+            command.Parameters.AddWithValue("@Ort", neuerGeschaeftspartner.Ort != "" ? neuerGeschaeftspartner.Ort : null);
+            command.Parameters.AddWithValue("@EMail", neuerGeschaeftspartner.EMail != "" ? neuerGeschaeftspartner.EMail : null);
             command.Parameters.AddWithValue("@Hausnummer", neuerGeschaeftspartner.Hausnummer);
 
             try
