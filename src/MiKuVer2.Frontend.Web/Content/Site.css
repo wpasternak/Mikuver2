@@ -40,6 +40,7 @@ footer,
 nav,
 section {
     display: block;
+    
 }
 
 /* HEADINGS   
@@ -103,7 +104,7 @@ header h1, #header h1 {
 #main {
     padding: 30px 30px 15px 30px;
     background-color: #fff;
-    border-radius: 4px 0 0 0;
+    border-radius: 0 0 0 0;
     -webkit-border-radius: 4px 0 0 0;
     -moz-border-radius: 4px 0 0 0;
 }
@@ -117,10 +118,41 @@ footer,
     line-height: normal;
     margin: 0 0 30px 0;
     font-size: .9em;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 0 0;
     -webkit-border-radius: 0 0 4px 4px;
     -moz-border-radius: 0 0 4px 4px;
 }
+
+#photo{float:left;margin-left:30px;height:60px; width:60px;}
+.bild{width:80px; height:100px;}
+
+#dropdown{float:right;}
+#dropdown ul li{margin-right:0; padding-right:0;width:180px;}
+#dropdownmenu li ul li{text-align:left;margin-left:-10px;}
+#dropdownmenu, #dropdownmenu li ul{list-style-type:none;}
+ul#dropdownmenu, ul#dropdownmenu li ul {
+  padding: 5px 10px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+    border-radius: 0 0 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;}
+
+#dropdownmenu li ul {
+    display:none;
+}
+#dropdownmenu li:hover ul {
+    display:block;}
+
+ul#dropdownmenu li a {text-decoration:none; color:#034af3}
+
+ul#dropdownmenu {margin:0 0;}
+
+
+
 
 /* TAB MENU   
 ----------------------------------------------------------*/
@@ -151,7 +183,7 @@ ul#menu li a {
     line-height: 2.8em;
     background-color: #e8eef4;
     color: #034af3;
-    border-radius: 4px 4px 0 0;
+    border-radius: 0 0 0 0;
     -webkit-border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
 }
@@ -310,7 +342,7 @@ select {
     color: #444;
 }
 
-input[type="submit"] {
+input[type="submit"] , input[type="reset"]{
     font-size: 1.2em;
     padding: 5px;
 }
@@ -319,20 +351,21 @@ input[type="submit"] {
 ----------------------------------------------------------*/
 
 table {
-    border: solid 1px #e8eef4;
+    border: solid 1px white;
     border-collapse: collapse;
+    text-decoration:none;
 }
 
 table td {
     padding: 5px;
-    border: solid 1px #e8eef4;
+    border: solid 1px white;
 }
 
 table th {
     padding: 6px 5px;
     text-align: left;
     background-color: #e8eef4;
-    border: solid 1px #e8eef4;
+    border: solid 1px white;
 }
 
 /* MISC  
@@ -350,8 +383,9 @@ table th {
 nav, 
 #menucontainer {
     height:60px;
-    width:100%;
+    width:96%;
     background-color: #fff;
+    margin:auto;
     margin-bottom: 20px;
     display:block;
 }
@@ -413,12 +447,12 @@ div#title {
 ----------------------------------------------------------*/
 .display-label, 
 .editor-label {
-    margin: 1em 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .display-field, 
 .editor-field {
-    margin: 0.5em 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .text-box {
