@@ -21,13 +21,13 @@
                 <li>@Html.ActionLink("Aufgaben", "About", "Home")</li>
              </ul> 
              <div id="photo">
-                <img src="C:\Users\Denis Gerber\Desktop\bild-kl.jpg" alt="Alternate Text" />
+                <img src="../../Content/themes/base/images/ui-icons_cd0a0a_256x240.png" alt="Alternate Text" height="60px" width="60px" />
              </div>     
              <div id="dropdown">
                 <ul id="dropdownmenu">
                     <li> <a href="home">E-Mail Adresse ändern</a>
                         <ul>
-                            <li> <a href="home">Kennwort ändern</a></li>
+                            <li> @Html.ActionLink("Kennwort ändern", "ChangePassword", "Account")</li>
                             <li> <a href="home">Hintergrundfarbe ändern</a></li>
                             <li> @Html.ActionLink("Ausloggen", "LogOff", "Account")</li>
                         </ul>

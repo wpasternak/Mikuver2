@@ -13,6 +13,8 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Neuen Gesch&auml;ftspartner anlegen</legend>
+     
+     <form action="">
       <table style="margin-top:15px;">
         <tr>
             <td>
@@ -130,18 +132,22 @@
         <tr>
             <td><p style="font-style:italic; font-size:12px;">* Pflichtfelder</p></td>
         </tr>
-    </table>
-        <table style="position:relative; top:10px;">
+   @* </table>
+        <table style="position:relative; top:10px;">*@
             <tr>
                 <td>
                     <input type="submit" value="Profil anlegen" />
-                    <input type="reset" value="Abbrechen" />
+                    
+                </td>
+                <td>
+                <input type="reset" value="Abbrechen" />
                 </td>
             </tr>
-        </table>
+       @* </table>*@
+    </form>
     </fieldset>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@

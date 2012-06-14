@@ -4,20 +4,20 @@
     ViewBag.Title = "Log On";
 }
 
-<h2>Log On</h2>
+<h2>Anmelden</h2>
 <p>
-    Please enter your user name and password. @Html.ActionLink("Register", "Register") if you don't have an account.
+    Bitte Benutzername und Passwort eingeben. Kein Account? Hier geht's zum @Html.ActionLink("registrieren", "Register").
 </p>
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
-@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+@Html.ValidationSummary(true, "Anmelden fehlgeschlagen. Bitte noch einmal versuchen.")
 
 @using (Html.BeginForm()) {
     <div>
         <fieldset>
-            <legend>Account Information</legend>
+            <legend>Anmelden</legend>
 
             <div class="editor-label">
                 @Html.LabelFor(m => m.UserName)
@@ -41,7 +41,7 @@
             </div>
 
             <p>
-                <input type="submit" value="Log On" />
+                <input type="submit" value="Anmelden" />
             </p>
         </fieldset>
     </div>
