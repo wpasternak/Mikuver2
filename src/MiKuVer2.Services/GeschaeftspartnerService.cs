@@ -18,17 +18,16 @@ namespace MiKuVer2.Services
     {
         public GeschaeftspartnerService()
         {
-            //var catalog = new DirectoryCatalog(".");
-            //var container = new CompositionContainer(catalog);
-            //try
-            //{
-            //    container.ComposeParts(this);
-            //}
-            //catch (ChangeRejectedException exception)
-            //{
-            //    Debug.WriteLine(exception.Message);
-            //}
-            this.GeschaeftspartnerRepository = new GeschaeftspartnerRepository();
+            var catalog = new DirectoryCatalog(".");
+            var container = new CompositionContainer(catalog);
+            try
+            {
+                container.ComposeParts(this);
+            }
+            catch (ChangeRejectedException exception)
+            {
+                Debug.WriteLine(exception.Message);
+            }
         }
 
         /// <summary>
