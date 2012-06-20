@@ -90,11 +90,11 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
         {
             // arrange
             var mock = new Mock<IGeschaeftspartnerRepository>();
-            mock.Setup(repo => repo.GetDirekteGeschaeftspartner()).Returns(kristl.Partner);
+            mock.Setup(repo => repo.GetDirekteGeschaeftspartner(1)).Returns(kristl.Partner);
             sut.GeschaeftspartnerRepository = mock.Object;
 
             // act
-            List<Geschaeftspartner> gps = sut.GetDirekteGeschaeftspartner();
+            List<Geschaeftspartner> gps = sut.GetDirekteGeschaeftspartner(1);
 
             // assert
             Assert.IsNotEmpty(gps);
@@ -105,11 +105,11 @@ namespace MiKuVer2.Tests.GeschaeftspartnerTests
         {
             // arrange
             var mock = new Mock<IGeschaeftspartnerRepository>();
-            mock.Setup(repo => repo.GetAlleGeschaeftspartner()).Returns(kristl.Partner);
+            mock.Setup(repo => repo.GetAlleGeschaeftspartner(1)).Returns(kristl.Partner);
             sut.GeschaeftspartnerRepository = mock.Object;
 
             // act
-            List<Geschaeftspartner> gps = sut.GetAlleGeschaeftspartner();
+            List<Geschaeftspartner> gps = sut.GetAlleGeschaeftspartner(1);
 
             // assert
             Assert.IsNotEmpty(gps);

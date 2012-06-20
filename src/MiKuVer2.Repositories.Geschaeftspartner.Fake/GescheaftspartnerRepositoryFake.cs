@@ -81,7 +81,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
         /// Gibt alle direkten Geschaeftsparner zurueck
         /// </summary>
         /// <returns>Liste aller direkten Geschaeftspartner</returns>
-        public List<Geschaeftspartner> GetDirekteGeschaeftspartner()
+        public List<Geschaeftspartner> GetDirekteGeschaeftspartner(int id)
         {
             return angemeldeterUser.Partner;
         }
@@ -90,7 +90,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.Fake
         /// Gibt alle Geschaeftspartner zurueck
         /// </summary>
         /// <returns>Liste aller Geschaeftspartner</returns>
-        public List<Geschaeftspartner> GetAlleGeschaeftspartner()
+        public List<Geschaeftspartner> GetAlleGeschaeftspartner(int id)
         {
             List<Geschaeftspartner> result = new List<Geschaeftspartner>();
 

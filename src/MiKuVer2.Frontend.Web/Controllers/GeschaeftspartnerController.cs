@@ -20,7 +20,7 @@ namespace MiKuVer2.Frontend.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.gp = this.geschaeftspartnerService.GetGeschaeftspartner(1);
-            var gps = this.geschaeftspartnerService.GetDirekteGeschaeftspartner();
+            var gps = this.geschaeftspartnerService.GetDirekteGeschaeftspartner(1);
             return View(gps);
         }
 
@@ -30,6 +30,7 @@ namespace MiKuVer2.Frontend.Web.Controllers
         public ActionResult Details(int id)
         {
             var gp = this.geschaeftspartnerService.GetGeschaeftspartner(id);
+            gp.Partner = this.geschaeftspartnerService.GetDirekteGeschaeftspartner(id);
             return View(gp);
         }
 

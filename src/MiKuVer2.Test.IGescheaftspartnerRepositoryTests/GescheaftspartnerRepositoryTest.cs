@@ -35,7 +35,7 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
             List<Geschaeftspartner> result;
 
             // act
-            result = sut.GetDirekteGeschaeftspartner();
+            result = sut.GetDirekteGeschaeftspartner(1);
 
             // assert
             Assert.IsNotNull(result);
@@ -48,7 +48,7 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
             List<Geschaeftspartner> result;
 
             // act
-            result = sut.GetAlleGeschaeftspartner();
+            result = sut.GetAlleGeschaeftspartner(1);
 
             // assert
             Assert.IsNotNull(result);
@@ -112,7 +112,7 @@ namespace MiKuVer2.Test.IGescheaftspartnerRepositoryTests
 
             // assert
             Assert.IsTrue(result);
-            Assert.AreEqual(2,sut.GetDirekteGeschaeftspartner().Count);
+            Assert.AreEqual(2,sut.GetDirekteGeschaeftspartner(1).Count);
             Assert.IsNotNull(gpAusRepo);
             Assert.Greater(neuerGP.Id,0);
         }

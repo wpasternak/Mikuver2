@@ -41,18 +41,18 @@ namespace MiKuVer2.Services
         /// Gibt alle direkten Geschaeftsparner zurueck
         /// </summary>
         /// <returns>Liste aller direkten Geschaeftspartner</returns>
-        public List<Geschaeftspartner> GetDirekteGeschaeftspartner()
+        public List<Geschaeftspartner> GetDirekteGeschaeftspartner(int id)
         {
-            return this.GeschaeftspartnerRepository.GetDirekteGeschaeftspartner();
+            return this.GeschaeftspartnerRepository.GetDirekteGeschaeftspartner(id);
         }
 
         /// <summary>
         /// Gibt alle Geschaeftspartner zurueck
         /// </summary>
         /// <returns>Liste aller Geschaeftspartner</returns>
-        public List<Geschaeftspartner> GetAlleGeschaeftspartner()
+        public List<Geschaeftspartner> GetAlleGeschaeftspartner(int id)
         {
-            return this.GeschaeftspartnerRepository.GetAlleGeschaeftspartner();
+            return this.GeschaeftspartnerRepository.GetAlleGeschaeftspartner(id);
         }
 
         /// <summary>

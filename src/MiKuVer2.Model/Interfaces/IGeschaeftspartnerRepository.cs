@@ -11,13 +11,13 @@ namespace MiKuVer2.Model
         /// Gibt alle direkten Geschaeftsparner zurueck
         /// </summary>
         /// <returns>Liste aller direkten Geschaeftspartner</returns>
-        List<Geschaeftspartner> GetDirekteGeschaeftspartner();
+        List<Geschaeftspartner> GetDirekteGeschaeftspartner(int id);
 
         /// <summary>
         /// Gibt alle Geschaeftspartner zurueck
         /// </summary>
         /// <returns>Liste aller Geschaeftspartner</returns>
-        List<Geschaeftspartner> GetAlleGeschaeftspartner();
+        List<Geschaeftspartner> GetAlleGeschaeftspartner(int id);
 
         /// <summary>
         /// Gibt den Geschaeftspartner zurueck

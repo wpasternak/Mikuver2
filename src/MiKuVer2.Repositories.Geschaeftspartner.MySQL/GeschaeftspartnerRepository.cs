@@ -15,6 +15,9 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
     using MySql.Data.MySqlClient;
 
     //todo: aktuell eingelogten GP setzen
+    /// <summary>
+    /// Ladida
+    /// </summary>
     [Export(typeof(IGeschaeftspartnerRepository))]
     public class GeschaeftspartnerRepository : IGeschaeftspartnerRepository
     {
@@ -38,13 +41,13 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
         /// Gibt alle direkten Geschaeftsparner zurueck
         /// </summary>
         /// <returns>Liste aller direkten Geschaeftspartner</returns>
-        public List<Geschaeftspartner> GetDirekteGeschaeftspartner()
+        public List<Geschaeftspartner> GetDirekteGeschaeftspartner(int id)
         {
 
             var gpsIds = new List<int>();
 
             var command = new MySqlCommand("SELECT ID FROM geschaeftspartner WHERE Vorgesetzter=@id",this.connection);
-            command.Parameters.AddWithValue("@id", 1);
+            command.Parameters.AddWithValue("@id", id);
             var reader = command.ExecuteReader();
 
             if (reader.HasRows)
@@ -65,7 +68,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
         /// Gibt alle Geschaeftspartner zurueck
         /// </summary>
         /// <returns>Liste aller Geschaeftspartner</returns>
-        public List<Geschaeftspartner> GetAlleGeschaeftspartner()
+        public List<Geschaeftspartner> GetAlleGeschaeftspartner(int id)
         {
             throw new NotImplementedException();
         }

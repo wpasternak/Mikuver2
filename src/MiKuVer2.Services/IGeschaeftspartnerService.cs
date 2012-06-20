@@ -19,14 +19,14 @@ namespace MiKuVer2.Services
         /// </summary>
         /// <returns>Liste aller direkten Geschaeftspartner</returns>
         [OperationContract]
-        List<Geschaeftspartner> GetDirekteGeschaeftspartner();
+        List<Geschaeftspartner> GetDirekteGeschaeftspartner(int id);
 
         /// <summary>
         /// Gibt alle Geschaeftspartner zurueck
         /// </summary>
         /// <returns>Liste aller Geschaeftspartner</returns>
         [OperationContract]
-        List<Geschaeftspartner> GetAlleGeschaeftspartner();
+        List<Geschaeftspartner> GetAlleGeschaeftspartner(int id);
 
         /// <summary>
         /// Gibt den Geschaeftspartner zurueck
