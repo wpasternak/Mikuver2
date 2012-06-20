@@ -6,10 +6,12 @@ using MiKuVer2.Model;
 
 namespace MiKuVer2.Repositories.Kunden
 {
+    using System.ComponentModel.Composition;
     using System.Data;
 
     using MySql.Data.MySqlClient;
 
+    [Export(typeof(IKundenRepository))]
     class KundenRepository : IKundenRepository
     {
         private MySqlConnection connection;
