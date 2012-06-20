@@ -7,6 +7,8 @@ using System.Runtime.Serialization;
 
 namespace MiKuVer2.Model
 {
+    using System.ComponentModel.DataAnnotations;
+
     /// <summary>
     /// Die Geschaeftspartnerdaten
     /// </summary>
@@ -42,6 +44,7 @@ namespace MiKuVer2.Model
         /// Das Eintrittsdatum des Geschaeftspartners in das Unternehmen
         /// </summary>
         [DataMember]
+        [DataType(DataType.Date)]
         public DateTime Eintrittsdatum { get; set; }
     }
 }

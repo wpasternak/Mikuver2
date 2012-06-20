@@ -65,6 +65,10 @@
       <Project>{DCDA182E-8115-44ED-B15D-A60FCF97240C}</Project>
       <Name>MiKuVer2.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MiKuVer2.Repositories.Geschaeftspartner.MySQL\MiKuVer2.Repositories.Geschaeftspartner.MySQL.csproj">
+      <Project>{E732FC9A-7339-4876-B6C6-E231FE1473F5}</Project>
+      <Name>MiKuVer2.Repositories.Geschaeftspartner.MySQL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

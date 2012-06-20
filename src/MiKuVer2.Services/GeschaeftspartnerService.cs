@@ -12,21 +12,23 @@ namespace MiKuVer2.Services
     using System.Diagnostics;
 
     using MiKuVer2.Model;
+    using MiKuVer2.Repositories.Geschaeftspartner.MySQL;
 
     public class GeschaeftspartnerService : IGeschaeftspartnerService
     {
         public GeschaeftspartnerService()
         {
-            var catalog = new DirectoryCatalog(".");
-            var container = new CompositionContainer(catalog);
-            try
-            {
-                container.ComposeParts(this);
-            }
-            catch (ChangeRejectedException exception)
-            {
-                Debug.WriteLine(exception.Message);
-            }
+            //var catalog = new DirectoryCatalog(".");
+            //var container = new CompositionContainer(catalog);
+            //try
+            //{
+            //    container.ComposeParts(this);
+            //}
+            //catch (ChangeRejectedException exception)
+            //{
+            //    Debug.WriteLine(exception.Message);
+            //}
+            this.GeschaeftspartnerRepository = new GeschaeftspartnerRepository();
         }
 
         /// <summary>

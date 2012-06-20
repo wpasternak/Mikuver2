@@ -92,7 +92,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
                 {
                     while (reader.Read())
                     {
-                        result.Eintrittsdatum = reader.GetDateTime(0);
+                        result.Eintrittsdatum = reader.IsDBNull(reader.GetOrdinal("Eintrittsdatum")) != true ? reader.GetDateTime("Eintrittsdatum").Date : DateTime.MinValue;
                         result.Id = id;
                         personId = reader.GetInt32(1);
                     }
@@ -103,7 +103,6 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             catch (Exception exception)
             {
                 reader.Dispose();
-                throw;
             }
 
             command = new MySqlCommand("SELECT * FROM person WHERE id=@id",this.connection);
@@ -177,7 +176,8 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
 
             var personId = (int)command.LastInsertedId;
             command = new MySqlCommand("SELECT rgt FROM geschaeftspartner WHERE id=@id", this.connection);
-            command.Parameters.AddWithValue("@id", neuerGeschaeftspartner.Vorgesetzter.Id);
+            command.Parameters.AddWithValue(
+                "@id", neuerGeschaeftspartner.Vorgesetzter != null ? neuerGeschaeftspartner.Vorgesetzter.Id : 1);
 
             var rgt = (int)command.ExecuteScalar();
 
@@ -192,12 +192,13 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             command = new MySqlCommand("INSERT INTO geschaeftspartner (Vorgesetzter,lft,rgt,PersonId) VALUES (@vogesetzterId, @rgt, @lft, @PersonId);", this.connection);
             command.Parameters.AddWithValue("@rgt", rgt);
             command.Parameters.AddWithValue("@lft", rgt + 1);
-            command.Parameters.AddWithValue("@vogesetzterId", neuerGeschaeftspartner.Vorgesetzter.Id);
+            command.Parameters.AddWithValue("@vogesetzterId", neuerGeschaeftspartner.Vorgesetzter != null ? neuerGeschaeftspartner.Vorgesetzter.Id : 1);
             command.Parameters.AddWithValue("@PersonId", personId);
             Debug.WriteLine(command.ExecuteNonQuery());
 
             return true;
         }
+
         /// <summary>
         /// Gibt einen Wert zurueck ob der vorhande Geschaeftspartner
         /// aktualisiert wurde

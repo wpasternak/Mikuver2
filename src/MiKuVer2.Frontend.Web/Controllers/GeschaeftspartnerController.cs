@@ -19,7 +19,7 @@ namespace MiKuVer2.Frontend.Web.Controllers
         
         public ActionResult Index()
         {
-            ViewBag.gp = this.geschaeftspartnerService.GetGeschaeftspartner(0);
+            ViewBag.gp = this.geschaeftspartnerService.GetGeschaeftspartner(1);
             var gps = this.geschaeftspartnerService.GetDirekteGeschaeftspartner();
             return View(gps);
         }
