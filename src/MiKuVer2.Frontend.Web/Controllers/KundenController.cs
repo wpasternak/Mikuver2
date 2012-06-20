@@ -6,14 +6,20 @@ using System.Web.Mvc;
 
 namespace MiKuVer2.Frontend.Web.Controllers
 {
+    using MiKuVer2.Model;
+    using MiKuVer2.Services;
+
     public class KundenController : Controller
     {
+        private IKundenService kundenService = new KundenService();
+
         //
         // GET: /Kunden/
 
         public ActionResult Index()
         {
-            return View();
+            var kunden = this.kundenService.GetDirekteKunden();
+            return View(kunden);
         }
 
         //
@@ -36,7 +42,7 @@ namespace MiKuVer2.Frontend.Web.Controllers
         // POST: /Kunden/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Kunde neuerKunde)
         {
             try
             {
