@@ -8,20 +8,22 @@
     <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
 </head>
 <body>
-
-    <header>
+<div id="header">
+    
     @*            <div id="logindisplay">
             @Html.Partial("_LogOnPartial")
         </div>*@
+        
         <nav>
              <ul id="menu">
-                <li class='active '>@Html.ActionLink("CRM", "Index", "Home")</li>
+                <li class='active '>@Html.ActionLink("CRM", "Index", "Kunden")</li>
                 <li>@Html.ActionLink("Geschaeftspartner","Index","Geschaeftspartner")</li>
                 <li>@Html.ActionLink("Kalender", "About", "Home")</li>
                 <li>@Html.ActionLink("Aufgaben", "About", "Home")</li>
-             </ul> 
+             </ul>
+          
              <div id="photo">
-                <img src="../../Content/themes/base/images/ui-icons_cd0a0a_256x240.png" alt="Alternate Text" height="60px" width="60px" />
+                
              </div>     
              <div id="dropdown">
                 <ul id="dropdownmenu">
@@ -36,7 +38,7 @@
                 </div>
         </nav> 
         
-    </header>
+    </div>
 
     <div class="page">
 
