@@ -3,15 +3,16 @@ The base color for this template is #5c87b2. If you'd like
 to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
+
 body {
     background-color: #5c87b2;
     font-size: .85em;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
-    margin: 10px;
-    top:50px;
-    
-    color: #696969;
+    margin:10px;
+    top:55px;
     position:relative;
+    color: #696969;
+    
 }
 
 
@@ -39,7 +40,7 @@ p, ul {
     line-height: 1.6em;
 }
 
-/*header*/,
+header,
 footer,
 nav,
 section {
@@ -82,17 +83,17 @@ h5, h6 {
 /* you can specify a greater or lesser percentage for the 
 page width. Or, you can specify an exact pixel width. */
 .page {
-    width: 96%;
+    width: 1100px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/*header, #header {
+header, #header {
     position: relative;
     margin-bottom: 0px;
     color: #000;
     padding: 0;
-}*/
+}
 
 header h1, #header h1 {
     font-weight: bold;
@@ -127,10 +128,11 @@ footer,
     -moz-border-radius: 0 0 4px 4px;
 }
 
-#photo{position:relative;margin-left:30px;height:115px; width:90px;left:700px; background-color:Black;top:-55px;}
+#photo{position:relative;margin:0px;height:115px; width:90px;left:790px; background-color:Black;top:-60px;}
+#search{position:absolute; left:550px;width:150px;}
 .bild{width:80px; height:100px;}
 
-#dropdown{float:right;}
+#dropdown{position:relative;left:900px;top:-110px;width:195px;z-index:1100;}
 #dropdown ul li{margin-right:0; padding-right:0;width:180px;}
 #dropdownmenu li ul li{text-align:left;margin-left:-10px;}
 #dropdownmenu, #dropdownmenu li ul{list-style-type:none;}
@@ -181,7 +183,8 @@ ul#menu li#greeting {
 }
 
 ul#menu li a {
-    padding: 5px 10px;
+    padding: 5px 5px;
+    margin:5px 0 0 0;
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
@@ -199,18 +202,17 @@ nav > ul {
 	padding:1px 0;
 	margin:0px;
 	list-style:none;
-	width:100%;
+	width:96%;
 	height:40px;
 }
 
 
 nav > ul li {
-	margin:0;
 	padding:0;
 	display:block;
 	float:left;
 	position:relative;
-	width:148px;
+	
 	display: inline;
     list-style: none;
 }
@@ -223,7 +225,7 @@ nav > ul li a:link, nav > ul li a:visited {
 	text-decoration:none;
 	background:#000000;
 	color:#ffffff;
-	width:148px;
+	width:120px;
 }
 
 
@@ -234,9 +236,9 @@ nav > ul li:hover a, nav > ul li a:hover, nav > ul li a:active {
 	text-decoration:none;
 	background:#666666;
 	color:#ffffff;
-	width:146px;
-	border-left:1px solid #ffffff;
-	border-right:1px solid #ffffff;
+	width:120px;
+	border:1px solid #ffffff;
+	
 }
 
 
@@ -279,7 +281,7 @@ nav > ul li ul li:hover a, nav > ul li ul li a:active, nav > ul li ul li a:hover
 	clear:left;
 	background:#666666;
 	padding:4px 0;
-	width:146px;
+	width:120px;
 	border:none;
 	border-bottom:1px solid #ffffff;
 	position:relative;
@@ -387,7 +389,7 @@ table th {
 nav, 
 #menucontainer {
     height:60px;
-    width:96%;
+    width:1100px;
     background-color: #fff;
     margin:auto;
     margin-bottom: 20px;
