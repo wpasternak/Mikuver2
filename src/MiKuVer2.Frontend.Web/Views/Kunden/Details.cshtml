@@ -1,0 +1,81 @@
+﻿@model MiKuVer2.Model.Kunde
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Kunde</legend>
+
+    <div class="display-label">KundeSeit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KundeSeit)
+    </div>
+
+    <div class="display-label">BereitsKunde</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BereitsKunde)
+    </div>
+
+    <div class="display-label">Vorname</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Vorname)
+    </div>
+
+    <div class="display-label">Nachname</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nachname)
+    </div>
+
+    <div class="display-label">Geburtstag</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Geburtstag)
+    </div>
+
+    <div class="display-label">Geschlecht</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Geschlecht)
+    </div>
+
+    <div class="display-label">Fax</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fax)
+    </div>
+
+    <div class="display-label">Strasse</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Strasse)
+    </div>
+
+    <div class="display-label">Telefon</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefon)
+    </div>
+
+    <div class="display-label">Hausnummer</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hausnummer)
+    </div>
+
+    <div class="display-label">PLZ</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLZ)
+    </div>
+
+    <div class="display-label">Ort</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ort)
+    </div>
+
+    <div class="display-label">EMail</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMail)
+    </div>
+</fieldset>
+<p>
+   @* @Html.ActionLink("Edit", "Edit", new {model => m }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -98,9 +98,9 @@ namespace MiKuVer2.Services
         /// </summary>
         /// <param name="neuerKunde">Der zu speichernde Kunde</param>
         /// <returns>true oder false</returns
-        public bool  KundeSpeichern(Kunde neuerKunde)
+        public bool  KundeSpeichern(Kunde neuerKunde, int geschaeftspartnerId)
         {
- 	        return this.KundenRepository.KundeSpeichern(neuerKunde);
+ 	        return this.KundenRepository.KundeSpeichern(neuerKunde,geschaeftspartnerId);
         }
 
         /// <summary>

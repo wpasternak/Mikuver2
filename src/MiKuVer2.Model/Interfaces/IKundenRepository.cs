@@ -52,7 +52,7 @@ namespace MiKuVer2.Model
         /// </summary>
         /// <param name="neuerKunde">Der zu speichernde Kunde</param>
         /// <returns>true oder false</returns>
-        bool KundeSpeichern(Kunde neuerKunde);
+        bool KundeSpeichern(Kunde neuerKunde,int gpId);
 
         /// <summary>
         /// Gibt einen Wert zurueck ob der Kunde aktualisiert wurde

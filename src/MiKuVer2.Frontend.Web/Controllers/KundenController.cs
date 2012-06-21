@@ -23,11 +23,21 @@ namespace MiKuVer2.Frontend.Web.Controllers
         }
 
         //
+        // GET: /Kunden/AlleKunden/
+
+        public ActionResult AlleKunden()
+        {
+            var kunden = this.kundenService.GetAlleKunden();
+            return View(kunden);
+        }
+
+        //
         // GET: /Kunden/Details/5
 
         public ActionResult Details(int id)
         {
-            return View();
+            var kunden = this.kundenService.GetKunde(id);
+            return View(kunden);
         }
 
         //
@@ -46,7 +56,7 @@ namespace MiKuVer2.Frontend.Web.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                this.kundenService.KundeSpeichern(neuerKunde,1);
 
                 return RedirectToAction("Index");
             }
@@ -61,14 +71,15 @@ namespace MiKuVer2.Frontend.Web.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            var kunde = this.kundenService.GetKunde(id);
+            return View(kunde);
         }
 
         //
         // POST: /Kunden/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Kunde kunde)
         {
             try
             {

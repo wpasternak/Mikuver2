@@ -66,7 +66,7 @@ namespace MiKuVer2.Services
         /// <param name="neuerKunde">Der zu speichernde Kunde</param>
         /// <returns>true oder false</returns>
         [OperationContract]
-        bool KundeSpeichern(Kunde neuerKunde);
+        bool KundeSpeichern(Kunde neuerKunde,int geschaeftspartnerId);
 
         /// <summary>
         /// Gibt einen Wert zurueck ob der Kunde aktualisiert wurde
