@@ -5,71 +5,66 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Kunden</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-    @Html.ActionLink("Alle Kunden Anzeigen","AlleKunden")
-</p>
 <table>
     <tr>
-        <th>
-            KundeSeit
+        <td>@Html.ActionLink("Neues Unternehmen anlegen", "Create")</td>
+        <td> | </td>
+        <td>@Html.ActionLink("Neuen Kunden anlegen", "CreateKunde")</td>
+    </tr>
+</table>
+<br />
+<table>
+    <tr>
+        <td>@Html.ActionLink("Direkte Kunden", "Index", "Kunden")</td>
+        <td> | </td>
+        <td>@Html.ActionLink("Alle Kunden", "Index", "Kunden")</td>
+    </tr>
+</table>
+<br />
+<table class="kunde_index">
+    <tr>
+        <th style="width:200px;">
+            Kunde
         </th>
-        <th>
-            BereitsKunde
+        <th style="width:80px;">
+            Kunden-Nr.
         </th>
-        <th>
-            Vorname
+        <th style="width:300px;">
+            Kontakt
         </th>
-        <th>
-            Nachname
+        <th style="width:300px;">
+            Aufgabe
         </th>
-        <th>
-            Geburtstag
-        </th>
-        <th>
-            Geschlecht
-        </th>
-        <th>
-            Fax
-        </th>
-        <th>
-            Strasse
-        </th>
-        <th>
-            Telefon
-        </th>
-        <th>
-            Hausnummer
-        </th>
-        <th>
-            PLZ
-        </th>
-        <th>
-            Ort
-        </th>
-        <th>
-            EMail
-        </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+       @* <td>
             @Html.DisplayFor(modelItem => item.KundeSeit)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BereitsKunde)
+        </td>*@
+        <td style="width:200px;">
+            @Html.ActionLink(item.Vorname, "Details")
+       
+            @Html.ActionLink(item.Nachname, "Details")
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vorname)
+        <td style="width:80px;">
+            
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nachname)
+        <td style="width:300px;">
+            <ul style="list-style-type:none;  text-align:left; margin-left:-40px;">
+                <li>@Html.DisplayFor(modelItem => item.Telefon)</li>
+                <li>@Html.DisplayFor(modelItem => item.EMail)</li>
+            </ul>
         </td>
-        <td>
+        <td style="width:300px;">
+        
+        </td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Geburtstag)
         </td>
         <td>
@@ -95,12 +90,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EMail)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
+        </td>*@
     </tr>
 }
 

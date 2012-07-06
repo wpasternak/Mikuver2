@@ -3,6 +3,33 @@ The base color for this template is #5c87b2. If you'd like
 to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
+.kunde_index tr th
+{width: 150px;
+    
+    }
+    
+.gp_anlegen tr td .editor-label
+{
+    width:auto;
+    }
+    
+.gp_anlegen tr td .editor-field
+{
+    width:auto;
+    margin-right:10px;
+    }
+
+.kunde_anlegen tr td .editor-label
+{
+    width:auto;
+    }
+
+.kunde_anlegen tr td .editor-field
+{
+    width:auto;
+    margin-right:10px;
+    }
+    
 
 body {
     background-color: #5c87b2;
@@ -128,7 +155,7 @@ footer,
     -moz-border-radius: 0 0 4px 4px;
 }
 
-#photo{position:relative;margin:0px;height:115px; width:90px;left:790px; background-color:Black;top:-60px;}
+#photo{position:relative;margin:0px;height:115px; width:90px;left:790px; top:-60px;}
 #search{position:absolute; left:550px;width:150px;}
 .bild{width:80px; height:100px;}
 

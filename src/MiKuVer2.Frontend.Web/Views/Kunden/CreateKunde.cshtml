@@ -1,0 +1,310 @@
+﻿@model MiKuVer2.Model.Kunde
+
+@{
+    ViewBag.Title = "Neuer Kunde";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+<fieldset>
+    <legend>Neuen Kunden anlegen</legend>
+     
+     <form action="">
+     <table class="kunde_anlegen" style="margin-top:50px;">
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Vorname)
+                </div>
+            </td>
+            <td> 
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.Vorname)
+                    @Html.ValidationMessageFor(model => model.Vorname)
+                </div>
+            </td>
+        
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Nachname)
+                </div>
+            </td>
+            <td> 
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.Nachname)
+                    @Html.ValidationMessageFor(model => model.Nachname)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Geburtstag)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Geburtstag)
+                    @Html.ValidationMessageFor(model => model.Geburtstag)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Geschlecht)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Geschlecht)
+                    @Html.ValidationMessageFor(model => model.Geschlecht)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.KundeSeit)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.KundeSeit)
+                    @Html.ValidationMessageFor(model => model.KundeSeit)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.BereitsKunde)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.BereitsKunde)
+                    @Html.ValidationMessageFor(model => model.BereitsKunde)
+                </div>
+            </td>
+        </tr>
+        <tr>
+           <td>
+                <div class="editor-label" >
+                    Zuständiger Geschäftsparner
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" >
+                    Kunden-Nr
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div class="editor-label" >
+                Branche
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    
+                </div>
+            </td>
+            
+            <td>
+                <div class="editor-label" >
+                    @Html.LabelFor(model => model.EMail)
+                </div>
+            </td>
+            <td>   
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.EMail)
+                    @Html.ValidationMessageFor(model => model.EMail)
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div class="editor-label" >
+                    @Html.LabelFor(model => model.Telefon)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.Telefon)
+                    @Html.ValidationMessageFor(model => model.Telefon)
+                </div>
+            </td>
+            
+            <td>
+                <div class="editor-label" >
+                    Ansprechpartner
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div class="editor-label" >
+                    Webseite
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Fax)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Fax)
+                    @Html.ValidationMessageFor(model => model.Fax)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-label" >
+                    @Html.LabelFor(model => model.Strasse)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.Strasse)
+                    @Html.ValidationMessageFor(model => model.Strasse)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label" >
+                    @Html.LabelFor(model => model.Hausnummer)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.Hausnummer)
+                    @Html.ValidationMessageFor(model => model.Hausnummer)
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div class="editor-label" >
+                    @Html.LabelFor(model => model.Ort)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.Ort)
+                    @Html.ValidationMessageFor(model => model.Ort)
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div class="editor-label" >
+                    @Html.LabelFor(model => model.PLZ)
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.PLZ)
+                    @Html.ValidationMessageFor(model => model.PLZ)
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div class="editor-label" >
+                    Beschreibung
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td><p style="font-style:italic; font-size:12px;">* Pflichtfelder</p></td>
+        </tr>
+    </table>
+
+    @*
+         
+
+        
+
+       
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Geburtstag)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Geburtstag)
+            @Html.ValidationMessageFor(model => model.Geburtstag)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Geschlecht)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Geschlecht)
+            @Html.ValidationMessageFor(model => model.Geschlecht)
+        </div>
+
+
+
+        
+
+
+
+     
+            
+        
+
+        
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    *@
+    
+    <table style="position:relative; top:10px;">
+        <tr>
+            <td>
+                <input type="submit" value="Kunden anlegen" />
+            </td>
+            <td>
+                <input type="reset" value="Abbrechen" />
+            </td>
+        </tr>
+    </table>
+    </form>
+</fieldset>
+}

@@ -65,6 +65,32 @@ namespace MiKuVer2.Frontend.Web.Controllers
                 return View();
             }
         }
+
+        //
+        // GET: /Kunden/Create
+
+        public ActionResult CreateKunde()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Kunden/Create
+
+        [HttpPost]
+        public ActionResult CreateKunde(Kunde neuerKunde)
+        {
+            try
+            {
+                this.kundenService.KundeSpeichern(neuerKunde, 1);
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
         
         //
         // GET: /Kunden/Edit/5

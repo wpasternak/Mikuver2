@@ -140,28 +140,36 @@
 	    </div>
         </td>
         </tr>
+        </table>
+        <br />
+        <hr />
+        <table>
+        <tr>
+            <td>
+                <div class="display-label">Direkte Kunden anzeigen</div>
+	        </td>
+            <td>
+                <div class="display-label">Direkte Geschäftspartner anzeigen</div>
+	        </td> 
+        </tr>
+        <tr>
+            <td>
+                <div class="display-field">
+                    <table>
+                         @foreach (var item in Model.Partner)
+	                        {
+	                        <tr>
+		                        <td>
+			                        @Html.ActionLink(item.Vorname+" " + item.Nachname, "Details", new { id = item.Id })
+		                        </td>
+	                        </tr>
+	                        }
+                    </table>
+                </div>
+            </td>
+        </tr>
      </table>
-     
-
-
-
-
-
-
+     	
 	
-
-	
-	<div class="display-label">Geschäftspartner</div>
-	<div class="display-field">
-    <table>
-	   @foreach (var item in Model.Partner)
-	   {
-	        <tr>
-		        <td>
-			        @Html.ActionLink(item.Vorname+" " + item.Nachname, "Details", new { id = item.Id })
-		        </td>
-	        </tr>
-	   }
-       </table>
-	</div>
+   
 </fieldset>
