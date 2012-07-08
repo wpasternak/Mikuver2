@@ -10,7 +10,7 @@ namespace MiKuVer2.Frontend.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Willkommen zu MiKuVer2";
+            ViewBag.Message = "Willkommen zu MIKUVER²";
 
             return View();
         }
