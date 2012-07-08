@@ -79,18 +79,19 @@ namespace MiKuVer2.Frontend.Web.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            var gpToEdit = this.geschaeftspartnerService.GetGeschaeftspartner(id);
+            return View(gpToEdit);
         }
 
         //
         // POST: /Geschaeftspartner/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Geschaeftspartner geschaeftspartner)
         {
             try
             {
-                // TODO: Add update logic here
+                this.geschaeftspartnerService.GeschaeftspartnerAktualisieren(geschaeftspartner);
  
                 return RedirectToAction("Index");
             }

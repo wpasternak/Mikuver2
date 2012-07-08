@@ -48,9 +48,9 @@
             @Html.DisplayFor(modelItem => item.BereitsKunde)
         </td>*@
         <td style="width:200px;">
-            @Html.ActionLink(item.Vorname, "Details")
+            @Html.ActionLink(item.Vorname, "Details/" + item.Id, "Kunden")
        
-            @Html.ActionLink(item.Nachname, "Details")
+            @Html.ActionLink(item.Nachname, "Details/" + item.Id, "Kunden")
         </td>
         <td style="width:80px;">
             

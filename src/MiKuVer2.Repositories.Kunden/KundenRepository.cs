@@ -272,7 +272,43 @@ namespace MiKuVer2.Repositories.Kunden
         /// <returns>Einen Kunden</returns>
         public Kunde GetKunde(string name)
         {
-            throw new NotImplementedException();
+            var kunde = new Kunde();
+
+            MySqlCommand command = new MySqlCommand(
+                "SELECT k.ID, k.KundeSeit, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail` FROM Kunden k, Person p WHERE p.Nachname like @name AND k.PersonId=p.ID", this.connection);
+            command.Parameters.AddWithValue("@name", name);
+
+            var reader = command.ExecuteReader();
+
+            try
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        kunde.Id = reader.IsDBNull(reader.GetOrdinal("ID")) != true ? reader.GetInt32("ID") : 0;
+                        kunde.KundeSeit = reader.IsDBNull(reader.GetOrdinal("KundeSeit")) != true ? reader.GetDateTime("KundeSeit") : DateTime.MinValue;
+                        kunde.Vorname = reader.IsDBNull(reader.GetOrdinal("Vorname")) != true ? reader.GetString("Vorname") : "";
+                        kunde.Nachname = reader.IsDBNull(reader.GetOrdinal("Nachname")) != true ? reader.GetString("Nachname") : "";
+                        kunde.Geburtstag = reader.IsDBNull(reader.GetOrdinal("Geburtsdatum")) != true ? reader.GetDateTime("Geburtsdatum").Date : DateTime.MinValue;
+                        kunde.Fax = reader.IsDBNull(reader.GetOrdinal("Fax")) != true ? reader.GetString("Fax") : "";
+                        kunde.Telefon = reader.IsDBNull(reader.GetOrdinal("Telefon")) != true ? reader.GetString("Telefon") : "";
+                        kunde.Strasse = reader.IsDBNull(reader.GetOrdinal("Strasse")) != true ? reader.GetString("Strasse") : "";
+                        kunde.Hausnummer = reader.IsDBNull(reader.GetOrdinal("Hausnummer")) != true ? reader.GetString("Hausnummer") : "";
+                        kunde.PLZ = reader.IsDBNull(reader.GetOrdinal("PLZ")) != true ? reader.GetString("PLZ") : "";
+                        kunde.Ort = reader.IsDBNull(reader.GetOrdinal("Ort")) != true ? reader.GetString("Ort") : "";
+                        kunde.EMail = reader.IsDBNull(reader.GetOrdinal("E-Mail")) != true ? reader.GetString("E-Mail") : "";
+                    }
+                }
+
+                reader.Close();
+            }
+            catch (Exception exception)
+            {
+                reader.Dispose();
+            }
+
+            return kunde;
         }
 
         /// <summary>
@@ -335,7 +371,51 @@ namespace MiKuVer2.Repositories.Kunden
         /// <returns>true oder false</returns>
         public bool KundenAktualisieren(Kunde kunden)
         {
-            throw new NotImplementedException();
+            var command = new MySqlCommand("Update User SET Vorname=@Vorname, Nachname=@Nachname, Geburtsdatum=@Geburtsdatum, GeschlechtID=@Geschlecht, Fax=@Fax, Telefon=@Telefon, Strasse=@Strasse, Hausnummer=@Hausnummer, PLZ=@PLZ, Ort=@Ort, `E-Mail`=@EMail WHERE ID=@id", this.connection);
+            command.Parameters.AddWithValue("@Vorname", kunden.Vorname);
+            command.Parameters.AddWithValue("@Nachname", kunden.Nachname);
+            command.Parameters.AddWithValue("@Geburtsdatum", kunden.Geburtstag);
+            command.Parameters.AddWithValue("@Geschlecht", kunden.Geschlecht);
+            command.Parameters.AddWithValue("@Fax", kunden.Fax != "" ? kunden.Fax : null);
+            command.Parameters.AddWithValue("@Telefon", kunden.Telefon != "" ? kunden.Telefon : null);
+            command.Parameters.AddWithValue("@Strasse", kunden.Strasse != "" ? kunden.Strasse : null);
+            command.Parameters.AddWithValue("@PLZ", kunden.PLZ != "" ? kunden.PLZ : null);
+            command.Parameters.AddWithValue("@Ort", kunden.Ort != "" ? kunden.Ort : null);
+            command.Parameters.AddWithValue("@EMail", kunden.EMail != "" ? kunden.EMail : null);
+            command.Parameters.AddWithValue("@Hausnummer", kunden.Hausnummer);
+            command.Parameters.AddWithValue("@id", kunden.Id);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception exception)
+            {
+                return false;
+            }
+
+            //var personId = (int)command.LastInsertedId;
+
+            //command = new MySqlCommand("INSERT INTO Kunden (KundeSeit, UnternehmenId, EmpfohlenVon, GeschaeftspartnerID, PersonId) VALUES (@KundeSeit, @UnternehmenId, @EmpfohlenVon, @GeschaeftspartnerID, @PersonId);", this.connection);
+            //command.Parameters.AddWithValue(
+            //    "@KundeSeit", kunde.KundeSeit != DateTime.MinValue ? kunde.KundeSeit : DateTime.Now);
+            //command.Parameters.AddWithValue(
+            //    "@UnternehmenID", kunde.Unternehmen != null ? kunde.Unternehmen.Id : 0);
+            //command.Parameters.AddWithValue(
+            //    "@EmpfohlenVon", kunde.EmpfohlenVon != null ? (object)kunde.EmpfohlenVon.Id : null);
+            //command.Parameters.AddWithValue("@GeschaeftspartnerID", gpId); // todo: gpId als parameter übergeben
+            //command.Parameters.AddWithValue("@PersonId", personId);
+
+            //try
+            //{
+            //    command.ExecuteNonQuery();
+            //}
+            //catch (Exception exception)
+            //{
+            //    return false;
+            //}
+
+            return true;
         }
     }
 }

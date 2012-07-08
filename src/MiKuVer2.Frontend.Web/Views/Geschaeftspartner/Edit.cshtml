@@ -1,8 +1,122 @@
-﻿@model IEnumerable<MiKuVer2.Model.Geschaeftspartner>
+﻿@model MiKuVer2.Model.Geschaeftspartner
 
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Hier muss der GP zum bearbeitn auftauchen.</h2>
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Geschaeftspartner</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Eintrittsdatum)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Eintrittsdatum)
+            @Html.ValidationMessageFor(model => model.Eintrittsdatum)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Vorname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Vorname)
+            @Html.ValidationMessageFor(model => model.Vorname)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nachname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nachname)
+            @Html.ValidationMessageFor(model => model.Nachname)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Geburtstag)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Geburtstag)
+            @Html.ValidationMessageFor(model => model.Geburtstag)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Geschlecht)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Geschlecht)
+            @Html.ValidationMessageFor(model => model.Geschlecht)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fax)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fax)
+            @Html.ValidationMessageFor(model => model.Fax)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Strasse)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Strasse)
+            @Html.ValidationMessageFor(model => model.Strasse)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telefon)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefon)
+            @Html.ValidationMessageFor(model => model.Telefon)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Hausnummer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Hausnummer)
+            @Html.ValidationMessageFor(model => model.Hausnummer)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PLZ)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PLZ)
+            @Html.ValidationMessageFor(model => model.PLZ)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Ort)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Ort)
+            @Html.ValidationMessageFor(model => model.Ort)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMail)
+            @Html.ValidationMessageFor(model => model.EMail)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
