@@ -16,9 +16,21 @@
      <form action="">
      <table class="kunde_anlegen" style="margin-top:50px;">
         <tr>
+            <tr>
+            <td>
+                <div class="editor-label" >
+                    Kunden-Nr:
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    
+                </div>
+            </td>
+        </tr>
             <td>
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Vorname)
+                    Vorname: *
                 </div>
             </td>
             <td> 
@@ -30,7 +42,7 @@
         
             <td>
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Nachname)
+                    Nachname: *
                 </div>
             </td>
             <td> 
@@ -43,7 +55,7 @@
         <tr>
             <td>
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Geburtstag)
+                    Geburtstag: *
                 </div>
             </td>
             <td>
@@ -54,7 +66,7 @@
             </td>
             <td>
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Geschlecht)
+                    Geschlecht: *
                 </div>
             </td>
             <td>
@@ -67,7 +79,7 @@
         <tr>
             <td>
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.KundeSeit)
+                    Kunde seit: *
                 </div>
             </td>
             <td>
@@ -78,7 +90,7 @@
             </td>
             <td>
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.BereitsKunde)
+                    Bereits Kunde:
                 </div>
             </td>
             <td>
@@ -89,30 +101,7 @@
             </td>
         </tr>
         <tr>
-           <td>
-                <div class="editor-label" >
-                    Zuständiger Geschäftsparner
-                </div>
-            </td>
-            <td>
-                <div class="editor-field" >
-                    
-                </div>
-            </td>
-            <td>
-                <div class="editor-label" >
-                    Kunden-Nr
-                </div>
-            </td>
-            <td>
-                <div class="editor-field" >
-                    
-                </div>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>
+            @*<td>
                 <div class="editor-label" >
                 Branche
                 </div>
@@ -121,11 +110,11 @@
                 <div class="editor-field" >
                     
                 </div>
-            </td>
+            </td>*@
             
             <td>
                 <div class="editor-label" >
-                    @Html.LabelFor(model => model.EMail)
+                    E-Mail: *
                 </div>
             </td>
             <td>   
@@ -139,7 +128,7 @@
         <tr>
             <td>
                 <div class="editor-label" >
-                    @Html.LabelFor(model => model.Telefon)
+                    Telefon:
                 </div>
             </td>
             <td>
@@ -151,7 +140,7 @@
             
             <td>
                 <div class="editor-label" >
-                    Ansprechpartner
+                    Mobil-Nr.:
                 </div>
             </td>
             <td>
@@ -163,18 +152,8 @@
         
         <tr>
             <td>
-                <div class="editor-label" >
-                    Webseite
-                </div>
-            </td>
-            <td>
-                <div class="editor-field" >
-                    
-                </div>
-            </td>
-            <td>
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Fax)
+                    Fax: 
                 </div>
             </td>
             <td>
@@ -187,7 +166,7 @@
         <tr>
             <td>
                 <div class="editor-label" >
-                    @Html.LabelFor(model => model.Strasse)
+                    Straße:
                 </div>
             </td>
             <td>
@@ -198,7 +177,7 @@
             </td>
             <td>
                 <div class="editor-label" >
-                    @Html.LabelFor(model => model.Hausnummer)
+                    Hausnummer:
                 </div>
             </td>
             <td>
@@ -212,7 +191,7 @@
         <tr>
             <td>
                 <div class="editor-label" >
-                    @Html.LabelFor(model => model.Ort)
+                    Ort:
                 </div>
             </td>
             <td>
@@ -226,7 +205,7 @@
         <tr>
             <td>
                 <div class="editor-label" >
-                    @Html.LabelFor(model => model.PLZ)
+                    PLZ: *
                 </div>
             </td>
             <td>
@@ -240,7 +219,7 @@
         <tr>
             <td>
                 <div class="editor-label" >
-                    Beschreibung
+                    Beschreibung:
                 </div>
             </td>
             <td>
@@ -256,12 +235,6 @@
     </table>
 
     @*
-         
-
-        
-
-       
-
         <div class="editor-label">
             @Html.LabelFor(model => model.Geburtstag)
         </div>
@@ -278,18 +251,6 @@
             @Html.ValidationMessageFor(model => model.Geschlecht)
         </div>
 
-
-
-        
-
-
-
-     
-            
-        
-
-        
-
         <p>
             <input type="submit" value="Create" />
         </p>
@@ -301,7 +262,7 @@
                 <input type="submit" value="Kunden anlegen" />
             </td>
             <td>
-                <input type="reset" value="Abbrechen" />
+                <input type="reset" value="Abbrechen" onclick="window.back()" />
             </td>
         </tr>
     </table>

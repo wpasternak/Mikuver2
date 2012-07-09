@@ -11,16 +11,28 @@
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Neuen Gesch&auml;ftspartner anlegen</legend>
+   <fieldset>
+        <legend>Neuen Geschäftspartner anlegen</legend>
      
      <form action="">
       <table style="margin-top:15px;">
       <br />
         <tr>
             <td>
+                <div class="editor-label" >
+                    Personal-Nr.:
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <div id="vorname_anlegen1" class="editor-label">
-                     @Html.LabelFor(model => model.Vorname)*
+                     Vorname: *
                 </div>
             </td>
             <td> 
@@ -32,7 +44,7 @@
             <td></td>
             <td>
             <div id="nachname_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.Nachname)*
+                Nachname: *
             </div>
             </td>
             <td>
@@ -46,7 +58,7 @@
         <tr>
         <td>
         <div id="eintritt_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.Eintrittsdatum)*
+            Eintrittsdatum: *
         </div></td>
         <td><div id="eintritt_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.Eintrittsdatum)
@@ -55,7 +67,7 @@
         </tr>
         <tr>
         <td><div id="geburtstag_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.Geburtstag)*
+            Geburtstag: *
         </div></td>
         <td><div id="geburtstag_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.Geburtstag)
@@ -63,7 +75,7 @@
         </div></td>
         <td></td>
         <td><div id="geschlecht_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.Geschlecht)*
+            Geschlecht: *
         </div></td>
         <td><div id="geschlecht_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.Geschlecht)
@@ -72,7 +84,7 @@
         </tr>
         <tr>
         <td><div id="strasse_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.Strasse)*
+            Straße:
         </div></td>
         <td><div id="strasse_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.Strasse)
@@ -80,7 +92,7 @@
         </div></td>
         <td></td>
         <td><div id="hausnummer_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.Hausnummer)*
+            Hausnummer:
         </div></td>
         <td><div id="hausnummer_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.Hausnummer)
@@ -89,7 +101,7 @@
         </tr>
         <tr>
         <td><div id="ort_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.Ort)*
+            Ort:
         </div></td>
         <td><div id="ort_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.Ort)
@@ -97,7 +109,7 @@
         </div></td>
         <td></td>
         <td><div id="plz_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.PLZ)*
+            PLZ: *
         </div></td>
         <td><div id="plz_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.PLZ)
@@ -106,7 +118,7 @@
         </tr>
         <tr>
         <td><div id="telefon_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.Telefon)*
+            Telefon: *
         </div></td>
         <td><div id="telefon_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.Telefon)
@@ -114,7 +126,7 @@
         </div></td>
         <td></td>
          <td><div id="fax_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.Fax)
+            Fax:
         </div></td>
         <td><div id="fax_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.Fax)
@@ -123,7 +135,7 @@
         </tr>
         <tr>
         <td><div id="email_anlegen1" class="editor-label" >
-            @Html.LabelFor(model => model.EMail)*
+            E-Mail: *
         </div></td>
         <td><div id="email_anlegen2" class="editor-field" >
             @Html.EditorFor(model => model.EMail)
@@ -134,17 +146,17 @@
             <td><p style="font-style:italic; font-size:12px;">* Pflichtfelder</p></td>
         </tr>
     </table>
-        <table style="position:relative; top:10px;">
-            <tr>
-                <td>
-                    <input type="submit" value="Profil anlegen" />
+    <table style="position:relative; top:10px;">
+        <tr>
+            <td>
+                <input type="submit" value="Profil anlegen" />
                     
-                </td>
-                <td>
-                <input type="reset" value="Abbrechen" />
-                </td>
-            </tr>
-        </table>
+            </td>
+            <td>
+                <input type="reset" value="Abbrechen" onclick="window.back()"/>
+            </td>
+        </tr>
+    </table>
     </form>
     </fieldset>
 }

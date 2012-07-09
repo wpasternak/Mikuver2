@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Bearbeiten</h2>
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
@@ -14,119 +14,179 @@
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Kunde</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.KundeSeit)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.KundeSeit)
-            @Html.ValidationMessageFor(model => model.KundeSeit)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.BereitsKunde)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.BereitsKunde)
-            @Html.ValidationMessageFor(model => model.BereitsKunde)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Vorname)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Vorname)
-            @Html.ValidationMessageFor(model => model.Vorname)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nachname)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nachname)
-            @Html.ValidationMessageFor(model => model.Nachname)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Geburtstag)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Geburtstag)
-            @Html.ValidationMessageFor(model => model.Geburtstag)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Geschlecht)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Geschlecht)
-            @Html.ValidationMessageFor(model => model.Geschlecht)
-        </div>
-
+        <table style="margin-top:15px;">
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        Kunde seit:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.KundeSeit)
+                        @Html.ValidationMessageFor(model => model.KundeSeit)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        Bereits Kunde:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.BereitsKunde)
+                        @Html.ValidationMessageFor(model => model.BereitsKunde)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        Vorname:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Vorname)
+                        @Html.ValidationMessageFor(model => model.Vorname)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        Nachname:
+                    </div>  
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Nachname)
+                        @Html.ValidationMessageFor(model => model.Nachname)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        Geburtstag:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Geburtstag)
+                        @Html.ValidationMessageFor(model => model.Geburtstag)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        Geschlecht:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Geschlecht)
+                        @Html.ValidationMessageFor(model => model.Geschlecht)
+                    </div>
+                </td>
+            </tr>
         @Html.HiddenFor(model => model.Id)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Fax)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Fax)
-            @Html.ValidationMessageFor(model => model.Fax)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Strasse)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Strasse)
-            @Html.ValidationMessageFor(model => model.Strasse)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Telefon)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Telefon)
-            @Html.ValidationMessageFor(model => model.Telefon)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Hausnummer)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Hausnummer)
-            @Html.ValidationMessageFor(model => model.Hausnummer)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PLZ)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PLZ)
-            @Html.ValidationMessageFor(model => model.PLZ)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Ort)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Ort)
-            @Html.ValidationMessageFor(model => model.Ort)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.EMail)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.EMail)
-            @Html.ValidationMessageFor(model => model.EMail)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        Fax:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Fax)
+                        @Html.ValidationMessageFor(model => model.Fax)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        Telefon:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Telefon)
+                        @Html.ValidationMessageFor(model => model.Telefon)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        Straße:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Strasse)
+                        @Html.ValidationMessageFor(model => model.Strasse)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        Hausnummer:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Hausnummer)
+                        @Html.ValidationMessageFor(model => model.Hausnummer)
+                    </div>  
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        PLZ:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.PLZ)
+                        @Html.ValidationMessageFor(model => model.PLZ)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        Ort:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Ort)
+                        @Html.ValidationMessageFor(model => model.Ort)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        E-Mail:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.EMail)
+                        @Html.ValidationMessageFor(model => model.EMail)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table style="margin-top:15px;">
+            <tr>
+                <td>
+                    <input type="submit" value="Speichern" />
+                </td>
+                <td>
+                    <input type="reset" value="Abbrechen" onclick="window.back()" />
+                </td>
+            </tr>
+        </table>
     </fieldset>
 }
-
+@*
 <div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
