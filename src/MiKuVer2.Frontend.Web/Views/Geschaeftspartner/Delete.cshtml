@@ -1,0 +1,79 @@
+﻿@model MiKuVer2.Model.Geschaeftspartner
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Geschaeftspartner</legend>
+
+    <div class="display-label">Eintrittsdatum</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Eintrittsdatum)
+    </div>
+
+    <div class="display-label">Vorname</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Vorname)
+    </div>
+
+    <div class="display-label">Nachname</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nachname)
+    </div>
+
+    <div class="display-label">Geburtstag</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Geburtstag)
+    </div>
+
+    <div class="display-label">Geschlecht</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Geschlecht)
+    </div>
+
+    <div class="display-label">Fax</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fax)
+    </div>
+
+    <div class="display-label">Strasse</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Strasse)
+    </div>
+
+    <div class="display-label">Telefon</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefon)
+    </div>
+
+    <div class="display-label">Hausnummer</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hausnummer)
+    </div>
+
+    <div class="display-label">PLZ</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLZ)
+    </div>
+
+    <div class="display-label">Ort</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ort)
+    </div>
+
+    <div class="display-label">EMail</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMail)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
