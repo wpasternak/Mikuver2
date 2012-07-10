@@ -19,12 +19,14 @@ namespace MiKuVer2.Model
         /// Der Vorname der Person
         /// </summary>
         [DataMember]
+        [Required]
         public string Vorname { get; set; }
 
         /// <summary>
         /// Der Nachname der Person
         /// </summary>
         [DataMember]
+        [Required]
         public string Nachname { get; set; }
 
         /// <summary>

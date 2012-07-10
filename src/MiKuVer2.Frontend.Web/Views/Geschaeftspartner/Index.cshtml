@@ -14,8 +14,8 @@
 <br />
 <table>
     <tr>
-        <td>@Html.ActionLink("Direkte Geschäftspartner", "Index", "Geschaeftspartner")</td>
-        <td>@Html.ActionLink("Alle Geschäftspartner", "Index", "Geschaeftspartner")</td>
+        <td>@Html.ActionLink("Direkte Geschäftspartner", "Index", "Geschaeftspartner", new { gp = @ViewBag.gp.Id , mode = "dgp" }, null)</td>
+        <td>@Html.ActionLink("Alle Geschäftspartner", "Index", "Geschaeftspartner", new { gp = @ViewBag.gp.Id , mode = "agp" }, null)</td>
         <td>@Html.ActionLink("Listenansicht", "Index", "Geschaeftspartner")</td>
     </tr>
 </table>

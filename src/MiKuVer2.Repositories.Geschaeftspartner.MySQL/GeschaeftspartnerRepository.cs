@@ -70,7 +70,28 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
         /// <returns>Liste aller Geschaeftspartner</returns>
         public List<Geschaeftspartner> GetAlleGeschaeftspartner(int id)
         {
-            throw new NotImplementedException();
+            var gpids = new List<int>();
+
+            var command =
+                new MySqlCommand(
+                    "SELECT o.id FROM geschaeftspartner AS n, geschaeftspartner AS p, geschaeftspartner AS o WHERE o.lft BETWEEN p.lft AND p.rgt AND o.lft BETWEEN n.lft AND n.rgt AND n.id =@id  GROUP BY o.lft ORDER BY o.lft;",
+                    this.connection);
+
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    gpids.Add(reader.GetInt32(0));
+                }
+            }
+
+            reader.Close();
+            reader.Dispose();
+
+            return gpids.Select(gpsId => this.GetGeschaeftspartner(gpsId)).ToList();
         }
 
         /// <summary>
@@ -127,6 +148,9 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
                     result.PLZ = reader.IsDBNull(reader.GetOrdinal("PLZ")) != true ? reader.GetString("PLZ") : "";
                     result.Ort = reader.IsDBNull(reader.GetOrdinal("Ort")) != true ? reader.GetString("Ort") : "";
                     result.EMail = reader.IsDBNull(reader.GetOrdinal("E-Mail")) != true ? reader.GetString("E-Mail") : "";
+                    result.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
+                                            ? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
+                                            : true;
                 }
             }
 
@@ -174,7 +198,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             }
             catch (Exception exception)
             {
-                return false;
+                throw;
             }
 
             var personId = (int)command.LastInsertedId;

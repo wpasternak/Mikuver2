@@ -72,7 +72,25 @@
             </td>
             <td>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Geschlecht)
+                                @Html.DropDownList("Geschlecht", 
+                                new List<SelectListItem>()
+                                {
+                                    {
+                                        new SelectListItem()
+                                            {
+                                                Text="Männlich",
+                                                Value="true",
+                                                Selected = true
+                                            }
+                                    },
+                                    { 
+                                        new SelectListItem(){
+                                            Text = "Weiblich",
+                                            Value = "false"
+                                        }
+                                    }
+                                    
+                                })
                     @Html.ValidationMessageFor(model => model.Geschlecht)
                 </div>
             </td>   

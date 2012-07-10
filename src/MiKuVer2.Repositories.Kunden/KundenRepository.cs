@@ -252,6 +252,9 @@ namespace MiKuVer2.Repositories.Kunden
                         kunde.PLZ = reader.IsDBNull(reader.GetOrdinal("PLZ")) != true ? reader.GetString("PLZ") : "";
                         kunde.Ort = reader.IsDBNull(reader.GetOrdinal("Ort")) != true ? reader.GetString("Ort") : "";
                         kunde.EMail = reader.IsDBNull(reader.GetOrdinal("E-Mail")) != true ? reader.GetString("E-Mail") : "";
+                        kunde.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
+                        ? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
+                        : true;
                     }
                 }
 
@@ -371,7 +374,11 @@ namespace MiKuVer2.Repositories.Kunden
         /// <returns>true oder false</returns>
         public bool KundenAktualisieren(Kunde kunden)
         {
-            var command = new MySqlCommand("Update User SET Vorname=@Vorname, Nachname=@Nachname, Geburtsdatum=@Geburtsdatum, GeschlechtID=@Geschlecht, Fax=@Fax, Telefon=@Telefon, Strasse=@Strasse, Hausnummer=@Hausnummer, PLZ=@PLZ, Ort=@Ort, `E-Mail`=@EMail WHERE ID=@id", this.connection);
+            var command = new MySqlCommand("SELECT PersonId From Kunden WHERE ID=@id",this.connection);
+            command.Parameters.AddWithValue("@id", kunden.Id);
+            var id = command.ExecuteScalar();
+
+            command = new MySqlCommand("UPDATE Person SET Vorname=@Vorname, Nachname=@Nachname, Geburtsdatum=@Geburtsdatum, GeschlechtID=@Geschlecht, Fax=@Fax, Telefon=@Telefon, Strasse=@Strasse, Hausnummer=@Hausnummer, PLZ=@PLZ, Ort=@Ort, `E-Mail`=@EMail WHERE ID=@id", this.connection);
             command.Parameters.AddWithValue("@Vorname", kunden.Vorname);
             command.Parameters.AddWithValue("@Nachname", kunden.Nachname);
             command.Parameters.AddWithValue("@Geburtsdatum", kunden.Geburtstag);
@@ -383,7 +390,7 @@ namespace MiKuVer2.Repositories.Kunden
             command.Parameters.AddWithValue("@Ort", kunden.Ort != "" ? kunden.Ort : null);
             command.Parameters.AddWithValue("@EMail", kunden.EMail != "" ? kunden.EMail : null);
             command.Parameters.AddWithValue("@Hausnummer", kunden.Hausnummer);
-            command.Parameters.AddWithValue("@id", kunden.Id);
+            command.Parameters.AddWithValue("@id", Convert.ToInt32(id));
 
             try
             {

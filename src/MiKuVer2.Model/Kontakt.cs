@@ -51,7 +51,7 @@ namespace MiKuVer2.Model
         /// </summary>
         [DataMember]
         [Required]
-        [StringLength(5)]
+        [StringLength(5,MinimumLength = 5)]
         public string PLZ { get; set; }
         
         /// <summary>
@@ -66,6 +66,7 @@ namespace MiKuVer2.Model
         [DataMember]
         [Required]
         [DataType(DataType.EmailAddress, ErrorMessage = "Ungültige E-Mail Adresse")]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Bitte gültige E-Mail eingeben")]
         public string EMail { get; set; }
     }
 }

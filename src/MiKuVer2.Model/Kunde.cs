@@ -6,6 +6,8 @@ using System.Runtime.Serialization;
 
 namespace MiKuVer2.Model
 {
+    using System.ComponentModel.DataAnnotations;
+
     /// <summary>
     /// Kundendaten der Kunden
     /// </summary>
@@ -16,6 +18,7 @@ namespace MiKuVer2.Model
         /// Der Zeitpunkt seit dem die Person, Kunde Geworden ist
         /// </summary>
         [DataMember]
+        [DataType(DataType.Date)]
         public DateTime KundeSeit { get; set; }
 
         /// <summary>

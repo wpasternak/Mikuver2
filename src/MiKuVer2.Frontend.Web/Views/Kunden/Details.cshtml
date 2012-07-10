@@ -1,8 +1,8 @@
 ﻿@model MiKuVer2.Model.Kunde
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -10,147 +10,156 @@
 <fieldset>
 <legend>Kundendetails</legend>
 <table style="margin-top:15px;">
-        <tr>
-            <td>
-               <p style="font-size:26px; font-weight:bolder;">@Html.DisplayFor(model => model.Vorname) @Html.DisplayFor(model => model.Nachname)</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p >
-	               @Html.ActionLink("Kunden bearbeiten", "Edit", new { id=Model.Id })
-	               @* @Html.ActionLink("Back to List", "Index")*@
-                </p>
+		<tr>
+			<td>
+			   <p style="font-size:26px; font-weight:bolder;">@Html.DisplayFor(model => model.Vorname) @Html.DisplayFor(model => model.Nachname)</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p >
+				   @Html.ActionLink("Kunden bearbeiten", "Edit", new { id=Model.Id })
+				   @* @Html.ActionLink("Back to List", "Index")*@
+				</p>
  
-            </td>
-        </tr>
-     </table>
-     <hr />
-     <div style="position:absolute; margin: 15px 0 0 400px; ">
-        
-     </div>
-     <table style="margin-top:15px;">
-     <tr>
-     <td>
-     <div class="display-label">Kunden-Nr:</div>
-     </td>
+			</td>
+		</tr>
+	 </table>
+	 <hr />
+	 <div style="position:absolute; margin: 15px 0 0 400px; ">
+		
+	 </div>
+	 <table style="margin-top:15px;">
+	 <tr>
+	 <td>
+	 <div class="display-label">Kunden-Nr:</div>
+	 </td>
 	 <td><div class="display-field">
 		
 	 </div>
-     </td>
-     </tr>
-     <tr></tr>
-     <tr>
-        <td>
-            <div class="display-label">Kunde seit:</div>
-        </td>
-        <td>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.KundeSeit)
-            </div>
-        </td>
-        <td>
-            <div class="display-label">Bereits Kunde:</div>
-        </td>
-        <td>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.BereitsKunde)
-            </div>
-        </td>
-     </tr><tr>
-            <td>
-            <div class="display-label">Geschlecht:</div>
-            </td>
-            <td>
-            <div class="display-field">
-		    @Html.DisplayFor(model => model.Geschlecht)
+	 </td>
+	 </tr>
+	 <tr></tr>
+	 <tr>
+		<td>
+			<div class="display-label">Kunde seit:</div>
+		</td>
+		<td>
+			<div class="display-field">
+				@Html.DisplayFor(model => model.KundeSeit)
+			</div>
+		</td>
+		<td>
+			<div class="display-label">Bereits Kunde:</div>
+		</td>
+		<td>
+			<div class="display-field">
+				@Html.DisplayFor(model => model.BereitsKunde)
+			</div>
+		</td>
+	 </tr><tr>
+			<td>
+			<div class="display-label">Geschlecht:</div>
+			</td>
+			<td>
+			<div class="display-field">
+					@{
+			if (Model.Geschlecht)
+			{
+				@: m&aumlnnlich   
+			}
+			else
+			{
+				@: weiblich 
+			}
+		}
 	</div>
-            </td>
-        </tr>
-        
-        <tr>
-        <td>
-        <div class="display-label">Geburtstag:</div>
+			</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<div class="display-label">Geburtstag:</div>
 	
-        </td>
-        <td>
-        <div class="display-field">
+		</td>
+		<td>
+		<div class="display-field">
 		@Html.DisplayFor(model => model.Geburtstag)
-	    </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="display-label">E-Mail:</div>
+		</div>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<div class="display-label">E-Mail:</div>
 	
-        </td>
-        <td>
-        <div class="display-field">
+		</td>
+		<td>
+		<div class="display-field">
 		@Html.DisplayFor(model => model.EMail)
-	    </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="display-label">Telefon:</div>
-	    </td>
-        <td>
-        <div class="display-field">
+		</div>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<div class="display-label">Telefon:</div>
+		</td>
+		<td>
+		<div class="display-field">
 		@Html.DisplayFor(model => model.Telefon)
-	    </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="display-label">Fax:</div>
-	    </td>
-        <td>
-        <div class="display-field">
+		</div>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<div class="display-label">Fax:</div>
+		</td>
+		<td>
+		<div class="display-field">
 		@Html.DisplayFor(model => model.Fax)
-	    </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="display-label">Straße:</div>
-        </td>
-        <td>
-        <div class="display-field">
+		</div>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<div class="display-label">Straße:</div>
+		</td>
+		<td>
+		<div class="display-field">
 		@Html.DisplayFor(model => model.Strasse) 
 	</div>
-        </td>
-        <td>
-        <div class="display-label">Hausnummer:</div>
-	    </td>
-        <td>
-        <div class="display-field">
+		</td>
+		<td>
+		<div class="display-label">Hausnummer:</div>
+		</td>
+		<td>
+		<div class="display-field">
 		@Html.DisplayFor(model => model.Hausnummer)
-	    </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="display-label">PLZ:</div>
-	    </td>
-        <td>
-        <div class="display-field">
+		</div>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<div class="display-label">PLZ:</div>
+		</td>
+		<td>
+		<div class="display-field">
 		@Html.DisplayFor(model => model.PLZ)
-	    </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="display-label">Ort:</div>
-	    </td>
-        <td>
-        <div class="display-field">
+		</div>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<div class="display-label">Ort:</div>
+		</td>
+		<td>
+		<div class="display-field">
 		@Html.DisplayFor(model => model.Ort)
-	    </div>
-        </td>
-        </tr>
-        </table>
-        <br />
-        
+		</div>
+		</td>
+		</tr>
+		</table>
+		<br />
+		
 
 
 
@@ -159,71 +168,71 @@
    
 
    @* <div class="display-label">KundeSeit</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.KundeSeit)
-    </div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.KundeSeit)
+	</div>
 
-    <div class="display-label">BereitsKunde</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.BereitsKunde)
-    </div>
+	<div class="display-label">BereitsKunde</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.BereitsKunde)
+	</div>
 
-    <div class="display-label">Vorname</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Vorname)
-    </div>
+	<div class="display-label">Vorname</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Vorname)
+	</div>
 
-    <div class="display-label">Nachname</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nachname)
-    </div>
+	<div class="display-label">Nachname</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Nachname)
+	</div>
 
-    <div class="display-label">Geburtstag</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Geburtstag)
-    </div>
+	<div class="display-label">Geburtstag</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Geburtstag)
+	</div>
 
-    <div class="display-label">Geschlecht</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Geschlecht)
-    </div>
+	<div class="display-label">Geschlecht</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Geschlecht)
+	</div>
 
-    <div class="display-label">Fax</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Fax)
-    </div>
+	<div class="display-label">Fax</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Fax)
+	</div>
 
-    <div class="display-label">Strasse</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Strasse)
-    </div>
+	<div class="display-label">Strasse</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Strasse)
+	</div>
 
-    <div class="display-label">Telefon</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Telefon)
-    </div>
+	<div class="display-label">Telefon</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Telefon)
+	</div>
 
-    <div class="display-label">Hausnummer</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Hausnummer)
-    </div>
+	<div class="display-label">Hausnummer</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Hausnummer)
+	</div>
 
-    <div class="display-label">PLZ</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.PLZ)
-    </div>
+	<div class="display-label">PLZ</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.PLZ)
+	</div>
 
-    <div class="display-label">Ort</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Ort)
-    </div>
+	<div class="display-label">Ort</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.Ort)
+	</div>
 
-    <div class="display-label">EMail</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.EMail)
-    </div>*@
+	<div class="display-label">EMail</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.EMail)
+	</div>*@
 </fieldset>
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new {model => m }) |
-    @Html.ActionLink("Back to List", "Index")*@
+	@*@Html.ActionLink("Edit", "Edit", new {model => m }) |
+	@Html.ActionLink("Back to List", "Index")*@
 </p>

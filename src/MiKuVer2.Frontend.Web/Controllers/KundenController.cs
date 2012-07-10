@@ -105,17 +105,18 @@ namespace MiKuVer2.Frontend.Web.Controllers
         // POST: /Kunden/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, Kunde kunde)
+        public ActionResult Edit(Kunde kunde)
         {
             try
             {
-                // TODO: Add update logic here
+                this.kundenService.KundenAktualisieren(kunde);
  
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                ViewBag.ErrorMessage = "Es ist ein Fehler während der Aktualisierung aufgetreten.";
+                return View(kunde);
             }
         }
 

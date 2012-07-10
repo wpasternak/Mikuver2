@@ -12,15 +12,42 @@ namespace MiKuVer2.Frontend.Web.Controllers
     //[Authorize]
     public class GeschaeftspartnerController : Controller
     {
-        //
-        // GET: /Geschaeftspartner/
+
         private IGeschaeftspartnerService geschaeftspartnerService= new GeschaeftspartnerService();
 
-        
-        public ActionResult Index()
+        //
+        // GET: /Geschaeftspartner/
+        //public ActionResult Index()
+        //{
+        //    ViewBag.gp = this.geschaeftspartnerService.GetGeschaeftspartner(1);
+        //    var gps = this.geschaeftspartnerService.GetDirekteGeschaeftspartner(1);
+        //    return View(gps);
+        //}
+
+        public ActionResult Index(string gp, string mode)
         {
-            ViewBag.gp = this.geschaeftspartnerService.GetGeschaeftspartner(1);
-            var gps = this.geschaeftspartnerService.GetDirekteGeschaeftspartner(1);
+            if (gp == null)
+            {
+                gp = "1";
+            }
+
+            int id = Convert.ToInt32(gp);
+
+            List<Geschaeftspartner> gps = new List<Geschaeftspartner>();
+            switch (mode)
+            {
+                case "agp":
+                    gps = this.geschaeftspartnerService.GetAlleGeschaeftspartner(id);
+                    break;
+                case "dpg":
+                    gps = this.geschaeftspartnerService.GetDirekteGeschaeftspartner(id);
+                    break;
+                default:
+                    gps = this.geschaeftspartnerService.GetDirekteGeschaeftspartner(id);
+                    break;
+            }
+
+            ViewBag.gp = this.geschaeftspartnerService.GetGeschaeftspartner(id);
             return View(gps);
         }
 
@@ -46,32 +73,50 @@ namespace MiKuVer2.Frontend.Web.Controllers
         // POST: /Geschaeftspartner/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection formCollection)
+        public ActionResult Create(Geschaeftspartner neuerGps)
         {
             try
             {
-                var neuerGps = new Geschaeftspartner();
 
-                neuerGps.Eintrittsdatum = DateTime.Parse(formCollection["Eintrittsdatum"]);
-                neuerGps.Nachname = formCollection["Nachname"];
-                neuerGps.Vorname = formCollection["Vorname"];
-                neuerGps.Geburtstag = DateTime.Parse(formCollection["Geburtstag"]);
-                neuerGps.Fax = formCollection["Fax"];
-                neuerGps.Telefon = formCollection["Telefon"];
-                neuerGps.Strasse = formCollection["Strasse"];
-                neuerGps.Hausnummer = formCollection["Hausnummer"];
-                neuerGps.PLZ = formCollection["PLZ"];
-                neuerGps.Ort = formCollection["Ort"];
-                neuerGps.EMail = formCollection["EMail"];
 
                 this.geschaeftspartnerService.GeschaeftspartnerSpeichern(neuerGps);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                ViewBag.ErrorMessage = "Es ist ein Fehler aufgetretten";
+                return View(neuerGps);
             }
         }
+
+        //[HttpPost]
+        //public ActionResult Create(FormCollection formCollection)
+        //{
+        //    try
+        //    {
+        //        var neuerGps = new Geschaeftspartner();
+
+        //        neuerGps.Eintrittsdatum = DateTime.Parse(formCollection["Eintrittsdatum"]);
+        //        neuerGps.Nachname = formCollection["Nachname"];
+        //        neuerGps.Vorname = formCollection["Vorname"];
+        //        neuerGps.Geburtstag = DateTime.Parse(formCollection["Geburtstag"]);
+        //        neuerGps.Fax = formCollection["Fax"];
+        //        neuerGps.Telefon = formCollection["Telefon"];
+        //        neuerGps.Strasse = formCollection["Strasse"];
+        //        neuerGps.Hausnummer = formCollection["Hausnummer"];
+        //        neuerGps.PLZ = formCollection["PLZ"];
+        //        neuerGps.Ort = formCollection["Ort"];
+        //        neuerGps.EMail = formCollection["EMail"];
+
+        //        this.geschaeftspartnerService.GeschaeftspartnerSpeichern(neuerGps);
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        ViewBag.ErrorMessage = "Es ist ein Fehler aufgetretten";
+        //        return View();
+        //    }
+        //}
         
         //
         // GET: /Geschaeftspartner/Edit/5

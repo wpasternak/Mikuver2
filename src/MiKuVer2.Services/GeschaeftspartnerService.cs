@@ -12,7 +12,6 @@ namespace MiKuVer2.Services
     using System.Diagnostics;
 
     using MiKuVer2.Model;
-    using MiKuVer2.Repositories.Geschaeftspartner.MySQL;
 
     public class GeschaeftspartnerService : IGeschaeftspartnerService
     {
