@@ -216,11 +216,12 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             command.Parameters.AddWithValue("@rgt", rgt);
             Debug.WriteLine(command.ExecuteNonQuery());
 
-            command = new MySqlCommand("INSERT INTO geschaeftspartner (Vorgesetzter,lft,rgt,PersonId) VALUES (@vogesetzterId, @rgt, @lft, @PersonId);", this.connection);
+            command = new MySqlCommand("INSERT INTO geschaeftspartner (Vorgesetzter,lft,rgt,PersonId,Eintrittsdatum) VALUES (@vogesetzterId, @rgt, @lft, @PersonId, @Eintrittsdatum);", this.connection);
             command.Parameters.AddWithValue("@rgt", rgt);
             command.Parameters.AddWithValue("@lft", rgt + 1);
             command.Parameters.AddWithValue("@vogesetzterId", neuerGeschaeftspartner.Vorgesetzter != null ? neuerGeschaeftspartner.Vorgesetzter.Id : 1);
             command.Parameters.AddWithValue("@PersonId", personId);
+            command.Parameters.AddWithValue("@Eintrittsdatum", neuerGeschaeftspartner.Eintrittsdatum);
             Debug.WriteLine(command.ExecuteNonQuery());
 
             return true;
