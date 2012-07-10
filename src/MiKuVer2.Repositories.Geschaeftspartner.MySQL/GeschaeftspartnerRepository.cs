@@ -235,7 +235,34 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
         /// <returns>true oder false</returns>
         public bool GeschaeftspartnerAktualisieren(Geschaeftspartner geschaeftspartner)
         {
-            throw new NotImplementedException();
+            var command = new MySqlCommand("SELECT PersonId From Geschaeftspartner WHERE ID=@id", this.connection);
+            command.Parameters.AddWithValue("@id", geschaeftspartner.Id);
+            var id = command.ExecuteScalar();
+
+            command = new MySqlCommand("UPDATE Person SET Vorname=@Vorname, Nachname=@Nachname, Geburtsdatum=@Geburtsdatum, GeschlechtID=@Geschlecht, Fax=@Fax, Telefon=@Telefon, Strasse=@Strasse, Hausnummer=@Hausnummer, PLZ=@PLZ, Ort=@Ort, `E-Mail`=@EMail WHERE ID=@id", this.connection);
+            command.Parameters.AddWithValue("@Vorname", geschaeftspartner.Vorname);
+            command.Parameters.AddWithValue("@Nachname", geschaeftspartner.Nachname);
+            command.Parameters.AddWithValue("@Geburtsdatum", geschaeftspartner.Geburtstag);
+            command.Parameters.AddWithValue("@Geschlecht", geschaeftspartner.Geschlecht);
+            command.Parameters.AddWithValue("@Fax", geschaeftspartner.Fax != "" ? geschaeftspartner.Fax : null);
+            command.Parameters.AddWithValue("@Telefon", geschaeftspartner.Telefon != "" ? geschaeftspartner.Telefon : null);
+            command.Parameters.AddWithValue("@Strasse", geschaeftspartner.Strasse != "" ? geschaeftspartner.Strasse : null);
+            command.Parameters.AddWithValue("@PLZ", geschaeftspartner.PLZ != "" ? geschaeftspartner.PLZ : null);
+            command.Parameters.AddWithValue("@Ort", geschaeftspartner.Ort != "" ? geschaeftspartner.Ort : null);
+            command.Parameters.AddWithValue("@EMail", geschaeftspartner.EMail != "" ? geschaeftspartner.EMail : null);
+            command.Parameters.AddWithValue("@Hausnummer", geschaeftspartner.Hausnummer);
+            command.Parameters.AddWithValue("@id", Convert.ToInt32(id));
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception exception)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
