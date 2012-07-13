@@ -16,9 +16,35 @@ namespace MiKuVer2.Frontend.Web.Controllers
         //
         // GET: /Kunden/
 
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var kunden = this.kundenService.GetDirekteKunden();
+        //    return View(kunden);
+        //}
+
+        public ActionResult Index(string gp, string mode)
         {
-            var kunden = this.kundenService.GetDirekteKunden();
+            if (gp == null)
+            {
+                gp = "1";
+            }
+
+            int id = Convert.ToInt32(gp);
+
+            List<Kunde> kunden = new List<Kunde>();
+            switch (mode)
+            {
+                case "agp":
+                    kunden = this.kundenService.GetAlleKunden();
+                    break;
+                case "dpg":
+                    kunden = this.kundenService.GetDirekteKundenVonGeschaeftspartner(id);
+                    break;
+                default:
+                    kunden = this.kundenService.GetDirekteKunden();
+                    break;
+            }
+
             return View(kunden);
         }
 
