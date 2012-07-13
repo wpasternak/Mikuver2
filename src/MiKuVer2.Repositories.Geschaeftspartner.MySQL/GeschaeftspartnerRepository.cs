@@ -183,7 +183,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
         /// <returns>true oder false</returns>
         public bool GeschaeftspartnerSpeichern(Geschaeftspartner neuerGeschaeftspartner)
         {
-            var command = new MySqlCommand("INSERT INTO person (Vorname, Nachname, Geburtsdatum, GeschlechtID, Fax, Telefon, Strasse, Hausnummer, PLZ, Ort, `E-Mail`,MobilNr) VALUES (@Vorname, @Nachname, @Geburtsdatum, @Geschlecht, @Fax, @Telefon, @Strasse, @Hausnummer, @PLZ, @Ort, @EMail, @MobilNr)", this.connection);
+            var command = new MySqlCommand("INSERT INTO person (Vorname, Nachname, Geburtsdatum, GeschlechtID, Fax, Telefon, Strasse, Hausnummer, PLZ, Ort, `E-Mail`, MobilNr) VALUES (@Vorname, @Nachname, @Geburtsdatum, @Geschlecht, @Fax, @Telefon, @Strasse, @Hausnummer, @PLZ, @Ort, @EMail, @MobilNr)", this.connection);
             command.Parameters.AddWithValue("@Vorname", neuerGeschaeftspartner.Vorname);
             command.Parameters.AddWithValue("@Nachname", neuerGeschaeftspartner.Nachname);
             command.Parameters.AddWithValue("@Geburtsdatum", neuerGeschaeftspartner.Geburtstag);
@@ -227,7 +227,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             command.Parameters.AddWithValue("@vogesetzterId", neuerGeschaeftspartner.Vorgesetzter != null ? neuerGeschaeftspartner.Vorgesetzter.Id : 1);
             command.Parameters.AddWithValue("@PersonId", personId);
             command.Parameters.AddWithValue("@Eintrittsdatum", neuerGeschaeftspartner.Eintrittsdatum);
-            command.Parameters.AddWithValue("@psnr", neuerGeschaeftspartner.MitarbeiterNummer);
+            command.Parameters.AddWithValue("@psnr", neuerGeschaeftspartner.MitarbeiterNummer != null ? neuerGeschaeftspartner.MitarbeiterNummer : null);
             Debug.WriteLine(command.ExecuteNonQuery());
 
             return true;
