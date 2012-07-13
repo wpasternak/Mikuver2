@@ -39,7 +39,7 @@ namespace MiKuVer2.Repositories.Kunden
             var result = new List<Kunde>();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname,p.GeschlechtID, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@id", 1);
 
             var reader = command.ExecuteReader();
@@ -93,7 +93,7 @@ namespace MiKuVer2.Repositories.Kunden
             var result = new List<Kunde>();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname,p.GeschlechtID, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
 
             var reader = command.ExecuteReader();
 
@@ -147,7 +147,7 @@ namespace MiKuVer2.Repositories.Kunden
             var result = new List<Kunde>();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname,p.GeschlechtID, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@id", id);
 
             var reader = command.ExecuteReader();
@@ -202,7 +202,7 @@ namespace MiKuVer2.Repositories.Kunden
             var result = new List<Kunde>();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname,p.GeschlechtID, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@id", id);
 
             var reader = command.ExecuteReader();
@@ -257,7 +257,7 @@ namespace MiKuVer2.Repositories.Kunden
             var kunde = new Kunde();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname,p.GeschlechtID, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@id", id);
 
             var reader = command.ExecuteReader();
@@ -310,7 +310,7 @@ namespace MiKuVer2.Repositories.Kunden
             var kunde = new Kunde();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE p.Nachname like @name AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname,p.GeschlechtID, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@name", name);
 
             var reader = command.ExecuteReader();
