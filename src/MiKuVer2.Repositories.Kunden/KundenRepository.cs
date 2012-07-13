@@ -39,7 +39,7 @@ namespace MiKuVer2.Repositories.Kunden
             var result = new List<Kunde>();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail` FROM Kunden k, Person p WHERE geschaeftspartnerId=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@id", 1);
 
             var reader = command.ExecuteReader();
@@ -63,6 +63,13 @@ namespace MiKuVer2.Repositories.Kunden
                         kunde.PLZ = reader.IsDBNull(reader.GetOrdinal("PLZ")) != true ? reader.GetString("PLZ") : "";
                         kunde.Ort = reader.IsDBNull(reader.GetOrdinal("Ort")) != true ? reader.GetString("Ort") : "";
                         kunde.EMail = reader.IsDBNull(reader.GetOrdinal("E-Mail")) != true ? reader.GetString("E-Mail") : "";
+                        kunde.KundenNummer = reader.IsDBNull(reader.GetOrdinal("KundenNr")) != true ? reader.GetString("KundenNr") : "";
+                        kunde.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
+                        ? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
+                        : true;
+                        kunde.MobilNr = reader.IsDBNull(reader.GetOrdinal("MobilNr")) != true
+                     ? reader.GetString("MobilNr")
+                     : "";
                         result.Add(kunde);
                     }
                 }
@@ -86,7 +93,7 @@ namespace MiKuVer2.Repositories.Kunden
             var result = new List<Kunde>();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail` FROM Kunden k, Person p WHERE k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
 
             var reader = command.ExecuteReader();
 
@@ -109,6 +116,13 @@ namespace MiKuVer2.Repositories.Kunden
                         kunde.PLZ = reader.IsDBNull(reader.GetOrdinal("PLZ")) != true ? reader.GetString("PLZ") : "";
                         kunde.Ort = reader.IsDBNull(reader.GetOrdinal("Ort")) != true ? reader.GetString("Ort") : "";
                         kunde.EMail = reader.IsDBNull(reader.GetOrdinal("E-Mail")) != true ? reader.GetString("E-Mail") : "";
+                        kunde.KundenNummer = reader.IsDBNull(reader.GetOrdinal("KundenNr")) != true ? reader.GetString("KundenNr") : "";
+                        kunde.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
+                        ? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
+                        : true;
+                        kunde.MobilNr = reader.IsDBNull(reader.GetOrdinal("MobilNr")) != true
+                     ? reader.GetString("MobilNr")
+                     : "";
                         result.Add(kunde);
                     }
                 }
@@ -133,7 +147,7 @@ namespace MiKuVer2.Repositories.Kunden
             var result = new List<Kunde>();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail` FROM Kunden k, Person p WHERE geschaeftspartnerId=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@id", id);
 
             var reader = command.ExecuteReader();
@@ -157,6 +171,13 @@ namespace MiKuVer2.Repositories.Kunden
                         kunde.PLZ = reader.IsDBNull(reader.GetOrdinal("PLZ")) != true ? reader.GetString("PLZ") : "";
                         kunde.Ort = reader.IsDBNull(reader.GetOrdinal("Ort")) != true ? reader.GetString("Ort") : "";
                         kunde.EMail = reader.IsDBNull(reader.GetOrdinal("E-Mail")) != true ? reader.GetString("E-Mail") : "";
+                        kunde.KundenNummer = reader.IsDBNull(reader.GetOrdinal("KundenNr")) != true ? reader.GetString("KundenNr") : "";
+                        kunde.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
+                        ? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
+                        : true;
+                        kunde.MobilNr = reader.IsDBNull(reader.GetOrdinal("MobilNr")) != true
+                     ? reader.GetString("MobilNr")
+                     : "";
                         result.Add(kunde);
                     }
                 }
@@ -181,7 +202,7 @@ namespace MiKuVer2.Repositories.Kunden
             var result = new List<Kunde>();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail` FROM Kunden k, Person p WHERE geschaeftspartnerId=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@id", id);
 
             var reader = command.ExecuteReader();
@@ -205,6 +226,13 @@ namespace MiKuVer2.Repositories.Kunden
                         kunde.PLZ = reader.IsDBNull(reader.GetOrdinal("PLZ")) != true ? reader.GetString("PLZ") : "";
                         kunde.Ort = reader.IsDBNull(reader.GetOrdinal("Ort")) != true ? reader.GetString("Ort") : "";
                         kunde.EMail = reader.IsDBNull(reader.GetOrdinal("E-Mail")) != true ? reader.GetString("E-Mail") : "";
+                        kunde.KundenNummer = reader.IsDBNull(reader.GetOrdinal("KundenNr")) != true ? reader.GetString("KundenNr") : "";
+                        kunde.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
+                        ? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
+                        : true;
+                        kunde.MobilNr = reader.IsDBNull(reader.GetOrdinal("MobilNr")) != true
+                     ? reader.GetString("MobilNr")
+                     : "";
                         result.Add(kunde);
                     }
                 }
