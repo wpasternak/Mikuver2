@@ -240,7 +240,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             command.Parameters.AddWithValue("@id", geschaeftspartner.Id);
             var id = command.ExecuteScalar();
 
-            command = new MySqlCommand("UPDATE Person SET Vorname=@Vorname, Nachname=@Nachname, Geburtsdatum=@Geburtsdatum, GeschlechtID=@Geschlecht, Fax=@Fax, Telefon=@Telefon, Strasse=@Strasse, Hausnummer=@Hausnummer, PLZ=@PLZ, Ort=@Ort, `E-Mail`=@EMail, Eintrittsdatum=@Eintrittsdatum WHERE ID=@id", this.connection);
+            command = new MySqlCommand("UPDATE Person SET Vorname=@Vorname, Nachname=@Nachname, Geburtsdatum=@Geburtsdatum, GeschlechtID=@Geschlecht, Fax=@Fax, Telefon=@Telefon, Strasse=@Strasse, Hausnummer=@Hausnummer, PLZ=@PLZ, Ort=@Ort, `E-Mail`=@EMail WHERE ID=@id", this.connection);
             command.Parameters.AddWithValue("@Vorname", geschaeftspartner.Vorname);
             command.Parameters.AddWithValue("@Nachname", geschaeftspartner.Nachname);
             command.Parameters.AddWithValue("@Geburtsdatum", geschaeftspartner.Geburtstag);
@@ -253,6 +253,18 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             command.Parameters.AddWithValue("@EMail", geschaeftspartner.EMail != "" ? geschaeftspartner.EMail : null);
             command.Parameters.AddWithValue("@Hausnummer", geschaeftspartner.Hausnummer);
             command.Parameters.AddWithValue("@id", Convert.ToInt32(id));
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception exception)
+            {
+                return false;
+            }
+
+            command = new MySqlCommand("UPDATE Geschaeftspartner SET Eintrittsdatum=@Eintrittsdatum WHERE ID=@id");
+            command.Parameters.AddWithValue("@id", geschaeftspartner.Id);
             command.Parameters.AddWithValue("@Eintrittsdatum", geschaeftspartner.Eintrittsdatum);
 
             try
