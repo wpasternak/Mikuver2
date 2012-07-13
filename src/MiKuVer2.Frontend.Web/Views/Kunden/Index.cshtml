@@ -9,17 +9,17 @@
 
 <table>
     <tr>
-        <td>@Html.ActionLink("Neues Unternehmen anlegen", "Create")</td>
-        <td> | </td>
+        @*<td>@Html.ActionLink("Neues Unternehmen anlegen", "Create")</td>
+        <td> | </td>*@
         <td>@Html.ActionLink("Neuen Kunden anlegen", "CreateKunde")</td>
     </tr>
 </table>
 <br />
 <table>
     <tr>
-        <td>@Html.ActionLink("Direkte Kunden", "Index", "Kunden")</td>
+        <td>@Html.ActionLink("Direkte Kunden", "Index", "Kunden", new { gp = "1", mode = "dgp" }, null)</td>
         <td> | </td>
-        <td>@Html.ActionLink("Alle Kunden", "Index", "Kunden")</td>
+        <td>@Html.ActionLink("Alle Kunden", "Index", "Kunden", new { gp = "1", mode = "agp" }, null)</td>
     </tr>
 </table>
 <br />
@@ -34,9 +34,7 @@
         <th style="width:300px;">
             Kontakt
         </th>
-        <th style="width:300px;">
-            Aufgabe
-        </th>
+        
     </tr>
 
 @foreach (var item in Model) {
@@ -48,12 +46,11 @@
             @Html.DisplayFor(modelItem => item.BereitsKunde)
         </td>*@
         <td style="width:200px;">
-            @Html.ActionLink(item.Vorname, "Details/" + item.Id, "Kunden")
+            @Html.ActionLink(item.Vorname+ " " + item.Nachname, "Details/" + item.Id, "Kunden")
        
-            @Html.ActionLink(item.Nachname, "Details/" + item.Id, "Kunden")
         </td>
         <td style="width:80px;">
-            
+            @Html.DisplayFor(modelItem => item.KundenNummer)
         </td>
         <td style="width:300px;">
             <ul style="list-style-type:none;  text-align:left; margin-left:-40px;">
@@ -61,9 +58,7 @@
                 <li>@Html.DisplayFor(modelItem => item.EMail)</li>
             </ul>
         </td>
-        <td style="width:300px;">
         
-        </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.Geburtstag)
         </td>

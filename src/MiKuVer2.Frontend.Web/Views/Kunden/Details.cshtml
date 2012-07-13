@@ -15,6 +15,11 @@
 			   <p style="font-size:26px; font-weight:bolder;">@Html.DisplayFor(model => model.Vorname) @Html.DisplayFor(model => model.Nachname)</p>
 			</td>
 		</tr>
+         <tr>
+            <td>
+                <h4>Kunden-Nr.: @Html.DisplayFor(model => model.KundenNummer)</h4>
+            </td>
+        </tr>
 		<tr>
 			<td>
 				<p >
@@ -24,22 +29,13 @@
  
 			</td>
 		</tr>
+       
 	 </table>
 	 <hr />
-	 <div style="position:absolute; margin: 15px 0 0 400px; ">
-		
-	 </div>
+	 
 	 <table style="margin-top:15px;">
-	 <tr>
-	 <td>
-	 <div class="display-label">Kunden-Nr:</div>
-	 </td>
-	 <td><div class="display-field">
-		
-	 </div>
-	 </td>
-	 </tr>
-	 <tr></tr>
+	 
+	
 	 <tr>
 		<td>
 			<div class="display-label">Kunde seit:</div>
@@ -106,6 +102,13 @@
 		<td>
 		<div class="display-field">
 		@Html.DisplayFor(model => model.Telefon)
+		</div>
+		</td>
+        <td><div class="display-field">Mobil-Nr.:</div>
+		</td>
+		<td>
+		<div class="display-field">
+		@Html.DisplayFor(model => model.MobilNr)
 		</div>
 		</td>
 		</tr>

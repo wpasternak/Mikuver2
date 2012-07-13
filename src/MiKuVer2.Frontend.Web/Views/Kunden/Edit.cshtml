@@ -24,6 +24,19 @@
 
         <table style="margin-top:15px;">
             <tr>
+             <td>
+                    <div class="editor-label">
+                        Kunden-Nr.:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.KundenNummer)
+                        @Html.ValidationMessageFor(model => model.KundenNummer)
+                    </div>
+                </td>
+            </tr>
+            <tr>
                 <td>
                     <div class="editor-label">
                         Kunde seit:
@@ -115,6 +128,17 @@
             </tr>
         @Html.HiddenFor(model => model.Id)
             <tr>
+             <td>
+                    <div class="editor-label">
+                        Telefon:
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Telefon)
+                        @Html.ValidationMessageFor(model => model.Telefon)
+                    </div>
+                </td>
                 <td>
                     <div class="editor-label">
                         Fax:
@@ -126,15 +150,17 @@
                         @Html.ValidationMessageFor(model => model.Fax)
                     </div>
                 </td>
-                <td>
+            </tr>
+            <tr>
+             <td>
                     <div class="editor-label">
-                        Telefon:
+                        Mobil-Nr.:
                     </div>
                 </td>
                 <td>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.Telefon)
-                        @Html.ValidationMessageFor(model => model.Telefon)
+                        @Html.EditorFor(model => model.MobilNr)
+                        @Html.ValidationMessageFor(model => model.MobilNr)
                     </div>
                 </td>
             </tr>
