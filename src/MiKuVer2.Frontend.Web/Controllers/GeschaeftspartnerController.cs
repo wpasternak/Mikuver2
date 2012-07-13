@@ -77,10 +77,13 @@ namespace MiKuVer2.Frontend.Web.Controllers
         {
             try
             {
+                if (ModelState.IsValid)
+                {
+                    this.geschaeftspartnerService.GeschaeftspartnerSpeichern(neuerGps);
+                    return RedirectToAction("Index");
+                }
 
-
-                this.geschaeftspartnerService.GeschaeftspartnerSpeichern(neuerGps);
-                return RedirectToAction("Index");
+                return this.View(neuerGps);
             }
             catch
             {
@@ -124,6 +127,10 @@ namespace MiKuVer2.Frontend.Web.Controllers
         public ActionResult Edit(int id)
         {
             var gpToEdit = this.geschaeftspartnerService.GetGeschaeftspartner(id);
+            if (gpToEdit == null)
+            {
+                HttpNotFound();
+            }
             return View(gpToEdit);
         }
 
@@ -135,13 +142,18 @@ namespace MiKuVer2.Frontend.Web.Controllers
         {
             try
             {
-                this.geschaeftspartnerService.GeschaeftspartnerAktualisieren(geschaeftspartner);
- 
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    this.geschaeftspartnerService.GeschaeftspartnerAktualisieren(geschaeftspartner);
+                    return RedirectToAction("Index");
+                }
+                return View(geschaeftspartner);
+
             }
             catch
             {
-                return View();
+                ViewBag.ErroeMessage = "Es ist ein Fehler beim Speichern aufgetreten";
+                return View(geschaeftspartner);
             }
         }
 
