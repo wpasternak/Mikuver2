@@ -14,12 +14,14 @@ namespace MiKuVer2.Model
     /// </summary>
     [DataContract(IsReference = true)]
     public class Person : Kontakt
-    {
+    { 
+
         /// <summary>
         /// Der Vorname der Person
         /// </summary>
         [DataMember]
         [Required]
+        [RegularExpression(@"^[A-Z][a-zA-z\s]*")]
         public string Vorname { get; set; }
 
         /// <summary>
@@ -27,6 +29,7 @@ namespace MiKuVer2.Model
         /// </summary>
         [DataMember]
         [Required]
+        [RegularExpression(@"^[A-Z][a-zA-z\s]*")]
         public string Nachname { get; set; }
 
         /// <summary>

@@ -32,7 +32,7 @@ namespace MiKuVer2.Model
         /// Die Strasse des Kontaktes
         /// </summary>
         [DataMember]
-        [RegularExpression(@"[A-Za-z\s]")]
+        [RegularExpression(@"^[A-Z][a-zA-z\s]*")]
         public string Strasse { get; set; }
         
         /// <summary>
@@ -60,6 +60,7 @@ namespace MiKuVer2.Model
         /// Der Ort des Kontaktes
         /// </summary>
         [DataMember]
+        [RegularExpression(@"^[A-Z][a-zA-z\s]*")]
         public string Ort { get; set; }
         
         /// <summary>
