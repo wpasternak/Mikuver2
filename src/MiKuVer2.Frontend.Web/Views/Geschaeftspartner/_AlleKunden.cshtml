@@ -16,7 +16,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr style="border-bottom:solid;">
+    <tr style="border-bottom: 3px solid black; height:90px;">
        @* <td>
             @Html.DisplayFor(modelItem => item.KundeSeit)
         </td>
@@ -31,7 +31,7 @@
             @Html.DisplayFor(modelItem => item.KundenNummer)
         </td>
         <td style="width:300px;">
-            <ul style="list-style-type:none;  text-align:left; margin-left:-40px;">
+            <ul style="list-style-type:none; text-align:left; margin-left:-40px;">
                 <li>@Html.DisplayFor(modelItem => item.Telefon)</li>
                 <li>@Html.DisplayFor(modelItem => item.EMail)</li>
             </ul>
