@@ -263,7 +263,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
                 return false;
             }
 
-            command = new MySqlCommand("UPDATE Geschaeftspartner SET Eintrittsdatum=@Eintrittsdatum WHERE ID=@id");
+            command = new MySqlCommand("UPDATE Geschaeftspartner SET Eintrittsdatum=@Eintrittsdatum WHERE ID=@id",this.connection);
             command.Parameters.AddWithValue("@id", geschaeftspartner.Id);
             command.Parameters.AddWithValue("@Eintrittsdatum", geschaeftspartner.Eintrittsdatum);
 
