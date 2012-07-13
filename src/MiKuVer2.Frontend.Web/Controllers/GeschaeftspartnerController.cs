@@ -15,6 +15,8 @@ namespace MiKuVer2.Frontend.Web.Controllers
 
         private IGeschaeftspartnerService geschaeftspartnerService= new GeschaeftspartnerService();
 
+        private IKundenService kundenService = new KundenService();
+
         //
         // GET: /Geschaeftspartner/
         //public ActionResult Index()
@@ -54,10 +56,29 @@ namespace MiKuVer2.Frontend.Web.Controllers
         //
         // GET: /Geschaeftspartner/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, string mode = "normal")
         {
-            var gp = this.geschaeftspartnerService.GetGeschaeftspartner(id);
-            gp.Partner = this.geschaeftspartnerService.GetDirekteGeschaeftspartner(id);
+            var kunden = new List<Kunde>();
+            var gps = new List<Geschaeftspartner>();
+            var gp = new Geschaeftspartner();
+
+            switch (mode)
+            {
+                case "normal":
+                    gp = this.geschaeftspartnerService.GetGeschaeftspartner(id);
+                    break;
+                case "Kunden":
+                    kunden = this.kundenService.GetDirekteKundenVonGeschaeftspartner(id);
+                    ViewBag.show = "_AlleKunden";
+                    return View(kunden);
+                case "gps":
+                    gp = this.geschaeftspartnerService.GetGeschaeftspartner(id);
+                    gp.Partner = this.geschaeftspartnerService.GetDirekteGeschaeftspartner(id);
+                    gps = gp.Partner;
+                    ViewBag.show = "_DirekteKunden";
+                    return View(gps);
+            }
+
             return View(gp);
         }
 

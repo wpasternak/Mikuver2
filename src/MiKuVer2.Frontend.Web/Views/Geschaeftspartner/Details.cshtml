@@ -160,6 +160,7 @@
         <tr>
             <td>
                 <div class="display-label">Direkte Kunden anzeigen</div>
+                <div>@Html.ActionLink()</div>
 	        </td>
             <td>
                 <div class="display-label">Direkte Geschäftspartner</div>
@@ -169,7 +170,7 @@
             <td>
                 <div class="display-field">
                     <table>
-                         @foreach (var item in Model.Partner)
+@*                         @foreach (var item in Model.Partner)
 	                        {
 	                        <tr>
 		                        <td>
@@ -177,12 +178,14 @@
 		                        </td>
 	                        </tr>
 	                        }
-                    </table>
+                    </table>*@
                 </div>
             </td>
         </tr>
      </table>
-     	
+     <div>
+     @Html.RenderPartial(ViewBag.show)
+     </div>	
 	
    
 </fieldset>
