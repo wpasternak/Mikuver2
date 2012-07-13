@@ -31,7 +31,8 @@
             </td>
             <td>
                 <div class="editor-field" >
-                    
+                    @Html.EditorFor(model => model.KundenNummer)
+                    @Html.ValidationMessageFor(model => model.KundenNummer)
                 </div>
             </td>
         </tr>
