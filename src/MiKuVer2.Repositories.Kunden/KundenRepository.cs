@@ -345,7 +345,7 @@ namespace MiKuVer2.Repositories.Kunden
 
             var personId = (int)command.LastInsertedId;
 
-            command = new MySqlCommand("INSERT INTO Kunden (KundeSeit, UnternehmenId, EmpfohlenVon, GeschaeftspartnerID, PersonId) VALUES (@KundeSeit, @UnternehmenId, @EmpfohlenVon, @GeschaeftspartnerID, @PersonId);", this.connection);
+            command = new MySqlCommand("INSERT INTO Kunden (KundeSeit, UnternehmenId, EmpfohlenVon, GeschaeftspartnerID, PersonId, KundenNr) VALUES (@KundeSeit, @UnternehmenId, @EmpfohlenVon, @GeschaeftspartnerID, @PersonId, @kdnr);", this.connection);
             command.Parameters.AddWithValue(
                 "@KundeSeit", neuerKunde.KundeSeit != DateTime.MinValue ? neuerKunde.KundeSeit : DateTime.Now);
             command.Parameters.AddWithValue(
@@ -354,6 +354,7 @@ namespace MiKuVer2.Repositories.Kunden
                 "@EmpfohlenVon", neuerKunde.EmpfohlenVon != null ? (object)neuerKunde.EmpfohlenVon.Id : null);
             command.Parameters.AddWithValue("@GeschaeftspartnerID", gpId); // todo: gpId als parameter übergeben
             command.Parameters.AddWithValue("@PersonId", personId);
+            command.Parameters.AddWithValue("@kdnr", neuerKunde.KundenNummer);
 
             try
             {
@@ -401,6 +402,19 @@ namespace MiKuVer2.Repositories.Kunden
                 return false;
             }
 
+            command = new MySqlCommand("UPDATE Kunden SET KundenNr=@kdnr WHERE ID=@id",this.connection);
+            command.Parameters.AddWithValue("@kdnr", kunden.KundenNummer);
+            command.Parameters.AddWithValue("@id", kunden.Id);
+
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception exception)
+            {
+                return false;
+            }
+
             //var personId = (int)command.LastInsertedId;
 
             //command = new MySqlCommand("INSERT INTO Kunden (KundeSeit, UnternehmenId, EmpfohlenVon, GeschaeftspartnerID, PersonId) VALUES (@KundeSeit, @UnternehmenId, @EmpfohlenVon, @GeschaeftspartnerID, @PersonId);", this.connection);
@@ -420,7 +434,7 @@ namespace MiKuVer2.Repositories.Kunden
             //catch (Exception exception)
             //{
             //    return false;
-            //}
+            //})
 
             return true;
         }
