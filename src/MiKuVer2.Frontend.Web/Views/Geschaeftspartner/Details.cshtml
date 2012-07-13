@@ -8,78 +8,83 @@
 
 <fieldset>
 	<legend>Gesch&auml;ftspartner Details</legend>
-    
-    
-    <table style="margin-top:15px;">
+        <table style="margin-top:15px;">
+            <tr>
+                <td>
+                   <p style="font-size:26px; font-weight:bolder;">@Html.DisplayFor(model => model.Vorname) @Html.DisplayFor(model => model.Nachname)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Personal-Nr.: @Html.DisplayFor(model => model.MitarbeiterNummer)</h4>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p >
+	                   @Html.ActionLink("Geschäftspartner bearbeiten", "Edit", new { id=Model.Id })
+	                   @* @Html.ActionLink("Back to List", "Index")*@
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <hr />
+        <table style="margin-top:15px;">
         <tr>
             <td>
-               <p style="font-size:26px; font-weight:bolder;">@Html.DisplayFor(model => model.Vorname) @Html.DisplayFor(model => model.Nachname)</p>
+                <div class="display-label">
+                    Eintrittsdatum:
+                </div>
+            </td>
+	        <td>
+                <div class="display-field">
+		            @Html.DisplayFor(model => model.Eintrittsdatum)
+	            </div>
             </td>
         </tr>
         <tr>
             <td>
-                <p >
-	               @Html.ActionLink("Geschäpartner bearbeiten", "Edit", new { id=Model.Id })
-	               @* @Html.ActionLink("Back to List", "Index")*@
-                </p>
- 
-            </td>
-        </tr>
-     </table>
-     <hr />
-     <div style="position:absolute; margin: 15px 0 0 400px; ">
-        
-     </div>
-     <table style="margin-top:15px;">
-     <tr>
-     <td>
-     <div class="display-label">Eintrittsdatum:</div>
-     </td>
-	 <td><div class="display-field">
-		@Html.DisplayFor(model => model.Eintrittsdatum)
-	 </div>
-     </td>
-     </tr>
-     <tr>
-            <td>
-            <div class="display-label">Geschlecht:</div>
+                <div class="display-label">
+                    Geschlecht:
+                    </div>
             </td>
             <td>
-            <div class="display-field">
-		@{
-			if (Model.Geschlecht == true)
-			{
-				@: m&aumlnnlich   
-			}
-			else
-			{
-				@: weiblich 
-			}
-		}
-	</div>
+                <div class="display-field">
+		            @{
+			            if (Model.Geschlecht == true)
+			            {
+				            @: m&aumlnnlich   
+			            }
+			            else
+			            {
+				            @: weiblich 
+			            }
+		            }
+	            </div>
             </td>
         </tr>
-        
         <tr>
-        <td>
-        <div class="display-label">Geburtstag:</div>
-	
-        </td>
-        <td>
-        <div class="display-field">
-		@Html.DisplayFor(model => model.Geburtstag)
-	    </div>
-        </td>
+            <td>
+                <div class="display-label">
+                    Geburtstag:
+                </div>
+	        </td>
+            <td>
+                <div class="display-field">
+		            @Html.DisplayFor(model => model.Geburtstag)
+	            </div>
+            </td>
         </tr>
         <tr>
-        <td>
-        <div class="display-label">E-Mail:</div>
-	
-        </td>
-        <td>
-        <div class="display-field">
-		@Html.DisplayFor(model => model.EMail)
-	    </div>
+            <td>
+                <div class="display-label">
+                    E-Mail:
+                </div>
+	        </td>
+            <td>
+                <div class="display-field">
+		            @Html.DisplayFor(model => model.EMail)
+	            </div>
         </td>
         </tr>
         <tr>
@@ -89,6 +94,14 @@
         <td>
         <div class="display-field">
 		@Html.DisplayFor(model => model.Telefon)
+	    </div>
+        </td>
+        <td>
+            <div class="display-label">Mobil-Nr.:</div>
+	    </td>
+        <td>
+        <div class="display-field">
+		@Html.DisplayFor(model => model.MobilNr)
 	    </div>
         </td>
         </tr>

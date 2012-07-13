@@ -19,6 +19,19 @@
         <tr>
             <td>
                 <div class="editor-label">
+                    Personal-Nr.:
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MitarbeiterNummer)
+                    @Html.ValidationMessageFor(model => model.MitarbeiterNummer)
+                </div>
+            </td>
+        </tr
+        <tr>
+            <td>
+                <div class="editor-label">
                     Eintrittsdatum:
                 </div>
             </td>
@@ -98,15 +111,17 @@
         <tr>
             <td>
                 <div class="editor-label">
-                    Fax:
+                    E-Mail:
                 </div>
             </td>
             <td>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Fax)
-                    @Html.ValidationMessageFor(model => model.Fax)
+                    @Html.EditorFor(model => model.EMail)
+                    @Html.ValidationMessageFor(model => model.EMail)
                 </div>
             </td>
+        </tr>
+        <tr>
             <td>
                 <div class="editor-label">
                     Telefon:
@@ -117,6 +132,26 @@
                     @Html.EditorFor(model => model.Telefon)
                     @Html.ValidationMessageFor(model => model.Telefon)
                 </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    Fax:
+                </div>
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Fax)
+                    @Html.ValidationMessageFor(model => model.Fax)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mobil-Nr.:
+            </td>
+            <td>
+                @Html.EditorFor(model => model.MobilNr)
+                @Html.ValidationMessageFor(model => model.MobilNr)
             </td>
         </tr>
         <tr>
@@ -164,19 +199,6 @@
                 <div class="editor-field">
                     @Html.EditorFor(model => model.Ort)
                     @Html.ValidationMessageFor(model => model.Ort)
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="editor-label">
-                    E-Mail:
-                </div>
-            </td>
-            <td>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.EMail)
-                    @Html.ValidationMessageFor(model => model.EMail)
                 </div>
             </td>
         </tr>

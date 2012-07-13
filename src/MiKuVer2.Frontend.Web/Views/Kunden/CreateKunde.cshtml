@@ -171,7 +171,8 @@
             </td>
             <td>
                 <div class="editor-field" >
-                    
+                    @Html.EditorFor(model => model.MobilNr)
+                    @Html.ValidationMessageFor(model => model.MobilNr)
                 </div>
             </td>
         </tr>
