@@ -32,19 +32,20 @@ namespace MiKuVer2.Model
         /// Die Strasse des Kontaktes
         /// </summary>
         [DataMember]
+        [RegularExpression(@"[A-Za-z\s]")]
         public string Strasse { get; set; }
         
         /// <summary>
         /// Die Telefonnunmmer des Kontaktes
         /// </summary>
         [DataMember]
+        [Required]
         public string Telefon { get; set; }
         
         /// <summary>
         /// Die Hausnummer des Kontaktes
         /// </summary>
         [DataMember]
-        [RegularExpression(@"[A_Za-z]")]
         public string Hausnummer { get; set; }
         
         /// <summary>
