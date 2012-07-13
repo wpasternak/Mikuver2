@@ -34,6 +34,18 @@
                     
                 </div>
             </td>
+            <td></td>
+            <td>
+                <div class="editor-label" >
+                    Vorgesetzten-Nr.:
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    @*@Html.EditorFor(model => model.Vorgesetzter)
+                    @Html.ValidationMessageFor(model => model.Vorgesetzter)*@
+                </div>
+            </td>
         </tr>
         <tr>
             <td>
