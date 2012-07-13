@@ -44,6 +44,7 @@ namespace MiKuVer2.Model
         /// Die Hausnummer des Kontaktes
         /// </summary>
         [DataMember]
+        [RegularExpression(@"[A_Za-z]")]
         public string Hausnummer { get; set; }
         
         /// <summary>
