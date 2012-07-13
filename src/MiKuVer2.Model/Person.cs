@@ -44,5 +44,8 @@ namespace MiKuVer2.Model
         /// </summary>
         [DataMember]
         public bool Geschlecht { get; set; }
+
+        [DataMember]
+        public string MobilNr { get; set; }
     }
 }

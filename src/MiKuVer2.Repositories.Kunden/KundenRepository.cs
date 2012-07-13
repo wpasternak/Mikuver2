@@ -229,7 +229,7 @@ namespace MiKuVer2.Repositories.Kunden
             var kunde = new Kunde();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail` FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE k.ID=@id AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@id", id);
 
             var reader = command.ExecuteReader();
@@ -256,6 +256,9 @@ namespace MiKuVer2.Repositories.Kunden
                         kunde.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
                         ? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
                         : true;
+                        kunde.MobilNr = reader.IsDBNull(reader.GetOrdinal("MobilNr")) != true
+                     ? reader.GetString("MobilNr")
+                     : "";
                     }
                 }
 
@@ -279,7 +282,7 @@ namespace MiKuVer2.Repositories.Kunden
             var kunde = new Kunde();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail` FROM Kunden k, Person p WHERE p.Nachname like @name AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE p.Nachname like @name AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@name", name);
 
             var reader = command.ExecuteReader();
@@ -306,6 +309,10 @@ namespace MiKuVer2.Repositories.Kunden
                         kunde.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
 ? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
 : true;
+                        kunde.MobilNr = reader.IsDBNull(reader.GetOrdinal("MobilNr")) != true
+                     ? reader.GetString("MobilNr")
+                     : "";
+
                     }
                 }
 
@@ -326,7 +333,7 @@ namespace MiKuVer2.Repositories.Kunden
         /// <returns>true oder false</returns>
         public bool KundeSpeichern(Kunde neuerKunde,int gpId)
         {
-            var command = new MySqlCommand("INSERT INTO person (Vorname, Nachname, Geburtsdatum, GeschlechtID, Fax, Telefon, Strasse, Hausnummer, PLZ, Ort, `E-Mail`) VALUES (@Vorname, @Nachname, @Geburtsdatum, @Geschlecht, @Fax, @Telefon, @Strasse, @Hausnummer, @PLZ, @Ort, @EMail)", this.connection);
+            var command = new MySqlCommand("INSERT INTO person (Vorname, Nachname, Geburtsdatum, GeschlechtID, Fax, Telefon, Strasse, Hausnummer, PLZ, Ort, `E-Mail`,MobilNr) VALUES (@Vorname, @Nachname, @Geburtsdatum, @Geschlecht, @Fax, @Telefon, @Strasse, @Hausnummer, @PLZ, @Ort, @EMail, @MobilNr)", this.connection);
             command.Parameters.AddWithValue("@Vorname", neuerKunde.Vorname);
             command.Parameters.AddWithValue("@Nachname", neuerKunde.Nachname);
             command.Parameters.AddWithValue("@Geburtsdatum", neuerKunde.Geburtstag);
@@ -338,6 +345,7 @@ namespace MiKuVer2.Repositories.Kunden
             command.Parameters.AddWithValue("@Ort", neuerKunde.Ort != "" ? neuerKunde.Ort : null);
             command.Parameters.AddWithValue("@EMail", neuerKunde.EMail != "" ? neuerKunde.EMail : null);
             command.Parameters.AddWithValue("@Hausnummer", neuerKunde.Hausnummer);
+            command.Parameters.AddWithValue("@MobilNr", neuerKunde.MobilNr);
 
             try
             {
@@ -384,7 +392,7 @@ namespace MiKuVer2.Repositories.Kunden
             command.Parameters.AddWithValue("@id", kunden.Id);
             var id = command.ExecuteScalar();
 
-            command = new MySqlCommand("UPDATE Person SET Vorname=@Vorname, Nachname=@Nachname, Geburtsdatum=@Geburtsdatum, GeschlechtID=@Geschlecht, Fax=@Fax, Telefon=@Telefon, Strasse=@Strasse, Hausnummer=@Hausnummer, PLZ=@PLZ, Ort=@Ort, `E-Mail`=@EMail WHERE ID=@id", this.connection);
+            command = new MySqlCommand("UPDATE Person SET Vorname=@Vorname, Nachname=@Nachname, Geburtsdatum=@Geburtsdatum, GeschlechtID=@Geschlecht, Fax=@Fax, Telefon=@Telefon, Strasse=@Strasse, Hausnummer=@Hausnummer, PLZ=@PLZ, Ort=@Ort, `E-Mail`=@EMail, MobilNr=@MobilNr WHERE ID=@id", this.connection);
             command.Parameters.AddWithValue("@Vorname", kunden.Vorname);
             command.Parameters.AddWithValue("@Nachname", kunden.Nachname);
             command.Parameters.AddWithValue("@Geburtsdatum", kunden.Geburtstag);
@@ -397,6 +405,7 @@ namespace MiKuVer2.Repositories.Kunden
             command.Parameters.AddWithValue("@EMail", kunden.EMail != "" ? kunden.EMail : null);
             command.Parameters.AddWithValue("@Hausnummer", kunden.Hausnummer);
             command.Parameters.AddWithValue("@id", Convert.ToInt32(id));
+            command.Parameters.AddWithValue("@MobilNr", kunden.MobilNr);
 
             try
             {
