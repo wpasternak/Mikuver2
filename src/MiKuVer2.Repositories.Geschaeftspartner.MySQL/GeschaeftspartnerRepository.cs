@@ -101,7 +101,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
         /// <returns>Einen Geschaeftspartner</returns>
         public Geschaeftspartner GetGeschaeftspartner(int id)
         {
-            var command = new MySqlCommand("SELECT Eintrittsdatum, PersonId FROM geschaeftspartner WHERE id=@id",this.connection);
+            var command = new MySqlCommand("SELECT Eintrittsdatum, PersonId, PersonalNr FROM geschaeftspartner WHERE id=@id",this.connection);
             command.Parameters.AddWithValue("@id", id);
 
             var result = new Geschaeftspartner();
@@ -119,6 +119,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
                         result.Eintrittsdatum = reader.IsDBNull(reader.GetOrdinal("Eintrittsdatum")) != true ? reader.GetDateTime("Eintrittsdatum").Date : DateTime.MinValue;
                         result.Id = id;
                         personId = reader.GetInt32(1);
+                        result.MitarbeiterNummer = reader.IsDBNull(reader.GetOrdinal("PersonalNr")) != true ? reader.GetString("PersonalNr") : "";
                     }
                 }
 
@@ -216,12 +217,13 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             command.Parameters.AddWithValue("@rgt", rgt);
             Debug.WriteLine(command.ExecuteNonQuery());
 
-            command = new MySqlCommand("INSERT INTO geschaeftspartner (Vorgesetzter,lft,rgt,PersonId,Eintrittsdatum) VALUES (@vogesetzterId, @rgt, @lft, @PersonId, @Eintrittsdatum);", this.connection);
+            command = new MySqlCommand("INSERT INTO geschaeftspartner (Vorgesetzter,lft,rgt,PersonId,Eintrittsdatum, PersonalNr) VALUES (@vogesetzterId, @rgt, @lft, @PersonId, @Eintrittsdatum, @psnr);", this.connection);
             command.Parameters.AddWithValue("@rgt", rgt);
             command.Parameters.AddWithValue("@lft", rgt + 1);
             command.Parameters.AddWithValue("@vogesetzterId", neuerGeschaeftspartner.Vorgesetzter != null ? neuerGeschaeftspartner.Vorgesetzter.Id : 1);
             command.Parameters.AddWithValue("@PersonId", personId);
             command.Parameters.AddWithValue("@Eintrittsdatum", neuerGeschaeftspartner.Eintrittsdatum);
+            command.Parameters.AddWithValue("@psnr", neuerGeschaeftspartner.MitarbeiterNummer);
             Debug.WriteLine(command.ExecuteNonQuery());
 
             return true;
@@ -263,9 +265,10 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
                 return false;
             }
 
-            command = new MySqlCommand("UPDATE Geschaeftspartner SET Eintrittsdatum=@Eintrittsdatum WHERE ID=@id",this.connection);
+            command = new MySqlCommand("UPDATE Geschaeftspartner SET Eintrittsdatum=@Eintrittsdatum, PersonalNr=@psnr WHERE ID=@id", this.connection);
             command.Parameters.AddWithValue("@id", geschaeftspartner.Id);
             command.Parameters.AddWithValue("@Eintrittsdatum", geschaeftspartner.Eintrittsdatum);
+            command.Parameters.AddWithValue("@psnr", geschaeftspartner.MitarbeiterNummer);
 
             try
             {

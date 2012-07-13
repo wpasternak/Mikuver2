@@ -46,5 +46,8 @@ namespace MiKuVer2.Model
         [DataMember]
         [DataType(DataType.Date)]
         public DateTime Eintrittsdatum { get; set; }
+
+        [DataMember]
+        public string MitarbeiterNummer { get; set; }
     }
 }
