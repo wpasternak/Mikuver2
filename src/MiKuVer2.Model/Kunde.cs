@@ -39,5 +39,10 @@ namespace MiKuVer2.Model
         /// </summary>
         [DataMember]
         public Kunde EmpfohlenVon { get; set; }
+
+        [DataMember]
+        public string KundenNummer { get; set; }
+
+
     }
 }

@@ -252,6 +252,7 @@ namespace MiKuVer2.Repositories.Kunden
                         kunde.PLZ = reader.IsDBNull(reader.GetOrdinal("PLZ")) != true ? reader.GetString("PLZ") : "";
                         kunde.Ort = reader.IsDBNull(reader.GetOrdinal("Ort")) != true ? reader.GetString("Ort") : "";
                         kunde.EMail = reader.IsDBNull(reader.GetOrdinal("E-Mail")) != true ? reader.GetString("E-Mail") : "";
+                        kunde.KundenNummer = reader.IsDBNull(reader.GetOrdinal("KundenNr")) != true ? reader.GetString("KundenNr") : "";
                         kunde.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
                         ? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
                         : true;
@@ -278,7 +279,7 @@ namespace MiKuVer2.Repositories.Kunden
             var kunde = new Kunde();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail` FROM Kunden k, Person p WHERE p.Nachname like @name AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail` FROM Kunden k, Person p WHERE p.Nachname like @name AND k.PersonId=p.ID", this.connection);
             command.Parameters.AddWithValue("@name", name);
 
             var reader = command.ExecuteReader();
@@ -301,6 +302,10 @@ namespace MiKuVer2.Repositories.Kunden
                         kunde.PLZ = reader.IsDBNull(reader.GetOrdinal("PLZ")) != true ? reader.GetString("PLZ") : "";
                         kunde.Ort = reader.IsDBNull(reader.GetOrdinal("Ort")) != true ? reader.GetString("Ort") : "";
                         kunde.EMail = reader.IsDBNull(reader.GetOrdinal("E-Mail")) != true ? reader.GetString("E-Mail") : "";
+                        kunde.KundenNummer = reader.IsDBNull(reader.GetOrdinal("KundenNr")) != true ? reader.GetString("KundenNr") : "";
+                        kunde.Geschlecht = reader.IsDBNull(reader.GetOrdinal("GeschlechtID")) != true
+? reader.GetBoolean(reader.GetOrdinal("GeschlechtID"))
+: true;
                     }
                 }
 
