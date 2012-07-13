@@ -1,0 +1,105 @@
+﻿@model IEnumerable<MiKuVer2.Model.Geschaeftspartner>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Eintrittsdatum
+        </th>
+        <th>
+            MitarbeiterNummer
+        </th>
+        <th>
+            Vorname
+        </th>
+        <th>
+            Nachname
+        </th>
+        <th>
+            Geburtstag
+        </th>
+        <th>
+            Geschlecht
+        </th>
+        <th>
+            MobilNr
+        </th>
+        <th>
+            Fax
+        </th>
+        <th>
+            Strasse
+        </th>
+        <th>
+            Telefon
+        </th>
+        <th>
+            Hausnummer
+        </th>
+        <th>
+            PLZ
+        </th>
+        <th>
+            Ort
+        </th>
+        <th>
+            EMail
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eintrittsdatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MitarbeiterNummer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vorname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nachname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Geburtstag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Geschlecht)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobilNr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Strasse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hausnummer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PLZ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ort)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMail)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
