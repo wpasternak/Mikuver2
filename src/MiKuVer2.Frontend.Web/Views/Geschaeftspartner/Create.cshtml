@@ -12,168 +12,186 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-   <fieldset>
-        <legend>Neuen Geschäftspartner anlegen</legend>
+<fieldset>
+    <legend>Neuen Geschäftspartner anlegen</legend>
         @{
             if (ViewBag.ErrorMessage != null)
             {
                 @: <h3>@ViewBag.ErrorMessage</h3>
             }  
          }
-     <form action="">
-      <table style="margin-top:15px;">
-      <br />
-        <tr>
-            <td>
-                <div class="editor-label" >
-                    Personal-Nr.:
-                </div>
-            </td>
-            <td>
-                <div class="editor-field" >
+    <form action="">
+        <table style="margin-top:15px;">
+            <br />
+            <tr>
+                <td>
+                    <div class="editor-label" >
+                        Personal-Nr.: *
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field" >
                     
+                    </div>
+                </td>
+                <td></td>
+                <td>
+                    <div class="editor-label" >
+                        Vorgesetzten-Nr.: *
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field" >
+                        @*@Html.EditorFor(model => model.Vorgesetzter)
+                        @Html.ValidationMessageFor(model => model.Vorgesetzter)*@
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                            Vorname: *
+                    </div>
+                </td>
+                <td> 
+                    <div class="editor-field" >
+                        @Html.EditorFor(model => model.Vorname)
+                        @Html.ValidationMessageFor(model => model.Vorname)
+                    </div>
+                </td>
+                <td></td>
+                <td>
+                    <div class="editor-label" >
+                        Nachname: *
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field" >
+                        @Html.EditorFor(model => model.Nachname)
+                        @Html.ValidationMessageFor(model => model.Nachname)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label" >
+                        Eintrittsdatum: *
+                    </div>
+                </td>
+                <td>
+                    <div id="eintritt_anlegen2" class="editor-field" >
+                        @Html.EditorFor(model => model.Eintrittsdatum)
+                        @Html.ValidationMessageFor(model => model.Eintrittsdatum)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+            <td>
+                <div class="editor-label" >
+                    Geburtstag: *
+                </div>
+            </td>
+            <td>
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.Geburtstag)
+                    @Html.ValidationMessageFor(model => model.Geburtstag)
                 </div>
             </td>
             <td></td>
             <td>
                 <div class="editor-label" >
-                    Vorgesetzten-Nr.:
+                    Geschlecht: *
                 </div>
             </td>
             <td>
                 <div class="editor-field" >
-                    @*@Html.EditorFor(model => model.Vorgesetzter)
-                    @Html.ValidationMessageFor(model => model.Vorgesetzter)*@
+                    @Html.DropDownList("Geschlecht", 
+                                    new List<SelectListItem>()
+                                    {
+                                        {
+                                            new SelectListItem()
+                                                {
+                                                    Text="Männlich",
+                                                    Value="true",
+                                                    Selected = true
+                                                }
+                                        },
+                                        { 
+                                            new SelectListItem(){
+                                                Text = "Weiblich",
+                                                Value = "false"
+                                            }
+                                        }
+                                    
+                                    })
+                    @Html.ValidationMessageFor(model => model.Geschlecht)
                 </div>
             </td>
         </tr>
         <tr>
             <td>
-                <div id="vorname_anlegen1" class="editor-label">
-                     Vorname: *
+                <div class="editor-label" >
+                    Straße:
                 </div>
             </td>
-            <td> 
-                <div id="vorname_anlegen2" class="editor-field" >
-                @Html.EditorFor(model => model.Vorname)
-                @Html.ValidationMessageFor(model => model.Vorname)
+            <td>
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.Strasse)
+                    @Html.ValidationMessageFor(model => model.Strasse)
                 </div>
             </td>
             <td></td>
             <td>
-            <div id="nachname_anlegen1" class="editor-label" >
-                Nachname: *
-            </div>
+                <div class="editor-label" >
+                    Hausnummer:
+                </div>
             </td>
             <td>
-            <div id="nachname_anlegen2" class="editor-field" >
-            @Html.EditorFor(model => model.Nachname)
-            @Html.ValidationMessageFor(model => model.Nachname)
-            </div>
+                <div class="editor-field" >
+                    @Html.EditorFor(model => model.Hausnummer)
+                    @Html.ValidationMessageFor(model => model.Hausnummer)
+                </div>
             </td>
         </tr>
-        
         <tr>
-        <td>
-        <div id="eintritt_anlegen1" class="editor-label" >
-            Eintrittsdatum: *
-        </div></td>
-        <td><div id="eintritt_anlegen2" class="editor-field" >
-            @Html.EditorFor(model => model.Eintrittsdatum)
-            @Html.ValidationMessageFor(model => model.Eintrittsdatum)
-        </div></td>
-        </tr>
-        <tr>
-        <td><div id="geburtstag_anlegen1" class="editor-label" >
-            Geburtstag: *
-        </div></td>
-        <td><div id="geburtstag_anlegen2" class="editor-field" >
-            @Html.EditorFor(model => model.Geburtstag)
-            @Html.ValidationMessageFor(model => model.Geburtstag)
-        </div></td>
-        <td></td>
-        <td><div id="geschlecht_anlegen1" class="editor-label" >
-            Geschlecht: *
-        </div></td>
-        <td><div id="geschlecht_anlegen2" class="editor-field" >
-            @Html.DropDownList("Geschlecht", 
-                                new List<SelectListItem>()
-                                {
-                                    {
-                                        new SelectListItem()
-                                            {
-                                                Text="Männlich",
-                                                Value="true",
-                                                Selected = true
-                                            }
-                                    },
-                                    { 
-                                        new SelectListItem(){
-                                            Text = "Weiblich",
-                                            Value = "false"
-                                        }
-                                    }
-                                    
-                                })
-            @Html.ValidationMessageFor(model => model.Geschlecht)
-        </div></td>
-        </tr>
-        <tr>
-        <td><div id="strasse_anlegen1" class="editor-label" >
-            Straße:
-        </div></td>
-        <td><div id="strasse_anlegen2" class="editor-field" >
-            @Html.EditorFor(model => model.Strasse)
-            @Html.ValidationMessageFor(model => model.Strasse)
-        </div></td>
-        <td></td>
-        <td><div id="hausnummer_anlegen1" class="editor-label" >
-            Hausnummer:
-        </div></td>
-        <td><div id="hausnummer_anlegen2" class="editor-field" >
-            @Html.EditorFor(model => model.Hausnummer)
-            @Html.ValidationMessageFor(model => model.Hausnummer)
-        </div></td>
-        </tr>
-        <tr>
-        <td><div id="ort_anlegen1" class="editor-label" >
+        <td><div class="editor-label" >
             Ort:
         </div></td>
-        <td><div id="ort_anlegen2" class="editor-field" >
+        <td><div class="editor-field" >
             @Html.EditorFor(model => model.Ort)
             @Html.ValidationMessageFor(model => model.Ort)
         </div></td>
         <td></td>
-        <td><div id="plz_anlegen1" class="editor-label" >
+        <td><div class="editor-label" >
             PLZ: *
         </div></td>
-        <td><div id="plz_anlegen2" class="editor-field" >
+        <td><div class="editor-field" >
             @Html.EditorFor(model => model.PLZ)
             @Html.ValidationMessageFor(model => model.PLZ)
         </div></td>
         </tr>
         <tr>
-        <td><div id="telefon_anlegen1" class="editor-label" >
+        <td><div class="editor-label" >
             Telefon: *
         </div></td>
-        <td><div id="telefon_anlegen2" class="editor-field" >
+        <td><div class="editor-field" >
             @Html.EditorFor(model => model.Telefon)
             @Html.ValidationMessageFor(model => model.Telefon)
         </div></td>
         <td></td>
-         <td><div id="fax_anlegen1" class="editor-label" >
+         <td><div class="editor-label" >
             Fax:
         </div></td>
-        <td><div id="fax_anlegen2" class="editor-field" >
+        <td><div class="editor-field" >
             @Html.EditorFor(model => model.Fax)
             @Html.ValidationMessageFor(model => model.Fax)
         </div></td>
         </tr>
         <tr>
-        <td><div id="email_anlegen1" class="editor-label" >
+        <td><div class="editor-label" >
             E-Mail: *
         </div></td>
-        <td><div id="email_anlegen2" class="editor-field" >
+        <td><div class="editor-field" >
             @Html.EditorFor(model => model.EMail)
             @Html.ValidationMessageFor(model => model.EMail)
         </div></td>
