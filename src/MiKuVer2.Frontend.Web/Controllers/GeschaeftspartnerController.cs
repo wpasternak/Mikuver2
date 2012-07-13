@@ -56,27 +56,24 @@ namespace MiKuVer2.Frontend.Web.Controllers
         //
         // GET: /Geschaeftspartner/Details/5
 
-        public ActionResult Details(int id, string mode = "normal")
+        public ActionResult Details(int id = 1, string mode = "normal")
         {
-            var kunden = new List<Kunde>();
-            var gps = new List<Geschaeftspartner>();
-            var gp = new Geschaeftspartner();
+
+            var gp = this.geschaeftspartnerService.GetGeschaeftspartner(id);
 
             switch (mode)
             {
                 case "normal":
-                    gp = this.geschaeftspartnerService.GetGeschaeftspartner(id);
                     break;
                 case "Kunden":
-                    kunden = this.kundenService.GetDirekteKundenVonGeschaeftspartner(id);
+                    ViewBag.kunden = this.kundenService.GetDirekteKundenVonGeschaeftspartner(id);
                     ViewBag.show = "_AlleKunden";
-                    return View(kunden);
+                    break;
                 case "gps":
-                    gp = this.geschaeftspartnerService.GetGeschaeftspartner(id);
                     gp.Partner = this.geschaeftspartnerService.GetDirekteGeschaeftspartner(id);
-                    gps = gp.Partner;
-                    ViewBag.show = "_DirekteKunden";
-                    return View(gps);
+                    ViewBag.gps = gp.Partner;
+                    ViewBag.show = "_DirekteGP";
+                    break;
             }
 
             return View(gp);

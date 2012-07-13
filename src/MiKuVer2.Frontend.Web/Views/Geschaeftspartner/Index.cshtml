@@ -23,16 +23,14 @@
 <br />
 <table>
     <tr>
-        
-        <th style="width:50px; text-align:left">
+        <th style="width:300px; text-align:left">
             Name
         </th>
-        <th style="width:50px; text-align:right">
+        <th style="width:100px; text-align:right">
             Personal-Nr.
         </th>
     </tr>
-
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
     <tr>
         @*<td>
             @Html.DisplayFor(modelItem => item.Eintrittsdatum)
@@ -40,7 +38,7 @@
         <td style="width:300px; text-align:left">
            @Html.ActionLink(item.Vorname+" " + item.Nachname, "Details", new { id = item.Id })
         </td>
-        <td style="width:50px; text-align:right">
+        <td style="width:100px; text-align:right">
            @Html.DisplayFor(modelItem => item.MitarbeiterNummer)
         </td>
         @*<td>

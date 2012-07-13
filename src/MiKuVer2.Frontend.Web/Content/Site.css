@@ -156,10 +156,10 @@ footer,
 }
 
 #photo{position:relative;margin:0px;height:115px; width:90px;left:790px; top:-60px;}
-#search{position:absolute; left:550px;width:150px;}
+#search{position:relative; left:550px;width:150px;top:-35px;}
 .bild{width:80px; height:100px;}
 
-#dropdown{position:relative;left:900px;top:-110px;width:195px;z-index:1100;}
+#dropdown{position:relative;left:900px;top:-197px;width:195px;z-index:1100;}
 #dropdown ul li{margin-right:0; padding-right:0;width:180px;}
 #dropdownmenu li ul li{text-align:left;margin-left:-10px;}
 #dropdownmenu, #dropdownmenu li ul{list-style-type:none;}

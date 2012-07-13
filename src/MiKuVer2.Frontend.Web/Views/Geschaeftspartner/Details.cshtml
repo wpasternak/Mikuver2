@@ -159,18 +159,19 @@
         <table>
         <tr>
             <td>
-                <div class="display-label">Direkte Kunden anzeigen</div>
-                <div>@Html.ActionLink()</div>
+                @Html.ActionLink("Direkte Kunden anzeigen", "Details", new { id = Model.Id, mode="Kunden" })
 	        </td>
+            <td> | </td>
             <td>
-                <div class="display-label">Direkte Geschäftspartner</div>
-	        </td> 
+                 @Html.ActionLink("Geschäftspartner Anzeigen", "Details", new { id = Model.Id, mode = "gps" })
+            </td>
+            
         </tr>
         <tr>
             <td>
                 <div class="display-field">
-                    <table>
-@*                         @foreach (var item in Model.Partner)
+@*                    <table>
+                         @foreach (var item in Model.Partner)
 	                        {
 	                        <tr>
 		                        <td>
@@ -184,7 +185,21 @@
         </tr>
      </table>
      <div>
-     @Html.RenderPartial(ViewBag.show)
+     	@{
+            if (ViewBag.show == "_AlleKunden")
+			{
+                var kunden= new List<MiKuVer2.Model.Kunde>();
+                kunden = ViewBag.kunden;
+				Html.RenderPartial("_AlleKunden",kunden);   
+            }
+            else if (ViewBag.show == "_DirekteGP")
+            {
+                var gps = new List<MiKuVer2.Model.Geschaeftspartner>();
+                gps = ViewBag.gps;
+                Html.RenderPartial("_DirekteGP",gps);
+            }
+		}
+     
      </div>	
 	
    

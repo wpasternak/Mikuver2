@@ -28,7 +28,7 @@
         <th style="width:200px;">
             Kunde
         </th>
-        <th style="width:80px;">
+        <th style="width:100px;">
             Kunden-Nr.
         </th>
         <th style="width:300px;">
@@ -38,7 +38,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr >
+    <tr>
        @* <td>
             @Html.DisplayFor(modelItem => item.KundeSeit)
         </td>
@@ -49,7 +49,7 @@
             @Html.ActionLink(item.Vorname+ " " + item.Nachname, "Details/" + item.Id, "Kunden")
        
         </td>
-        <td style="width:80px;">
+        <td style="width:100px;">
             @Html.DisplayFor(modelItem => item.KundenNummer)
         </td>
         <td style="width:300px;">

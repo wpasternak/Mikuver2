@@ -1,83 +1,47 @@
 ﻿@model IEnumerable<MiKuVer2.Model.Kunde>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
+
+<table class="kunde_index">
     <tr>
-        <th>
-            KundeSeit
+        <th style="width:200px;">
+            Kunde
         </th>
-        <th>
-            BereitsKunde
+        <th style="width:100px;">
+            Kunden-Nr.
         </th>
-        <th>
-            KundenNummer
+        <th style="width:300px;">
+            Kontakt
         </th>
-        <th>
-            Vorname
-        </th>
-        <th>
-            Nachname
-        </th>
-        <th>
-            Geburtstag
-        </th>
-        <th>
-            Geschlecht
-        </th>
-        <th>
-            MobilNr
-        </th>
-        <th>
-            Fax
-        </th>
-        <th>
-            Strasse
-        </th>
-        <th>
-            Telefon
-        </th>
-        <th>
-            Hausnummer
-        </th>
-        <th>
-            PLZ
-        </th>
-        <th>
-            Ort
-        </th>
-        <th>
-            EMail
-        </th>
-        <th></th>
+        
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
+    <tr style="border-bottom:solid;">
+       @* <td>
             @Html.DisplayFor(modelItem => item.KundeSeit)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.BereitsKunde)
+        </td>*@
+        <td style="width:200px;">
+            @Html.ActionLink(item.Vorname+ " " + item.Nachname, "Details/" + item.Id, "Kunden")
+       
         </td>
-        <td>
+        <td style="width:100px;">
             @Html.DisplayFor(modelItem => item.KundenNummer)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vorname)
+        <td style="width:300px;">
+            <ul style="list-style-type:none;  text-align:left; margin-left:-40px;">
+                <li>@Html.DisplayFor(modelItem => item.Telefon)</li>
+                <li>@Html.DisplayFor(modelItem => item.EMail)</li>
+            </ul>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nachname)
-        </td>
-        <td>
+        
+        @*<td>
             @Html.DisplayFor(modelItem => item.Geburtstag)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Geschlecht)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MobilNr)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Fax)
@@ -99,12 +63,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EMail)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
+        </td>*@
     </tr>
 }
 
