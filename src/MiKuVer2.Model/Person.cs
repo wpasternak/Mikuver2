@@ -21,7 +21,8 @@ namespace MiKuVer2.Model
         /// </summary>
         [DataMember]
         [Required]
-        [RegularExpression(@"^[A-Z][a-zA-z\s]*")]
+        [DataType(DataType.Text, ErrorMessage = "Ungültiger Vorname")]
+        [RegularExpression(@"^[A-Z][a-z]*", ErrorMessage = "Bitte Vorname überprüfen")]
         public string Vorname { get; set; }
 
         /// <summary>
@@ -29,14 +30,16 @@ namespace MiKuVer2.Model
         /// </summary>
         [DataMember]
         [Required]
-        [RegularExpression(@"^[A-Z][a-zA-z\s]*")]
+        [DataType(DataType.Text, ErrorMessage = "Ungültiger Nachname")]
+        [RegularExpression(@"^[A-Z][a-zA-z\s]*", ErrorMessage = "Bitte Nachname überprüfen")]
         public string Nachname { get; set; }
 
         /// <summary>
         /// Der Geburtstag der Person
         /// </summary>
         [DataMember]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date, ErrorMessage = "Ungültiges Geburtsdatum")]
+        [RegularExpression(@"^([0-9]{2}).([0-9]{2}).([0-9]{4})", ErrorMessage = "Bitte Geburstdatum (TT.MM.JJJJ) überprüfen")]
         public DateTime Geburtstag { get; set; }
 
         /// <summary>
@@ -46,6 +49,8 @@ namespace MiKuVer2.Model
         public bool Geschlecht { get; set; }
 
         [DataMember]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Ungültige Mobilnummer")]
+        [RegularExpression(@"^[0-9]+", ErrorMessage = "Bitte Mobilnummer überprüfen")]
         public string MobilNr { get; set; }
     }
 }

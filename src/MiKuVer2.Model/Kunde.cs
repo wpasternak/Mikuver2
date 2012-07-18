@@ -18,7 +18,8 @@ namespace MiKuVer2.Model
         /// Der Zeitpunkt seit dem die Person, Kunde Geworden ist
         /// </summary>
         [DataMember]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date, ErrorMessage = "Ungültiges Datum")]
+        [RegularExpression(@"^([0-9]{2}).([0-9]{2}).([0-9]{4})", ErrorMessage = "Bitte Datum (TT.MM.JJJJ) überprüfen")]
         public DateTime KundeSeit { get; set; }
 
         /// <summary>
@@ -41,6 +42,8 @@ namespace MiKuVer2.Model
         public Kunde EmpfohlenVon { get; set; }
 
         [DataMember]
+        [DataType(DataType.Text, ErrorMessage = "Ungültige Kundennummer")]
+        [RegularExpression(@"^[0-9]{1,45}", ErrorMessage = "Bitte Kundennummer überprüfen")]
         public string KundenNummer { get; set; }
 
 

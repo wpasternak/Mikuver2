@@ -26,13 +26,16 @@ namespace MiKuVer2.Model
         /// Faxnummer des Kontaktes
         /// </summary>
         [DataMember]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Ungültige Faxnummer")]
+        [RegularExpression(@"^[0-9]+", ErrorMessage = "Bitte Faxnummer überprüfen")]
         public string Fax { get; set; }
 
         /// <summary>
         /// Die Strasse des Kontaktes
         /// </summary>
         [DataMember]
-        [RegularExpression(@"^[A-Z][a-zA-z\s]*")]
+        [DataType(DataType.Text, ErrorMessage = "Ungültige Strasse")]
+        [RegularExpression(@"^[A-Z][a-zA-z\s]*", ErrorMessage = "Bitte Strasse überprüfen")]
         public string Strasse { get; set; }
         
         /// <summary>
@@ -40,6 +43,8 @@ namespace MiKuVer2.Model
         /// </summary>
         [DataMember]
         [Required]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Ungültige Telefonnummer")]
+        [RegularExpression(@"^[0-9]+", ErrorMessage = "Bitte Telefonnummer überprüfen")]
         public string Telefon { get; set; }
         
         /// <summary>
@@ -52,15 +57,17 @@ namespace MiKuVer2.Model
         /// Die PLZ des Kontaktes
         /// </summary>
         [DataMember]
-        [Required]
         [StringLength(5,MinimumLength = 5)]
+        [DataType(DataType.Text, ErrorMessage = "Ungültige PLZ")]
+        [RegularExpression(@"^[0-9]{5}", ErrorMessage = "Bitte PLZ überprüfen")]
         public string PLZ { get; set; }
         
         /// <summary>
         /// Der Ort des Kontaktes
         /// </summary>
         [DataMember]
-        [RegularExpression(@"^[A-Z][a-zA-z\s]*")]
+        [DataType(DataType.Text, ErrorMessage = "Ungültiger Ort")]
+        [RegularExpression(@"^[A-Z][a-zA-z\s]*", ErrorMessage = "Bitte Ort überprüfen")]
         public string Ort { get; set; }
         
         /// <summary>

@@ -31,11 +31,11 @@
         </th>
     </tr>
     @foreach (var item in Model) {
-    <tr>
+    <tr style="border-bottom:solid; height:40px;">
         @*<td>
             @Html.DisplayFor(modelItem => item.Eintrittsdatum)
         </td>*@
-        <td style="width:300px; text-align:left">
+        <td style="width:300px; text-align:left;">
            @Html.ActionLink(item.Vorname+" " + item.Nachname, "Details", new { id = item.Id })
         </td>
         <td style="width:100px; text-align:right">
