@@ -39,7 +39,7 @@ namespace MiKuVer2.Repositories.Kunden
             var result = new List<Kunde>();
 
             MySqlCommand command = new MySqlCommand(
-                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname,p.GeschlechtID, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE geschaeftspartnerId=@id AND k.PersonId=p.ID", this.connection);
+                "SELECT k.ID, k.KundeSeit, k.KundenNr, p.Vorname, p.Nachname,p.GeschlechtID, p.Geburtsdatum, p.Fax, p.Telefon, p.Strasse, p.Hausnummer, p.PLZ, p.Ort, p.`E-Mail`, p.MobilNr FROM Kunden k, Person p WHERE geschaeftspartnerId=@id AND k.PersonId=p.ID ORDER BY p.Vorname;", this.connection);
             command.Parameters.AddWithValue("@id", 1);
 
             var reader = command.ExecuteReader();

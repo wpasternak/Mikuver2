@@ -61,7 +61,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             reader.Close();
             reader.Dispose();
 
-            return gpsIds.Select(gpsId => this.GetGeschaeftspartner(gpsId)).ToList();
+            return gpsIds.Select(gpsId => this.GetGeschaeftspartner(gpsId)).OrderBy(person => person.Nachname).ToList().ToList();
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace MiKuVer2.Repositories.Geschaeftspartner.MySQL
             reader.Close();
             reader.Dispose();
 
-            return gpids.Select(gpsId => this.GetGeschaeftspartner(gpsId)).ToList();
+            return gpids.Select(gpsId => this.GetGeschaeftspartner(gpsId)).OrderBy(person => person.Nachname).ToList();
         }
 
         /// <summary>

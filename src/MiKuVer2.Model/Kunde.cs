@@ -19,7 +19,7 @@ namespace MiKuVer2.Model
         /// </summary>
         [DataMember]
         [DataType(DataType.Date, ErrorMessage = "Ungültiges Datum")]
-        [RegularExpression(@"^([0-9]{2}).([0-9]{2}).([0-9]{4})", ErrorMessage = "Bitte Datum (TT.MM.JJJJ) überprüfen")]
+        ///[RegularExpression(@"^([0-9]{2}).([0-9]{2}).([0-9]{4})", ErrorMessage = "Bitte Datum (TT.MM.JJJJ) überprüfen")]
         public DateTime KundeSeit { get; set; }
 
         /// <summary>
